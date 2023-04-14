@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Social Network</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="logo.png" alt="My Social Network"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="container-fluid hero-section">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="show-card">
+                    <img src="person1.jpg" alt="Person 1">
+                    <h2>John Doe</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend vel mauris quis eleifend.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="list-box">
+                            <h3>People</h3>
+                            <ul class="people-list">
+                                <li>
+                                    <img src="person2.jpg" alt="Person 2">
+                                    <h4>Jane Smith</h4>
+                                    <p>Software Developer</p>
+                                    <button class="btn btn-primary add-friend">Add Friend</button>
+                                    <button class="btn btn-primary send-message">Send Message</button>
+                                </li>
+                                <li>
+                                    <img src="person3.jpg" alt="Person 3">
+                                    <h4>Mark Johnson</h4>
+                                    <p>Graphic Designer</p>
+                                    <button class="btn btn-primary add-friend">Add Friend</button>
+                                    <button class="btn btn-primary send-message">Send Message</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="list-box">
+                            <h3>Messages</h3>
+                            <ul class="messages-list">
+                                <li>
+                                    <img src="person4.jpg" alt="Person 4">
+                                    <h4>Sarah Williams</h4>
+                                    <p>Hi, how are you doing?</p>
+                                </li>
+                                <li>
+                                    <img src="person5.jpg" alt="Person 5">
+                                    <h4>David Lee</h4>
+                                    <p>Have you heard the latest news about the conference?</p>
+                                </li>
+                            </ul>
+                            <div class="quote-box">
+                                <h3>Sentence of the Day</h3>
+                                <p>"Success is not final, failure is not fatal: It is the courage to continue that
+                                    counts." - Winston Churchill</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
