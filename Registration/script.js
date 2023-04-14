@@ -1,6 +1,6 @@
 
-$(function () {
-    $("#nav-placeholder").load("../navigationBar.html");
+$.get("../navigationBar.html", function(data){
+    $("#nav-placeholder").replaceWith(data);
 });
 
 function validateForm() {
