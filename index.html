@@ -5,7 +5,7 @@
     <title>NewtoNetwork</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
-        $.get("navigationBar.html", function(data){
+        $.get("/pages/navigationBar.html", function(data){
             $("#nav-placeholder").replaceWith(data);
         });
     </script>

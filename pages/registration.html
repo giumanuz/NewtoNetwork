@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="../styles/login.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script>
+    $.get("navigationBar.html", function(data){
+      $("#nav-placeholder").replaceWith(data);
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <title>
-    Registration
+    Login
   </title>
 </head>
 <body>
 
-<div id="nav-placeholder">  </div>
 
+<div id="nav-placeholder"></div>
 <div class="container">
   <div class="content">
     <form action="#" method="post" name="registrationForm" onsubmit="return validateForm();"> <!-- TODO: aggiungi azione qui-->
