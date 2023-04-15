@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title>NewtoNetwork</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $.get("navigationBar.html", function(data){
+            $("#nav-placeholder").replaceWith(data);
+        });
+    </script>
 </head>
 <body>
-<div id="nav-placeholder">
-
+<div id="nav-placeholder"></div>
+<div>
+    <h1>ciao</h1>
 </div>
-
-<script>
-    $.get("navigationBar.html", function(data){
-        $("#nav-placeholder").replaceWith(data);
-    });
-</script>
 </body>
 </html>
