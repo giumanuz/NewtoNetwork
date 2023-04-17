@@ -182,7 +182,7 @@ main .container .left .profile{
    position: relative;
 }
 
-.left .sidebar i .notification-count{
+.left .sidebar i .notifications-count{
    background: var(--color-danger);
    color: white;
    font-size: 0.7rem;
