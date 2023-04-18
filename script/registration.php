@@ -1,3 +1,10 @@
+<?php
+    if ($_SERVER['REQUEST_METHOD'] != 'POST'){
+        header("Location: /pages/registration.html");
+    }
+    include "../connection.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +17,6 @@
     <?php
 
         $email = $_POST['email'];
-               
-
-        $dbconnession = pg_connect("host=localhost user=postgres password=giulio dbname=NewtoNetwork") or die("Could not connect: " . pg_last_error());
         $query = "SELECT * FROM users WHERE email = $1";
         $result = pg_query_params($dbconnession, $query, array($email)) or die("Query failed: " . pg_last_error());
         if ($line= pg_fetch_array($result)){
@@ -28,8 +32,8 @@
             $query2= "INSERT INTO users 
                 (first_name, surname, email, passw, birthday)
                 VALUES ($3, $4, $1, $2, $5)";
-            $result = pg_query_params($dbconnession, $query2, array($email, $password, $name, $surname, $birthday)) or die("Query failed: " . pg_last_error());
-            if ($result){
+            $result2 = pg_query_params($dbconnession, $query2, array($email, $password, $name, $surname, $birthday)) or die("Query failed: " . pg_last_error());
+            if ($result2){
                 echo "Registration successful, click <a href = '../pages/login.html'>here</a> to log in";
             }
             else{
