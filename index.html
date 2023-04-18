@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>NewtoNetwork</title>
+   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+   <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+   <nav>
+      <div class="container">
+
+         <div class="logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 100 100" viewBox="0 0 100 100"
+               id="apple">
+               <path
+                  d="M47.718 86.946C49.511 87.646 51.335 88 53.137 88c1.93 0 3.757-.434 5.284-1.255.973-.523 1.338-1.735.815-2.709-.523-.972-1.736-1.339-2.708-.814C55.331 83.865 54.023 84 53.137 84c-1.304 0-2.638-.263-3.967-.78-1.027-.401-2.188.107-2.589 1.137C46.179 85.386 46.688 86.545 47.718 86.946zM43.116 78.639c-.681-.872-1.937-1.027-2.807-.347-.871.68-1.026 1.937-.346 2.808.472.604.986 1.187 1.53 1.729.186.187.375.367.566.544.385.356.873.533 1.359.533.538 0 1.073-.216 1.468-.641.75-.811.702-2.076-.108-2.826-.154-.144-.307-.289-.457-.438C43.893 79.572 43.487 79.114 43.116 78.639zM58.195 38.639c0 1.104.896 2 2 2s2-.896 2-2V25.667c0-1.104-.896-2-2-2s-2 .896-2 2V38.639zM58.195 19.833c0 1.104.896 2 2 2s2-.896 2-2V18c0-1.104-.896-2-2-2s-2 .896-2 2V19.833zM60.195 14.166c1.104 0 2-.896 2-2V7c0-1.104-.896-2-2-2s-2 .896-2 2v5.166C58.195 13.271 59.091 14.166 60.195 14.166zM72.072 44.188c0 1.104.896 2 2 2s2-.896 2-2v-2.854c0-1.104-.896-2-2-2s-2 .896-2 2V44.188zM74.072 38c1.104 0 2-.896 2-2v-4.854c0-1.104-.896-2-2-2s-2 .896-2 2V36C72.072 37.104 72.967 38 74.072 38zM46.874 26.484c1.104 0 2-.896 2-2v-7.771c0-1.104-.896-2-2-2s-2 .896-2 2v7.771C44.874 25.589 45.77 26.484 46.874 26.484z">
+               </path>
+               <path d="M20.613,55.032c0.658,0.887,1.911,1.072,2.798,0.413c5.007-3.718,9.809-2.908,12.442-1.067l1.93,1.71
+               c-1.282,0.727-2.465,1.603-3.515,2.654c-3.622,3.621-5.351,8.672-4.87,14.221c0.47,5.418,3.007,10.681,7.144,14.816
+               C41.131,92.368,47.179,95,53.137,95c0,0,0,0,0.001,0c4.833,0,9.251-1.757,12.442-4.947c1.596-1.596,2.827-3.472,3.667-5.587
+               c2.117-0.842,3.993-2.072,5.587-3.667c3.622-3.621,5.351-8.672,4.87-14.221c-0.47-5.418-3.007-10.681-7.144-14.816
+               c-4.589-4.589-10.638-7.222-16.595-7.222c-4.833,0-9.252,1.757-12.442,4.947c-1.137,1.136-2.079,2.421-2.837,3.829l-2.007-1.779
+               l3.44-4.151c2.444-2.95,3.593-6.675,3.236-10.488s-2.179-7.26-5.128-9.704l-5.129-4.25c-0.408-0.339-0.937-0.498-1.462-0.451
+               c-0.528,0.05-1.015,0.307-1.354,0.715l-4.25,5.129c-2.444,2.95-3.593,6.675-3.236,10.488s2.179,7.26,5.128,9.704l0.414,0.343
+               c-3.156,0.098-6.429,1.221-9.312,3.362C20.14,52.893,19.955,54.146,20.613,55.032z M46.351,52.315
+               c2.435-2.435,5.849-3.775,9.614-3.775c4.904,0,9.922,2.205,13.767,6.05c3.472,3.472,5.598,7.853,5.986,12.334
+               c0.378,4.352-0.941,8.275-3.712,11.047c-1.381,1.381-3.047,2.403-4.952,3.04c-0.596,0.199-1.064,0.667-1.263,1.264
+               c-0.635,1.902-1.658,3.568-3.04,4.95C60.316,89.659,56.902,91,53.137,91c-4.904,0-9.922-2.205-13.766-6.049
+               c-3.472-3.472-5.598-7.853-5.987-12.334c-0.377-4.352,0.941-8.275,3.713-11.047c1.382-1.382,3.048-2.405,4.951-3.04
+               c0.027-0.009,0.05-0.026,0.077-0.036c0.081-0.031,0.157-0.069,0.234-0.11c0.055-0.03,0.11-0.058,0.162-0.093
+               c0.068-0.046,0.131-0.1,0.195-0.155c0.051-0.044,0.103-0.086,0.149-0.135c0.015-0.015,0.032-0.026,0.046-0.042
+               c0.051-0.057,0.088-0.121,0.131-0.182c0.027-0.039,0.059-0.075,0.083-0.116c0.076-0.127,0.14-0.258,0.186-0.395
+               C43.947,55.362,44.97,53.697,46.351,52.315z M28.779,38.452c-0.257-2.75,0.571-5.436,2.333-7.563l2.974-3.589l3.589,2.974
+               c2.126,1.763,3.44,4.247,3.698,6.997c0.257,2.75-0.571,5.436-2.333,7.563l-1.09,1.316l-0.434-5.728
+               c-0.083-1.102-1.043-1.924-2.146-1.843c-1.101,0.083-1.926,1.044-1.843,2.146l0.453,5.969l-1.502-1.245
+               C30.35,43.687,29.037,41.202,28.779,38.452z"></path>
+            </svg>
+         </div>
+         <h2 class="log">
+            NewtoNetwork
+         </h2>
+
+         <div class="search-bar">
+            <i class="uil uil-search"></i>
+            <input type="search" placeholder="Search">
+         </div>
+         <div class="create">
+            <!-- <label for="create-post" class="btn btn-primary">Create</label> -->
+            <div class="profile-photo">
+               <img src="./images/profile-1.jpg" alt="profile picture">
+
+            </div>
+         </div>
+      </div>
+   </nav>
+
+   <!----------- MAIN ------------->
+   <main>
+      <div class="container">
+         <!--======== LEFT ========-->
+         <div class="left">
+            <a class="profile">
+               <div class="profile-photo">
+                  <img src="./images/profile-1.jpg" alt="">
+               </div>
+               <div class="handle">
+                  <h4>Matteo D'Agostino</h4>
+                  <p class="text-muted">
+                     @matteo_digos
+                  </p>
+               </div>
+            </a>
+
+            <!----------SIDEBAR----------- -->
+            <div class="sidebar">
+               <a class="menu-item active">
+                  <span> <i class="uil uil-home-alt"></i> </span>
+                  <h3>Home </h3>
+               </a>
+               <a class="menu-item">
+                  <span> <i class="uil uil-compass"></i> </span>
+                  <h3>Explore </h3>
+               </a>
+               <a class="menu-item" id="notifications">
+                  <span> <i class="uil uil-bell"><small class="notifications-count">9+</small></i> </span>
+                  <h3>Notifications </h3>
+                  <!----------NOTIFICATION POPUP ------------>
+                  <div class="notifications-popup">
+                     <div>
+                        <div class="profile-photo">
+                           <img src="./images/profile-2.jpg" alt="">
+                        </div>
+                        <div class="notification-body">
+                           <b> Giulio Manuzzi</b> accepted your friend request
+                           <small class="text-muted"> 2 days ago </small>
+                        </div>
+                     </div>
+                     <div>
+                        <div class="profile-photo">
+                           <img src="./images/profile-3.jpg" alt="">
+                        </div>
+                        <div class="notification-body">
+                           <b> Sof Lor</b> commented on your post
+                           <small class="text-muted"> 1 hour ago </small>
+                        </div>
+                     </div>
+                  </div>
+               </a>
+               <a class="menu-item" id="messages-notifications">
+                  <span> <i class="uil uil-envelope"><small class="notifications-count">6</small></i> </span>
+                  <h3>Messages </h3>
+               </a>
+               <a class="menu-item">
+                  <span> <i class="uil uil-bookmark"></i> </span>
+                  <h3>Bookmarks </h3>
+               </a>
+               <a class="menu-item">
+                  <span> <i class="uil uil-chart-line"></i> </span>
+                  <h3>Analytics </h3>
+               </a>
+               <a class="menu-item">
+                  <span> <i class="uil uil-palette"></i> </span>
+                  <h3>Theme </h3>
+               </a>
+               <a class="menu-item">
+                  <span> <i class="uil uil-setting"></i> </span>
+                  <h3>Settings </h3>
+               </a>
+            </div>
+            <!---------END OF SIDEBAR--------->
+            <label for="create-post" class="btn btn-primary">Create Post</label>
+         </div>
+
+         <!-- -------------------- END OF LEFT ---------------- -->
+
+         <!--======== MIDDLE ========-->
+
+         <div class="middle">
+            <!-- ----------------- STORIES --------------- -->
+            <div class="stories">
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-8.jpg">
+                  </div>
+                  <p class="name">Your Story</p>
+               </div>
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-9.jpg">
+                  </div>
+                  <p class="name">Boh</p>
+               </div>
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-10.jpg">
+                  </div>
+                  <p class="name">Winnie the Pooh</p>
+               </div>
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-12.jpg">
+                  </div>
+                  <p class="name">Danny</p>
+               </div>
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-13.jpg">
+                  </div>
+                  <p class="name">Cats</p>
+               </div>
+               <div class="story">
+                  <div class="profile-photo">
+                     <img src="./images/profile-14.jpg">
+                  </div>
+                  <p class="name">Edo</p>
+               </div>
+            </div>
+            <!-- ----------------- END OF STORIES --------------- -->
+            <form class="create-post" action="">
+               <div class="profile-photo">
+                  <img src="./images/profile-1.jpg" alt="">
+               </div>
+               <input type="text" placeholder="What's on your mind, Diana?" id="create-post">
+               <input type="submit" value="Post" class="btn btn-primary">
+
+            </form>
+
+            <!-- ------------------ FEEDS -------------------- -->
+            <div class="feeds">
+               <!-- ---------------- FEED 1 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-1.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 2 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-2.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 3 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-3.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 4 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-4.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 5 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-5.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 6 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-6.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+               <!-- ---------------- FEED 7 ----------------- -->
+               <div class="feed">
+                  <div class="head">
+                     <div class="user">
+                        <div class="profile-photo">
+                           <img src="./images/profile-13.jpg">
+                        </div>
+                        <div class="ingo">
+                           <h3>Alessandra</h3>
+                           <small>Terni, 15 MINUTES AGO</small>
+                        </div>
+                     </div>
+                     <span class="edit">
+                        <i class="uil uil-ellipsis-h"></i>
+                     </span>
+                  </div>
+
+                  <div class="photo">
+                     <img src="./images/feed-7.jpg">
+                  </div>
+
+                  <div class="action-buttons">
+                     <div class="interaction-buttons">
+                        <span><i class="uil uil-heart"></i></span>
+                        <span><i class="uil uil-comment"></i></span>
+                        <span><i class="uil uil-share-alt"></i></span>
+
+                     </div>
+
+                     <div class="bookmark">
+                        <span><i class="uil uil-bookmark"></i></span>
+                     </div>
+                  </div>
+                  <div class="liked-by">
+                     <span> <img src="./images/profile-10.jpg"></span>
+                     <span> <img src="./images/profile-4.jpg"></span>
+                     <span> <img src="./images/profile-15.jpg"></span>
+                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+                  </div>
+
+                  <div class="caption">
+                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
+                     <span class="harsh-tag">#lifestyle</span>
+                  </div>
+
+                  <div class="comments text-muted">View all 277 comments</div>
+               </div>
+            </div>
+         </div>
+
+         <!--======== RIGHT ========-->
+         <div class="right">
+            <div class="messages">
+               <div class="heading">
+                  <h4>Messages</h4><i class="uil uil-edit"></i>
+               </div>
+               <!-- -------------SEARCH BAR ----------------->
+               <div class="search-bar">
+                  <i class="uil uil-search"></i>
+                  <input type="search" placeholder="Search messages" id="message-search">
+               </div>
+               <!------------MESSAGE CATEGORY--------------->
+               <div class="category">
+                  <h6 class="active">Primary</h6>
+                  <h6>General</h6>
+                  <h6 class="message-requests">Requests (7)</h6>
+               </div>
+               <!-- MESSAGE -->
+               <div class="message">
+                  <div class="profile-photo">
+                     <img src="./images/profile-7.jpg">
+                     <div class="active"></div>
+                  </div>
+                  <div class="message-body">
+                     <h5>Edem Quist</h5>
+                     <p class="text-muted">Just woke up bruh</p>
+                  </div>
+               </div>
+
+               <!-- MESSAGE -->
+               <div class="message">
+                  <div class="profile-photo">
+                     <img src="./images/profile-14.jpg">
+                  </div>
+                  <div class="message-body">
+                     <h5>Ceccum</h5>
+                     <p class="text-muted">Sai...</p>
+                  </div>
+               </div>
+            </div>
+            <!-- ----------- FRIEND REQUESTS --------------- -->
+            <div class="friend-requests">
+               <h4>Requests</h4>
+               <div class="request">
+                  <div class="info">
+                     <div class="profile-photo">
+                        <img src="./images/profile-13.jpg" alt="">
+                     </div>
+                     <div>
+                        <h5>Haija Bintu</h5>
+                        <p class="text-muted">
+                           8 mutual friends
+                        </p>
+                     </div>
+                  </div>
+                  <div class="action">
+                     <button class="btn btn-primary">Accept</button>
+                     <button class="btn">Decline</button>
+                  </div>
+               </div>
+               <div class="request">
+                  <div class="info">
+                     <div class="profile-photo">
+                        <img src="./images/profile-13.jpg" alt="">
+                     </div>
+                     <div>
+                        <h5>Haija Bintu</h5>
+                        <p class="text-muted">
+                           8 mutual friends
+                        </p>
+                     </div>
+                  </div>
+                  <div class="action">
+                     <button class="btn btn-primary">Accept</button>
+                     <button class="btn">Decline</button>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+      </div>
+   </main>
+</body>
+
+</html>

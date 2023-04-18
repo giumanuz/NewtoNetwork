@@ -36,15 +36,3 @@ function validateForm() {
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
-
-    // Check if the age is at least 16
-    if (age < 16) {
-        alert("Devi avere almeno 16 anni per registrarti")
-        return false;
-    }
-    if (age > 100) {
-        alert("Non puoi avere più di 100 anni")
-        return false;
-    }
-    return true;
-}
