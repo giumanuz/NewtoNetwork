@@ -1,6 +1,6 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-        header("Location: /pages/registration.html");
+        header("Location: /pages/registration.php");
     }
     include "../connection.php";
 ?>
@@ -20,7 +20,7 @@
         $query = "SELECT * FROM users WHERE email = $1";
         $result = pg_query_params($dbconnession, $query, array($email)) or die("Query failed: " . pg_last_error());
         if ($line= pg_fetch_array($result)){
-            echo "Email already in use, please try again or click  <a href = '../pages/login.html'>here</a> to log in ";
+            echo "Email already in use, please try again or click  <a href = '../pages/login.php'>here</a> to log in ";
         }
         else{
 
@@ -34,7 +34,7 @@
                 VALUES ($3, $4, $1, $2, $5)";
             $result2 = pg_query_params($dbconnession, $query2, array($email, $password, $name, $surname, $birthday)) or die("Query failed: " . pg_last_error());
             if ($result2){
-                echo "Registration successful, click <a href = '../pages/login.html'>here</a> to log in";
+                echo "Registration successful, click <a href = '../pages/login.php'>here</a> to log in";
             }
             else{
                 echo "Registration failed, please try again";

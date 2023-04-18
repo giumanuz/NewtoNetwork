@@ -1,6 +1,6 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] != 'POST'){
-        header("Location: /pages/login.html");
+        header("Location: /pages/login.php");
     }
     include "../connection.php";
 ?>
@@ -31,11 +31,11 @@
                 // TODO: redirect to home page
             }
             else{
-                echo "Wrong password, please try again or click  <a href = '../pages/registration.html'>here</a> to register";
+                echo "Wrong password, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
             }
         }
         else{
-            echo "Email not found, please try again or click  <a href = '../pages/registration.html'>here</a> to register";
+            echo "Email not found, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
         }
 
         pg_close($dbconnession);
