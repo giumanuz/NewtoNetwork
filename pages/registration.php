@@ -22,13 +22,13 @@
       <div class="user-details">
         <div class="input-box">
           <label>
-          <span class="details">Nome</span>
+          <span class="details">Name</span>
             <input type="text" placeholder="Inserisci il nome" name="name" style="text-emphasis-color: #9b59b6" required>
           </label>
         </div>
         <div class="input-box">
           <label>
-            <span class="details">Cognome</span>
+            <span class="details">Surname</span>
             <input type="text" placeholder="Inserisci il cognome" name="surname" required>
           </label>
         </div>
@@ -46,13 +46,13 @@
         </div>
         <div class="input-box">
           <label>
-            <span class="details">Conferma Password</span>
+            <span class="details">Confirm Password</span>
             <input type="password" placeholder="Conferma la password" name="password2" required>
           </label>
         </div>
         <div class="input-box">
             <label>
-                <span class="details">Data di nascita</span>
+                <span class="details">Birthday</span>
                 <input type="date" name="bday"  required>
             </label>
         </div>

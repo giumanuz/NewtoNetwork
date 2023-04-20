@@ -35,13 +35,27 @@
   
   
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Sign Up <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="\\localhost:3000/pages/login.php">Login</a></li>
-                                <li><a href="\\localhost:3000/pages/registration.php">Sign Up</a></li>
-                            </ul>
-                        </li>
+
+
+
+                        <?php
+                            if (isset($_SESSION['name'])){
+                                echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profilo</a></li>';
+                                echo '<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+                            }else{
+                                echo '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Registrati <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                        <li><a href="localhost:3000/pages/login.php">Login</a></li>
+                                        <li><a href="localhost:3000/pages/registration.php">Sign Up</a></li>
+                                        </ul>
+                                    </li>';
+                            }
+
+
+                        ?>
+              
+
+
                     </ul>
                 </div>
             </div>

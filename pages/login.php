@@ -13,11 +13,34 @@
 <body>
 
     <?php
-        include "navigationBar.php"
+        include "navigationBar.php";
+
+        if( isset($_GET['status']) && $_GET['status'] == 'success'):
+            $name= $_SESSION['name'];
+            echo $name;
+            header("Location: ../index.php?name=$name");
+        endif;
+
+        if( isset($_GET['status'])  && $_GET['status'] == 'errorPassword'):
+            echo '<div class="alert alert-danger" role="alert">
+                    <strong>Errore!</strong> Password Errata, verifica di averla scritta correttamente, altrimenti clicca <a href = "../pages/registration.php">qui</a> per registrarti.
+                </div>';
+        endif;
+
+        if ( isset($_GET['status'])  && $_GET['status'] == 'errorEmail'):
+            echo '<div class="alert alert-danger" role="alert">
+                    <strong>Errore!</strong> Email Errata, verifica di averla scritta correttamente, altrimenti clicca <a href = "../pages/registration.php">qui</a> per registrarti.
+                </div>';
+        endif;
     ?>
+
 
     <div class="container">
         <div class="content">
+
+            <!-- <div class="title">
+                <h1>Login</h1> -->
+
             <form action="../script/backLogin.php" method="post" name="registrationForm" onsubmit=""> <!-- TODO: aggiungi azione qui-->
                 <div class="user-details">
                     <div class="input-box">

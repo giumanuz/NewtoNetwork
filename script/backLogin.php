@@ -27,15 +27,18 @@
             $result2 = pg_query_params($dbconnession, $query2, array($email, $password)) or die("Query failed: " . pg_last_error());
             if ($line2 = pg_fetch_array($result2, null, PGSQL_ASSOC)){
                 $name= $line2['first_name'];
-                echo "Login successful, click <a href = '../home.php?name=$name'>here</a> to go to the home page"; 
-                // TODO: redirect to home page
+                $_SESSION['email'] = $email;
+                $_SESSION['name'] = $name;
+                header("Location: /pages/login.php?status=success");
+
             }
             else{
-                echo "Wrong password, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
+                header("Location: /pages/login.php?status=errorPassword");
             }
         }
         else{
-            echo "Email not found, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
+            header("Location: /pages/login.php?status=errorEmail");
+        
         }
 
         pg_close($dbconnession);
