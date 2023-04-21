@@ -1,8 +1,3 @@
-
-$.get("../navigationBar.html", function(data){
-    $("#nav-placeholder").replaceWith(data);
-});
-
 function validateForm() {
     const password1 = document.forms["registrationForm"]["password1"].value;
     const password2 = document.forms["registrationForm"]["password2"].value;
@@ -36,3 +31,5 @@ function validateForm() {
     if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
         age--;
     }
+}
+

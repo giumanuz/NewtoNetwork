@@ -16,21 +16,20 @@
 <body>
     <?php
 
-        $email = $_POST['email'];
+        $username = $_POST['username'];
                
-        $query = "SELECT * FROM users WHERE email = $1";
-        $result = pg_query_params($dbconnession, $query, array($email)) or die("Query failed: " . pg_last_error());
+        $query = "SELECT * FROM users WHERE username = $1";
+        $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
         if ($line= pg_fetch_array($result)){
 
-            $password = $_POST['password1'];
-            $query2 = "SELECT * FROM users WHERE email = $1 AND passw = $2";
-            $result2 = pg_query_params($dbconnession, $query2, array($email, $password)) or die("Query failed: " . pg_last_error());
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $query2 = "SELECT * FROM users WHERE username = $1 AND passw = $2";
+            $result2 = pg_query_params($dbconnession, $query2, array($username, $password)) or die("Query failed: " . pg_last_error());
             if ($line2 = pg_fetch_array($result2, null, PGSQL_ASSOC)){
                 session_start();
-                $name= $line2['first_name'];
-                $_SESSION['name'] = $name;
-                $_SESSION['email'] = $email;
-                header("Location: /pages/login.php?status=success");
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $line2['email'];
+                header("Location: /index.php");
 
             }
             else{
@@ -38,7 +37,7 @@
             }
         }
         else{
-            header("Location: /pages/login.php?status=errorEmail");
+            header("Location: /pages/login.php?status=errorUsername");
         
         }
 

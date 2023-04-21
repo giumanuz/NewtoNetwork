@@ -13,12 +13,32 @@
 <body>
 
     <?php
-      include "navigationBar.php"
+      include "navigationBar.php";
+
+      if (isset($_GET['status']) && $_GET['status'] == 'errorEmailUsed'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Email already used, try again or click <a href = "/pages/login.php">here</a> to login.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'errorUsernameUsed'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Username already used, try again or click <a href = "/pages/login.php">here</a> to login.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'errorRegistration'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Registration failed, try again or click <a href = "/pages/login.php">here</a> to login.
+              </div>';
+      endif;
     ?>
   
+
+
 <div class="container">
   <div class="content">
-    <form action="../script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();"> <!-- TODO: aggiungi azione qui-->
+    <form action="/script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();"> <!-- TODO: aggiungi azione qui-->
       <div class="user-details">
         <div class="input-box">
           <label>
@@ -36,6 +56,12 @@
           <label>
             <span class="details">Email</span>
             <input type="email" placeholder="Insert the email" name="email" required>
+          </label>
+        </div>
+        <div class="input-box">
+          <label>
+            <span class="details">Username</span>
+            <input type="text" placeholder="Insert the username" name="username" required>
           </label>
         </div>
         <div class="input-box">
