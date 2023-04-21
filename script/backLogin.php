@@ -26,9 +26,10 @@
             $query2 = "SELECT * FROM users WHERE email = $1 AND passw = $2";
             $result2 = pg_query_params($dbconnession, $query2, array($email, $password)) or die("Query failed: " . pg_last_error());
             if ($line2 = pg_fetch_array($result2, null, PGSQL_ASSOC)){
+                session_start();
                 $name= $line2['first_name'];
-                $_SESSION['email'] = $email;
                 $_SESSION['name'] = $name;
+                $_SESSION['email'] = $email;
                 header("Location: /pages/login.php?status=success");
 
             }

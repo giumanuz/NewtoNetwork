@@ -16,7 +16,7 @@
   
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="\\localhost:3000\index.php">About As</a></li>
+                        <li><a href="index.php">About As</a></li>
                     </ul>
   
                     <ul class="nav navbar-nav navbar-center">
@@ -31,34 +31,39 @@
                             </form>
                         </li>
                     </ul>
-  
-  
-  
                     <ul class="nav navbar-nav navbar-right">
-
-
-
                         <?php
-                            if (isset($_SESSION['name'])){
+                        session_start();
+                            if (isset($_SESSION['email'])){
                                 echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profilo</a></li>';
-                                echo '<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+                                echo '<li><a onClick= "deleteAllCookies()"> <span class="glyphicon glyphicon-log-out"></span> Logout </a></li>';
                             }else{
-                                echo '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Registrati <span class="caret"></span></a>
+                                echo '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Register <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                        <li><a href="localhost:3000/pages/login.php">Login</a></li>
-                                        <li><a href="localhost:3000/pages/registration.php">Sign Up</a></li>
+                                        <li><a href="/pages/login.php">Login</a></li>
+                                        <li><a href="/pages/registration.php">Sign Up</a></li>
                                         </ul>
                                     </li>';
                             }
-
-
                         ?>
-              
-
-
                     </ul>
                 </div>
             </div>
         </div>
     </div>
   </div>
+
+  <script>
+        function deleteAllCookies() {
+            const cookies = document.cookie.split(";");
+
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+
+            location.reload();
+        }
+    </script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/login.css">
+  <link rel="stylesheet" href="/styles/login.css">
 
 
   <title>
@@ -23,31 +23,31 @@
         <div class="input-box">
           <label>
           <span class="details">Name</span>
-            <input type="text" placeholder="Inserisci il nome" name="name" style="text-emphasis-color: #9b59b6" required>
+            <input type="text" placeholder="Insert the name" name="name" style="text-emphasis-color: #9b59b6" required>
           </label>
         </div>
         <div class="input-box">
           <label>
             <span class="details">Surname</span>
-            <input type="text" placeholder="Inserisci il cognome" name="surname" required>
+            <input type="text" placeholder="Insert the surname" name="surname" required>
           </label>
         </div>
         <div class="input-box">
           <label>
             <span class="details">Email</span>
-            <input type="email" placeholder="Inserisci la tua email" name="email" required>
+            <input type="email" placeholder="Insert the email" name="email" required>
           </label>
         </div>
         <div class="input-box">
           <label>
             <span class="details">Password</span>
-            <input type="password" placeholder="Inserisci la password" name="password1" required>
+            <input type="password" placeholder="Insert the password" name="password1" required>
           </label>
         </div>
         <div class="input-box">
           <label>
             <span class="details">Confirm Password</span>
-            <input type="password" placeholder="Conferma la password" name="password2" required>
+            <input type="password" placeholder="Confirm the password" name="password2" required>
           </label>
         </div>
         <div class="input-box">
@@ -64,24 +64,24 @@
         <input type="radio" name="gender" id="male">
         <input type="radio" name="gender" id="female">
         <input type="radio" name="gender" id="other">
-        <span class="gender-title">Genere</span>
+        <span class="gender-title">Genre</span>
         <div class="category">
           <label for="male">
             <span class="dot one"></span>
-            <span class="gender">Maschio</span>
+            <span class="gender">Male</span>
           </label>
           <label for="female">
             <span class="dot two"></span>
-            <span class="gender">Femmina</span>
+            <span class="gender">Female</span>
           </label>
           <label for="other">
             <span class="dot three"></span>
-            <span class="gender">Altro</span>
+            <span class="gender">Other</span>
           </label>
         </div>
       </div>
       <div class="button">
-        <input type="submit" value="Registrazione">
+        <input type="submit" value="Register">
       </div>
     </form>
   </div>
