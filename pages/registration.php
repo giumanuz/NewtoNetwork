@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/login.css">
-
+  <script src="/script/registration.js"></script>
 
   <title>
     Registration
@@ -38,7 +38,7 @@
 
 <div class="container">
   <div class="content">
-    <form action="/script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();"> <!-- TODO: aggiungi azione qui-->
+    <form action="/script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();"> 
       <div class="user-details">
         <div class="input-box">
           <label>
