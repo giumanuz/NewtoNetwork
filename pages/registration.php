@@ -84,26 +84,26 @@
         </div>
       </div>
 
-
-
       <div class="gender-details">
-        <input type="radio" name="gender" id="male">
-        <input type="radio" name="gender" id="female">
-        <input type="radio" name="gender" id="other">
-        <span class="gender-title">Genre</span>
+        <span class="gender-title">Gender</span>
+        <input type="radio" id="male" name="gender" value="male" checked>
+        <input type="radio" id="female" name="gender" value="female">
+        <input type="radio" id="other" name="gender" value="other">
         <div class="category">
           <label for="male">
             <span class="dot one"></span>
             <span class="gender">Male</span>
-          </label>
+          </label> 
+        
           <label for="female">
             <span class="dot two"></span>
             <span class="gender">Female</span>
-          </label>
+          </label> 
+        
           <label for="other">
             <span class="dot three"></span>
             <span class="gender">Other</span>
-          </label>
+          </label> 
         </div>
       </div>
       <div class="button">

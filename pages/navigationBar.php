@@ -9,14 +9,14 @@
   
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a href="\\localhost:3000\index.php" class="navbar-brand">NewtoNetwork</a>
+                    <a href="/index.php" class="navbar-brand">NewtoNetwork</a>
                 </div>
   
                 <div class="navbar-collapse collapse" id="mobile_menu">
   
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="index.php">About As</a></li>
+                        <li><a href="">About As</a></li>
                     </ul>
   
                     <ul class="nav navbar-nav navbar-center">
@@ -34,7 +34,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <?php
                         session_start();
-                            if (isset($_SESSION['email'])){
+                            if (isset($_SESSION['username'])){
                                 echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profilo</a></li>';
                                 echo '<li><a onClick= "deleteAllCookies()"> <span class="glyphicon glyphicon-log-out"></span> Logout </a></li>';
                             }else{
