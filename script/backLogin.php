@@ -16,26 +16,34 @@
 <body>
     <?php
 
-        $email = $_POST['email'];
+        $username = $_POST['username'];
                
-        $query = "SELECT * FROM users WHERE email = $1";
-        $result = pg_query_params($dbconnession, $query, array($email)) or die("Query failed: " . pg_last_error());
+        $query = "SELECT * FROM users WHERE username = $1";
+        $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
+
+        // check if the username exist
         if ($line= pg_fetch_array($result)){
 
-            $password = $_POST['password1'];
-            $query2 = "SELECT * FROM users WHERE email = $1 AND passw = $2";
-            $result2 = pg_query_params($dbconnession, $query2, array($email, $password)) or die("Query failed: " . pg_last_error());
-            if ($line2 = pg_fetch_array($result2, null, PGSQL_ASSOC)){
-                $name= $line2['first_name'];
-                echo "Login successful, click <a href = '../home.php?name=$name'>here</a> to go to the home page"; 
-                // TODO: redirect to home page
+            $password = $_POST['password'];
+            $query2 = "SELECT * FROM users WHERE username = $1";
+            $result2 = pg_query_params($dbconnession, $query2, array($username)) or die("Query failed: " . pg_last_error());
+            $line2 = pg_fetch_array($result2, null, PGSQL_ASSOC);
+
+            // check if the password is correct
+            if (password_verify($password, $line2['passw'])){
+                session_start();
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $line2['email'];
+                header("Location: /index.php");
+
             }
             else{
-                echo "Wrong password, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
+                header("Location: /pages/login.php?status=errorPassword");
             }
         }
         else{
-            echo "Email not found, please try again or click  <a href = '../pages/registration.php'>here</a> to register";
+            header("Location: /pages/login.php?status=errorUsername");
+        
         }
 
         pg_close($dbconnession);

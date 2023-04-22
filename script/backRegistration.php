@@ -17,27 +17,42 @@
     <?php
 
         $email = $_POST['email'];
-        $query = "SELECT * FROM users WHERE email = $1";
-        $result = pg_query_params($dbconnession, $query, array($email)) or die("Query failed: " . pg_last_error());
+        $query1 = "SELECT * FROM users WHERE email = $1";
+        $result = pg_query_params($dbconnession, $query1, array($email)) or die("Query failed: " . pg_last_error());
         if ($line= pg_fetch_array($result)){
-            echo "Email already in use, please try again or click  <a href = '../pages/login.php'>here</a> to log in ";
+            header("Location: /pages/registration.php?status=errorEmailUsed");
         }
         else{
 
-            $password = $_POST['password1'];
-            $name = $_POST['name'];
-            $surname = $_POST['surname'];
-            $birthday = $_POST['bday'];
-
-            $query2= "INSERT INTO users 
-                (first_name, surname, email, passw, birthday)
-                VALUES ($3, $4, $1, $2, $5)";
-            $result2 = pg_query_params($dbconnession, $query2, array($email, $password, $name, $surname, $birthday)) or die("Query failed: " . pg_last_error());
-            if ($result2){
-                echo "Registration successful, click <a href = '../pages/login.php'>here</a> to log in";
+            $username = $_POST['username'];
+            $query2 = "SELECT * FROM users WHERE username = $1";
+            $result = pg_query_params($dbconnession, $query2, array($username)) or die("Query failed: " . pg_last_error());
+            if ($line= pg_fetch_array($result)){
+                header("Location: /pages/registration.php?status=errorUsernameUsed");
             }
+
             else{
-                echo "Registration failed, please try again";
+
+                $password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
+                $name = $_POST['name'];
+                $surname = $_POST['surname'];
+                $birthday = $_POST['bday'];
+                $gender = $_POST['gender'];
+
+                $query3= "INSERT INTO users 
+                    (first_name, surname, email, passw, birthday, username, gender)
+                    VALUES ($4, $5, $1, $3, $6, $2, $7)";
+                $result2 = pg_query_params($dbconnession, $query3, array($email, $username, $password, $name, $surname, $birthday, $gender)) or die("Query failed: " . pg_last_error());
+                if ($result2){
+                    session_start();
+                    $_SESSION['username'] = $username;
+                    $_SESSION['email'] = $email;
+
+                    header("Location: /index.php");
+                }
+                else{
+                    header("Location: /pages/registration.php?status=errorRegistration");    
+                }
             }
         }
 

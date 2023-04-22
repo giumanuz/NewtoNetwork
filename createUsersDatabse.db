@@ -1,0 +1,9 @@
+CREATE TABLE users
+(	first_name varchar NOT NULL,
+	surname varchar,
+ 	email varchar NOT NULL UNIQUE,
+  	passw varchar NOT NULL,
+ 	birthday varchar,
+  	username varchar NOT NULL PRIMARY KEY,
+	gender varchar
+);
