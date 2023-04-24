@@ -10,7 +10,6 @@
   Login
 </title>
 </head>
-<body>
 
     <?php
 
@@ -34,6 +33,8 @@
         endif;
     ?>
 
+        
+<body>
 
     <div class="container">
         <div class="content">

@@ -30,16 +30,7 @@
 
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-         <?php 
-         session_start();
-         if (isset($_SESSION['username'])): ?>
-            <li class="nav-item">
-               <a class="nav-link" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/index.php" onClick= "deleteAllCookies()">Logout</a>
-            </li>
-         <?php else: ?>
+         <br />
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Login/Sign Up
@@ -49,8 +40,7 @@
                   <li><a class="dropdown-item" href="/pages/registration.php">Sign Up</a></li>
                </ul> 
             </li>
-         <?php endif; ?>
-      </ul>
+               </ul>
 
 
     </div>
@@ -70,4 +60,4 @@
       location.reload();  
       window.location.href = "/index.php";
    }
-</script>
+</script>  
