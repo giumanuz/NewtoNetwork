@@ -12,9 +12,25 @@
 
 <body>
 
-<!----------- NAVBAR ------------->
 <?php
    include "pages/navigationBar.php";
+   include 'connection.php';
+   // do a query for the user
+   session_start();
+   $username = $_SESSION['username'];
+   $query = "SELECT * FROM users WHERE username = $1";
+   $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
+   $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+   $first_name = $row['first_name'];
+   $surname = $row['surname'];
+   $gender = $row['gender'];
+   $birthday = $row['birthday'];
+   $username = $row['username'];
+   $user_email = $row['email'];
+   // $user_bio = $row['bio'];
+   // $user_image = $row['image'];  TODO: add image to database
+
+
 ?>
 
 <!----------- MAIN ------------->
@@ -24,12 +40,13 @@
          <div class="left">
             <a class="profile">
                <div class="profile-photo">
-                  <img src="/images/profile-1.jpg" alt="">
+                  <img src="/images/profile-1.jpg" alt="">  
+                  <!-- TODO: add image database -->
                </div>
                <div class="handle">
-                  <h4>Matteo D'Agostino</h4>
+                  <h4><?php echo $first_name . " " . $surname; ?></h4>
                   <p class="text-muted">
-                     @matteo_digos
+                     <?php echo "@" . $username; ?>
                   </p>
                </div>
             </a>
