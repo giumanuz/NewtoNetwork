@@ -6,38 +6,38 @@ function validateForm() {
     // console.log(password1);
 
     if (password2 !== password1) {
-        alert("Le due password non coincidono");
+        window.location.href = "/pages/registration.php?status=passwordMismatch";
         return false;
     }
     const uppercase = /[A-Z]/;
     const specialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
     if (password1.length < 8) {
-        alert("La password deve essere lunga almeno 8 caratteri")
+        window.location.href = "/pages/registration.php?status=shortPassword";
         return false;
     }
 
     if (!uppercase.test(password1)) {
-        alert("La password deve contenere almeno un carattere maiuscolo")
+        window.location.href = "/pages/registration.php?status=noUppercase";
         return false;
     }
 
     if (!specialChar.test(password1)) {
-        alert("La password deve contenere almeno un carattere speciale")
+        window.location.href = "/pages/registration.php?status=noSpecialChar";
         return false;
     }
 
     const bday = document.forms["registrationForm"]["bday"].value;
-    const today = new Date();
-    const birthDate = new Date(bday);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const monthDiff = today.getMonth() - birthDate.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate()) || age < 16) {
-        alert("ciao");
+    const [year, month, day] = bday.split("-");
+    const birthdate = new Date(year, month - 1, day);
+    const ageInYears = (new Date() - birthdate) / (365 * 24 * 60 * 60 * 1000);
+    if (ageInYears < 18) {
+        window.location.href = "/pages/registration.php?status=tooYoung";
         return false;
     }
 
     return true;
+
 }
 
 

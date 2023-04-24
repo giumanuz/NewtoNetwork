@@ -13,6 +13,12 @@
 <body>
 
     <?php
+
+        session_start();
+        if (isset($_SESSION['username'])):
+            header("Location: /index.php");
+        endif;
+
         include "navigationBar.php";
 
         if( isset($_GET['status'])  && $_GET['status'] == 'errorPassword'):

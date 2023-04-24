@@ -1,69 +1,73 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<div class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-  
-                <div class="navbar-header">
-                    <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    <a href="/index.php" class="navbar-brand">NewtoNetwork</a>
-                </div>
-  
-                <div class="navbar-collapse collapse" id="mobile_menu">
-  
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="">About As</a></li>
-                    </ul>
-  
-                    <ul class="nav navbar-nav navbar-center">
-                        <li>
-                            <form action="" class="navbar-form">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="search" name="search" id="searchBar" placeholder="Search..." class="form-control">
-                                        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                                    </div>
-                                </div>
-                            </form>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <?php
-                        session_start();
-                            if (isset($_SESSION['username'])){
-                                echo '<li><a href="#"><span class="glyphicon glyphicon-user"></span> Profilo</a></li>';
-                                echo '<li><a onClick= "deleteAllCookies()"> <span class="glyphicon glyphicon-log-out"></span> Logout </a></li>';
-                            }else{
-                                echo '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Login / Register <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                        <li><a href="/pages/login.php">Login</a></li>
-                                        <li><a href="/pages/registration.php">Sign Up</a></li>
-                                        </ul>
-                                    </li>';
-                            }
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/index.php">NewtoNetwork</a>
+   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+   </button>
+   <div class="collapse navbar-collapse" id="navbarNav">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+            <a class="nav-link" href="/index.php">Home</a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link" href="/index.php">About as</a>
+         </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-center">
+         <li>
+            <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+         </li>
+      </ul>
+
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+         <?php 
+         session_start();
+         if (isset($_SESSION['username'])): ?>
+            <li class="nav-item">
+               <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="/index.php" onClick= "deleteAllCookies()">Logout</a>
+            </li>
+         <?php else: ?>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Login/Sign Up
+               </a>
+               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/pages/login.php">Login</a></li>
+                  <li><a class="dropdown-item" href="/pages/registration.php">Sign Up</a></li>
+               </ul> 
+            </li>
+         <?php endif; ?>
+      </ul>
+
+
     </div>
   </div>
+</nav>
 
-  <script>
-        function deleteAllCookies() {
-            const cookies = document.cookie.split(";");
+<script>
+   function deleteAllCookies() {
+      const cookies = document.cookie.split(";");
 
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i];
-                const eqPos = cookie.indexOf("=");
-                const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-            }
-            location.reload();  
-            window.location.href = "/index.php";
-        }
-    </script>
+      for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i];
+            const eqPos = cookie.indexOf("=");
+            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+      location.reload();  
+      window.location.href = "/index.php";
+   }
+</script>

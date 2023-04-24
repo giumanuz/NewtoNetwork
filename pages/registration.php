@@ -13,6 +13,12 @@
 <body>
 
     <?php
+
+      session_start();
+      if (isset($_SESSION['username'])):
+          header("Location: /index.php");
+      endif;
+
       include "navigationBar.php";
 
       if (isset($_GET['status']) && $_GET['status'] == 'errorEmailUsed'):
@@ -32,6 +38,37 @@
                 <strong>Error!</strong> Registration failed, try again or click <a href = "/pages/login.php">here</a> to login.
               </div>';
       endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'shortPassword'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Password too short, try again.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'noUpperCase'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Password must contain at least one uppercase letter, try again.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'passwordMismatch'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Passwords do not match, try again.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'noSpecialChar'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> Password must contain at least one special character, try again.
+              </div>';
+      endif;
+
+      if (isset($_GET['status']) && $_GET['status'] == 'tooYoung'):
+        echo '<div class="alert alert-danger" role="alert">
+                <strong>Error!</strong> You must be at least 16 years old to register.
+              </div>';
+      endif;
+
     ?>
   
 
