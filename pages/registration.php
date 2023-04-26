@@ -74,6 +74,7 @@
 
 
 <div class="container">
+  <div class="title">Registration</div>
   <div class="content">
     <form action="/script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();"> 
       <div class="user-details">

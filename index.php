@@ -13,22 +13,39 @@
 <body>
 
 <?php
+   if (session_status() != PHP_SESSION_ACTIVE) {
+      session_start();
+   }
+?>
+
+<?php
    include "pages/navigationBar.php";
    include 'connection.php';
    // do a query for the user
-   session_start();
-   $username = $_SESSION['username'];
-   $query = "SELECT * FROM users WHERE username = $1";
-   $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
-   $row = pg_fetch_array($result, null, PGSQL_ASSOC);
-   $first_name = $row['first_name'];
-   $surname = $row['surname'];
-   $gender = $row['gender'];
-   $birthday = $row['birthday'];
-   $username = $row['username'];
-   $user_email = $row['email'];
-   // $user_bio = $row['bio'];
-   // $user_image = $row['image'];  TODO: add image to database
+   if (isset($_SESSION['username'])) {
+      $username = $_SESSION['username'];
+      $query = "SELECT * FROM users WHERE username = $1";
+      $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
+      $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+      $first_name = $row['first_name'];
+      $surname = $row['surname'];
+      $gender = $row['gender'];
+      $birthday = $row['birthday'];
+      $username = $row['username'];
+      $user_email = $row['email'];
+      // $user_bio = $row['bio'];
+      // $user_image = $row['image'];  TODO: add image to database
+   }
+   else {
+      $first_name = "Mario";
+      $surname = "Rossi";
+      $gender = "male";
+      $birthday = "04/10/2001";
+      $username = "guest";
+      $user_email = "guest@guest.com";
+      // $user_bio = "";
+      // $user_image = "";  TODO: add image to database
+   }
 
 
 ?>
@@ -44,10 +61,9 @@
                   <!-- TODO: add image database -->
                </div>
                <div class="handle">
-                  <h4><?php echo $first_name . " " . $surname; ?></h4>
-                  <p class="text-muted">
-                     <?php echo "@" . $username; ?>
-                  </p>
+                  <h4> <?php echo $first_name . " " . $surname ?> </h4>
+                  <p> <?php echo "@" . $username ?> </p> 
+            
                </div>
             </a>
 
@@ -146,337 +162,28 @@
 
             <!-- ------------------ FEEDS -------------------- -->
             <div class="feeds">
-               <!-- ---------------- FEED 1 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
+               
+               <?php
 
-                  <div class="photo">
-                     <img src="/images/feed-1.jpg">
-                  </div>
+                  include '/pages/printPost.php';
 
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
+                  // do a query to get all the posts in postregssql
 
-                     </div>
+                  $query = "SELECT * FROM posts";
+                  $result = pg_query($dbconnession, $query);
+                  while($line=pg_fetch_array($result, null, PGSQL_ASSOC)){
+                     $writer = $line['writer'];
+                     $content = $line['post_content'];
+                     $photo = $line['photo'];
+                     $time = $line['created_at'];
+                     echo printPost($writer, $content, $photo, $time);
+                  }
+                  echo "</div>
+                  </div>";
 
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
+               ?>
 
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 2 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-2.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 3 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-3.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 4 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-4.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 5 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-5.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 6 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-6.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-               <!-- ---------------- FEED 7 ----------------- -->
-               <div class="feed">
-                  <div class="head">
-                     <div class="user">
-                        <div class="profile-photo">
-                           <img src="/images/profile-13.jpg">
-                        </div>
-                        <div class="ingo">
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class="edit">
-                        <i class="uil uil-ellipsis-h"></i>
-                     </span>
-                  </div>
-
-                  <div class="photo">
-                     <img src="/images/feed-7.jpg">
-                  </div>
-
-                  <div class="action-buttons">
-                     <div class="interaction-buttons">
-                        <span><i class="uil uil-heart"></i></span>
-                        <span><i class="uil uil-comment"></i></span>
-                        <span><i class="uil uil-share-alt"></i></span>
-
-                     </div>
-
-                     <div class="bookmark">
-                        <span><i class="uil uil-bookmark"></i></span>
-                     </div>
-                  </div>
-                  <div class="liked-by">
-                     <span> <img src="/images/profile-10.jpg"></span>
-                     <span> <img src="/images/profile-4.jpg"></span>
-                     <span> <img src="/images/profile-15.jpg"></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class="caption">
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class="harsh-tag">#lifestyle</span>
-                  </div>
-
-                  <div class="comments text-muted">View all 277 comments</div>
-               </div>
-            </div>
-         </div>
+         
 
          <!--======== RIGHT ========-->
          <div class="right">
