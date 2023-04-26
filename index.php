@@ -125,7 +125,38 @@
                </a>
             </div>
             <!---------END OF SIDEBAR--------->
-            <label for="create-post" class="btn btn-primary">Create Post</label>
+            <!-- Create trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPost">
+                  Create Post
+            </button> 
+            <div class="modal fade" id="modalPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/script/backPost.php" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="photo" class="col-form-label">Image</label>
+            <input type="file" class="form-control" id="photo" name="photo">
+          </div>
+          <div class="mb-3">
+            <label for="content" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="content" name="content"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Add post</button>
+      </div>
+    </div>
+  </div>
+</div>  
+
+            <!-- <label for="create-post" class="btn btn-primary">Create Post</label> -->
          </div>
 
          <!-- -------------------- END OF LEFT ---------------- -->
