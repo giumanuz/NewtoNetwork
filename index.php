@@ -141,14 +141,15 @@
                $row = pg_fetch_array($result, null, PGSQL_ASSOC);
                $phrase = $row['phrase'];
                $writer = $row['writer'];
-               $photo = $row['photo'];               
+               $photo = $row['photo'];     
+               $extension = $row['extensions'];          
             echo "
 
             <div class='quote-square'> 
                <div class='card mb-3' style='max-width: 540px;'>
                   <div class='row g-0'>
                      <div class='col-md-4'>
-                        <img src='data:image/jpg;base64," . $photo . " alt='Binary Image' style='margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
+                        <img src='data:image/". $extension . ";base64," . $photo . "' alt='Binary Image' style='margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                      </div>
                      <div class='col-md-8'>
                         <div class='card-body'>
@@ -164,14 +165,14 @@
 
             ?>
             <!-- ----------------- END OF QUOTE OF THE DAY --------------- -->
-            <form class="create-post" action="">
+            <!-- <form class="create-post" action="">
                <div class="profile-photo">
                   <img src="/images/profile-1.jpg" alt="">
                </div>
                <input type="text" placeholder="What's on your mind, Diana?" id="create-post">
                <input type="submit" value="Post" class="btn btn-primary">
 
-            </form>
+            </form> -->
 
             <!-- ------------------ FEEDS -------------------- -->
             <div class="feeds">
@@ -182,7 +183,8 @@
 
                   // do a query to get all the posts in postregssql
 
-                  $query = "SELECT * FROM posts";
+                  // do a query to get all the posts in postregssql and sort them by date
+                  $query = "SELECT * FROM posts ORDER BY created_at DESC";
                   $result = pg_query($dbconnession, $query);
                   while($line=pg_fetch_array($result, null, PGSQL_ASSOC)){;
                      $writer = $line['writer'];

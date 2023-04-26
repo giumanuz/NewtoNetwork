@@ -11,7 +11,8 @@ CREATE TABLE users
 CREATE TABLE quotes (
     phrase VARCHAR PRIMARY KEY,
     writer VARCHAR NOT NULL,
-    photo varchar
+    photo varchar,
+    extension varchar
 );
 
 CREATE TABLE posts (

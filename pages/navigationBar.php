@@ -36,9 +36,9 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
          <?php 
          if (isset($_SESSION['username'])): ?>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                <a class="nav-link" href="/pages/addQuote.php">Profile</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                <a class="nav-link" href="/pages/createPost.php">Profile</a>
             </li>
@@ -57,19 +57,6 @@
             </li>
          <?php endif; ?>
       </ul>
-
-      <!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login/Sign Up
-               </a>
-               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/pages/login.php">Login</a></li>
-                  <li><a class="dropdown-item" href="/pages/registration.php">Sign Up</a></li>
-               </ul> 
-            </li>
-      </ul> -->
-
 
     </div>
   </div>

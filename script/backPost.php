@@ -32,10 +32,10 @@
     //     $uploadOk = 0;
     // }
 
-    if ($_FILES["photo"]["size"] > 500000) {
-        header("Location: /pages/createPost.php?status=errorSize");
-        $uploadOk = 0;
-    }
+    // if ($_FILES["photo"]["size"] > 500000) {
+    //     header("Location: /pages/createPost.php?status=errorSize");
+    //     $uploadOk = 0;
+    // }
 
     if($imageFileType != "jpg" && $imageFileType != "jpeg") {
 
