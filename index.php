@@ -143,7 +143,7 @@
                $writer = $row['writer'];
                $photo = $row['photo'];     
                $extension = $row['extensions'];          
-            echo "
+               echo "
 
             <div class='quote-square'> 
                <div class='card mb-3' style='max-width: 540px;'>
@@ -180,6 +180,7 @@
                <?php
 
                   include 'pages/printPost.php';
+                  include 'script/convertTime.php';
 
                   // do a query to get all the posts in postregssql
 
@@ -191,6 +192,7 @@
                      $content = $line['post_content'];
                      $photo = $line['photo'];
                      $time = $line['created_at'];
+                     $time = convertTime($time);
                      echo printPost($writer, $content, $photo, $time);
                   }
                   echo "</div>

@@ -10,7 +10,7 @@
                             </div>
                             <div class='info'>
                                 <h3>" . $writer . "</h3>
-                                <small>Terni, "  . $time . "</small>
+                                <small>Terni, "  . $time . " ago</small>
                             </div>
                             </div>
                             <span class='edit'>
