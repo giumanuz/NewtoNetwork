@@ -10,7 +10,7 @@
                             </div>
                             <div class='info'>
                                 <h3>" . $writer . "</h3>
-                                <small>Terni,"  . $time . "</small>
+                                <small>Terni, "  . $time . "</small>
                             </div>
                             </div>
                             <span class='edit'>
@@ -19,7 +19,8 @@
                         </div>
     
                         <div class='photo'>
-                            <img src='/images/feed-1.jpg'>
+                            <img src='data:image/jpg;base64," . $photo . "' alt='Binary Image'>
+
                         </div>
     
                         <div class='action-buttons'>
@@ -42,7 +43,7 @@
                         </div>
     
                         <div class='caption'>
-                            <p> <b>Alessandra</b>"  . $content . "</p>
+                            <p> <b>" . $writer . "</b>"  . $content . "</p>
                             <span class='harsh-tag'>#lifestyle</span>
                         </div>
     

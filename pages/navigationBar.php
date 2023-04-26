@@ -37,6 +37,9 @@
          <?php 
          if (isset($_SESSION['username'])): ?>
             <li class="nav-item">
+               <a class="nav-link" href="/pages/addQuote.php">Profile</a>
+            </li>
+            <li class="nav-item">
                <a class="nav-link" href="/pages/createPost.php">Profile</a>
             </li>
             <li class="nav-item">

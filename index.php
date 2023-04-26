@@ -134,22 +134,35 @@
 
          <div class="middle">
             <!-- ----------------- QUOTE OF THE DAY --------------- -->
-            <div class="quote-square"> 
-               <div class="card mb-3" style="max-width: 540px;">
-                  <div class="row g-0">
-                     <div class="col-md-4">
-                        <img src="/scientist-images/Newton.png" style="margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;" class="img-fluid rounded-start" alt="...">
+
+            <?php
+               $query = "SELECT * FROM quotes ORDER BY RANDOM() LIMIT 1";
+               $result = pg_query($dbconnession, $query) or die("Query failed: " . pg_last_error());
+               $row = pg_fetch_array($result, null, PGSQL_ASSOC);
+               $phrase = $row['phrase'];
+               $writer = $row['writer'];
+               $photo = $row['photo'];               
+            echo "
+
+            <div class='quote-square'> 
+               <div class='card mb-3' style='max-width: 540px;'>
+                  <div class='row g-0'>
+                     <div class='col-md-4'>
+                        <img src='data:image/jpg;base64," . $photo . " alt='Binary Image' style='margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                      </div>
-                     <div class="col-md-8">
-                        <div class="card-body">
-                           <h5 class="card-title" style="font-size:larger;margin-top:1rem">QUOTE OF THE DAY</h5>
-                           <p class="card-text" style="margin-top: 2rem;"  >“La verità si ritrova sempre nella semplicità mai nella confusione.”</p>
-                           <p class="card-text" style="margin-top: 1rem"><small class="text-body-secondary"><i>Sir Isaac Newton</i></small></p>
+                     <div class='col-md-8'>
+                        <div class='card-body'>
+                           <h5 class='card-title' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
+                           <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>
+                           <p class='card-text' style='margin-top: 1rem'><small class='text-body-secondary'><i> " . $writer . "</i></small></p>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+            ";
+
+            ?>
             <!-- ----------------- END OF QUOTE OF THE DAY --------------- -->
             <form class="create-post" action="">
                <div class="profile-photo">
@@ -165,13 +178,13 @@
                
                <?php
 
-                  include '/pages/printPost.php';
+                  include 'pages/printPost.php';
 
                   // do a query to get all the posts in postregssql
 
                   $query = "SELECT * FROM posts";
                   $result = pg_query($dbconnession, $query);
-                  while($line=pg_fetch_array($result, null, PGSQL_ASSOC)){
+                  while($line=pg_fetch_array($result, null, PGSQL_ASSOC)){;
                      $writer = $line['writer'];
                      $content = $line['post_content'];
                      $photo = $line['photo'];
@@ -183,7 +196,7 @@
 
                ?>
 
-         
+        
 
          <!--======== RIGHT ========-->
          <div class="right">

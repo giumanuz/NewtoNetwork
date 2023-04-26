@@ -8,11 +8,17 @@ CREATE TABLE users
 	gender varchar
 );
 
+CREATE TABLE quotes (
+    phrase VARCHAR PRIMARY KEY,
+    writer VARCHAR NOT NULL,
+    photo varchar
+);
+
 CREATE TABLE posts (
     post_id INTEGER PRIMARY KEY,
     writer VARCHAR NOT NULL REFERENCES users(username),
     post_content TEXT NOT NULL,
-    photo BYTEA,
+    photo varchar,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

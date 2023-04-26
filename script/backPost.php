@@ -47,6 +47,8 @@
     if ($uploadOk == 1) {
         // if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
         $photoToUpload = $_FILES["photo"]["tmp_name"];
+        // convert this photo in base64
+        $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
         $query2 = "INSERT INTO posts (post_id, writer, post_content, photo) VALUES ($post_id, '$writer', '$post_content', '$photoToUpload')";
         if( $result = pg_query($dbconnession, $query2))
             header("Location: /index.php");
@@ -55,53 +57,6 @@
         // }
     }
 ?>
+“La verità si ritrova sempre nella semplicità mai nella confusione.”
 
-                <div class='feed'>
-                  <div class='head'>
-                     <div class='user'>
-                        <div class='profile-photo'>
-                           <img src='/images/profile-13.jpg'>
-                        </div>
-                        <div class='info'>
-                           <h3>Alessandra</h3>
-                           <small>Terni, 15 MINUTES AGO</small>
-                        </div>
-                     </div>
-                     <span class='edit'>
-                        <i class='uil uil-ellipsis-h'></i>
-                     </span>
-                  </div>
-
-                  <div class='photo'>
-                     <img src='/images/feed-1.jpg'>
-                  </div>
-
-                  <div class='action-buttons'>
-                     <div class='interaction-buttons'>
-                        <span><i class='uil uil-heart'></i></span>
-                        <span><i class='uil uil-comment'></i></span>
-                        <span><i class='uil uil-share-alt'></i></span>
-
-                     </div>
-
-                     <div class='bookmark'>
-                        <span><i class='uil uil-bookmark'></i></span>
-                     </div>
-                  </div>
-                  <div class='liked-by'>
-                     <span> <img src='/images/profile-10.jpg'></span>
-                     <span> <img src='/images/profile-4.jpg'></span>
-                     <span> <img src='/images/profile-15.jpg'></span>
-                     <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
-                  </div>
-
-                  <div class='caption'>
-                     <p> <b>Alessandra</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.</p>
-                     <span class='harsh-tag'>#lifestyle</span>
-                  </div>
-
-                  <div class='comments text-muted'>View all 277 comments</div>
-               </div>
-
-            </div>
-         </div>
+Sir Isaac Newton
