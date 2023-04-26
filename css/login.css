@@ -1,27 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+*:not(.navbar){
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins',sans-serif;
+    
 }
 body{
     height: 100vh;
-
     align-items: center;
-    padding: 10px;
+    padding: 50px;
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
 }
 .container{
-    display: flex;
+    /* display: flex; */
+    margin: 6%;
     justify-content: center;
-    max-width: 700px;
-    width: 100%;
+    width: 300px;
     background-color: #fff;
-    padding: 25px 30px;
+    padding: 12px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.15);
 }
+
+
 .title{
     font-size: 25px;
     font-weight: 500;
@@ -51,17 +53,23 @@ form .input-box span.details{
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
+
 }
 .user-details .input-box input{
     height: 45px;
-    width: 100%;
+    position: relative;
+    width: 300%;
+    max-width: max-content;
     outline: none;
     font-size: 16px;
     border-radius: 5px;
     padding-left: 15px;
+    padding-right: 60px;
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
+
+
 }
 .user-details .input-box input:focus,
 .user-details .input-box input:valid{
