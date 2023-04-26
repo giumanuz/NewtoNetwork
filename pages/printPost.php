@@ -1,12 +1,13 @@
 <?php
 
-    function printPost($writer, $content, $photo, $time){
+    function printPost($writer, $content, $photo, $time, $photoProfile, $extensionProfile){
                         $send= "
                         <div class='feed'>
                         <div class='head'>
                             <div class='user'>
                             <div class='profile-photo'>
-                                <img src='/images/profile-13.jpg'>
+                                <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
+
                             </div>
                             <div class='info'>
                                 <h3>" . $writer . "</h3>
@@ -43,7 +44,7 @@
                         </div>
     
                         <div class='caption'>
-                            <p> <b>" . $writer . "</b>"  . $content . "</p>
+                            <p> <b>" . $writer . "</b>" . " "  . $content . "</p>
                             <span class='harsh-tag'>#lifestyle</span>
                         </div>
     

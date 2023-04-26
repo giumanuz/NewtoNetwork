@@ -33,6 +33,8 @@
       $birthday = $row['birthday'];
       $username = $row['username'];
       $user_email = $row['email'];
+      $photoProfile = $row['photo'];
+      $extensionProfile = $row['extensionphoto'];
       // $user_bio = $row['bio'];
       // $user_image = $row['image'];  TODO: add image to database
    }
@@ -57,8 +59,10 @@
          <div class="left">
             <a class="profile">
                <div class="profile-photo">
-                  <img src="/images/profile-1.jpg" alt="">  
-                  <!-- TODO: add image database -->
+                  <?php
+                     echo " <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'" ;
+                  ?>
+                  <!-- <img src="/images/profile-1.jpg" alt="">   -->
                </div>
                <div class="handle">
                   <h4> <?php echo $first_name . " " . $surname ?> </h4>
@@ -193,7 +197,12 @@
                      $photo = $line['photo'];
                      $time = $line['created_at'];
                      $time = convertTime($time);
-                     echo printPost($writer, $content, $photo, $time);
+                     $query = "SELECT * FROM users WHERE username = '$writer'";
+                     $result2 = pg_query($dbconnession, $query);
+                     $line = pg_fetch_array($result2, null, PGSQL_ASSOC);
+                     $photoProfileFeed = $line['photo'];
+                     $extensionProfileFeed = $line['extensionphoto'];
+                     echo printPost($writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed);
                   }
                   echo "</div>
                   </div>";

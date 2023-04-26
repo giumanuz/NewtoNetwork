@@ -5,7 +5,9 @@ CREATE TABLE users
   	passw varchar NOT NULL,
  	birthday varchar,
   	username varchar NOT NULL PRIMARY KEY,
-	gender varchar
+	gender varchar,
+    photo varchar, 
+    extensionphoto varchar
 );
 
 CREATE TABLE quotes (
