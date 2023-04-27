@@ -1,6 +1,6 @@
 <?php
 
-    function printRequest($name, $surname, $photoProfile, $extensionProfile){
+    function printRequest($name, $surname, $photoProfile, $extensionProfile, $username){
                         $send= "
                         <div class='request'>
                             <div class='info'>
@@ -15,8 +15,8 @@
                                 </div>
                             </div>
                             <div class='action'>
-                                <button class='btn btn-primary'>Accept</button>
-                                <button class='btn'>Decline</button>
+                                <button class='btn btn-primary btn-accept' data-username='". $username ."'>Accept</button>
+                                <button class='btn btn-decline' data-username='". $username ."'>Decline</button>
                             </div>
                         </div>
                         ";

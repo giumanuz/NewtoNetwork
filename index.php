@@ -285,7 +285,8 @@
                                     $extension = $line['extensionphoto'];
                                     $name = $line['first_name'];
                                     $surname = $line['surname'];
-                                    echo printRequest($name, $surname, $photo, $extension);
+                                    $username = $line['username'];
+                                    echo printRequest($name, $surname, $photo, $extension, $username);
                                 }
                             ?>
 
@@ -295,5 +296,6 @@
             </div>
         </main>
     </body>
-    <script src="/js/index.js"></script>e
+    <script src="/js/index.js"></script>
+    <script src="/js/requestHandler.js"></script>
 </html>
