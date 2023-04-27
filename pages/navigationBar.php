@@ -43,7 +43,7 @@
                <a class="nav-link" href="/pages/createPost.php">Profile</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/index.php" onClick= "deleteAllCookies()">Logout</a>
+               <a class="nav-link" href="/homepage.php" onClick= "deleteAllCookies()">Logout</a>
             </li>
          <?php else: ?>
             <li class="nav-item dropdown">
