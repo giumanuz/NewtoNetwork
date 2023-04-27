@@ -25,7 +25,7 @@
                 You can't follow yourself!
                 </div>";
             }
-            if ($_GET['status'] == "errorRequestAlreadySent") {
+            if ($_GET['status'] == "errorAlreadySent") {
                 echo "<div class='alert alert-danger' role='alert'>
                 You already sent a request to this user!
                 </div>";
