@@ -40,6 +40,9 @@
                <a class="nav-link" href="/pages/addQuote.php">Profile</a>
             </li> -->
             <li class="nav-item">
+               <a class="nav-link" href="/pages/addFriend.php">AddFriend</a>
+            </li>
+            <li class="nav-item">
                <a class="nav-link" href="/pages/createPost.php">Profile</a>
             </li>
             <li class="nav-item">

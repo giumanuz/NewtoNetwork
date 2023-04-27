@@ -17,6 +17,18 @@ CREATE TABLE quotes (
     extension varchar
 );
 
+CREATE TABLE friends (
+    user_id VARCHAR NOT NULL REFERENCES users(username),
+    friend_user_id VARCHAR NOT NULL REFERENCES users(username),
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE friend_requests (
+    sender VARCHAR NOT NULL REFERENCES users(username),
+    reciver VARCHAR NOT NULL REFERENCES users(username),
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
 CREATE TABLE posts (
     post_id INTEGER PRIMARY KEY,
     writer VARCHAR NOT NULL REFERENCES users(username),

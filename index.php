@@ -270,40 +270,25 @@
                         <!-- ----------- FRIEND REQUESTS --------------- -->
                         <div class="friend-requests">
                             <h4>Requests</h4>
-                            <div class="request">
-                                <div class="info">
-                                    <div class="profile-photo">
-                                        <img src="/images/profile-13.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <h5>Haija Bintu</h5>
-                                        <p class="text-muted">
-                                            8 mutual friends
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="action">
-                                    <button class="btn btn-primary">Accept</button>
-                                    <button class="btn">Decline</button>
-                                </div>
-                            </div>
-                            <div class="request">
-                                <div class="info">
-                                    <div class="profile-photo">
-                                        <img src="/images/profile-13.jpg" alt="">
-                                    </div>
-                                    <div>
-                                        <h5>Haija Bintu</h5>
-                                        <p class="text-muted">
-                                            8 mutual friends
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="action">
-                                    <button class="btn btn-primary">Accept</button>
-                                    <button class="btn">Decline</button>
-                                </div>
-                            </div>
+                            
+                            <?php
+                                include 'pages/printRequest.php';
+
+                                $query = "SELECT * FROM friend_requests WHERE reciver = $1";
+                                $result = pg_query_params($dbconnession, $query, array($_SESSION['username']));
+                                while($line=pg_fetch_array($result, null, PGSQL_ASSOC)){
+                                    $sender = $line['sender'];
+                                    $query = "SELECT * FROM users WHERE username = $1";
+                                    $result2 = pg_query_params($dbconnession, $query, array($sender));
+                                    $line = pg_fetch_array($result2, null, PGSQL_ASSOC);
+                                    $photo = $line['photo'];
+                                    $extension = $line['extensionphoto'];
+                                    $name = $line['first_name'];
+                                    $surname = $line['surname'];
+                                    echo printRequest($name, $surname, $photo, $extension);
+                                }
+                            ?>
+
                         </div>
                     </div>
                 </div>
