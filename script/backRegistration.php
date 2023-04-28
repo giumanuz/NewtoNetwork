@@ -28,7 +28,8 @@
             $gender = $_POST['gender'];
 
             if ($_FILES['photo']['name'] == ""){
-                $photoToUpload = "/images/defaultProfile.png";
+                // load photo from /images/defaultProfile.png" to $photoToUpload
+                $photoToUpload = "../images/defaultProfile.png";
                 $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
                 $exstension = "png";
             }
@@ -36,12 +37,13 @@
                 $photoToUpload = $_FILES['photo']['tmp_name'];
                 $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
                 $exstension = explode('.', $_FILES["photo"]["name"]);
+                $exstension = $exstension[1];
             }
 
             $query3= "INSERT INTO users 
                 (first_name, surname, email, passw, birthday, username, gender, photo, extensionPhoto)
                 VALUES ($4, $5, $1, $3, $6, $2, $7, $8, $9)";
-            $result2 = pg_query_params($dbconnession, $query3, array($email, $username, $password, $name, $surname, $birthday, $gender, $photoToUpload, $exstension[1])) or die("Query failed: " . pg_last_error());
+            $result2 = pg_query_params($dbconnession, $query3, array($email, $username, $password, $name, $surname, $birthday, $gender, $photoToUpload, $exstension)) or die("Query failed: " . pg_last_error());
             if ($result2){
                 session_start();
                 $_SESSION['username'] = $username;

@@ -58,7 +58,7 @@
                 <a class="profile">
                     <div class="profile-photo">
                         <?php
-                            echo " <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'" ;
+                            echo " <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>" ;
                             ?>
                         <!-- <img src="/images/profile-1.jpg" alt="">   -->
                     </div>

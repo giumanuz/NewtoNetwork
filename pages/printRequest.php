@@ -5,6 +5,7 @@
                         <div class='request'>
                             <div class='info'>
                                 <div class='profile-photo'>
+                                    
                                     <img src='data:image/" . $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
                                 </div>
                                 <div>
