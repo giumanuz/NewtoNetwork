@@ -22,16 +22,17 @@
             <a class="nav-link" href="/index.php">About as</a>
          </li>
       </ul>
-      
-      <ul class="nav navbar-nav navbar-center">
-         <li>
-            <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-         </li>
-      </ul>
-
+      <?php 
+         if (isset($_SESSION['username'])): ?>
+            <ul class="nav navbar-nav navbar-center">
+               <li>
+                  <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+                  </form>
+               </li>
+            </ul>
+         <?php endif; ?>
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
          <?php 
