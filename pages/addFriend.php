@@ -11,6 +11,7 @@
 </title>
 </head>
 
+<body>
     <?php
     
         include "navigationBar.php";
@@ -37,9 +38,6 @@
             }
         }
     ?>
-
-        
-<body>
 
     <div class="container">
         <div class="content">

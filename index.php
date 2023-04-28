@@ -16,8 +16,7 @@
             if (!isset($_SESSION['username'])) {  
                header("Location: /homepage.php");
             }
-            ?>
-        <?php
+            
             include "pages/navigationBar.php";
             include 'connection.php';
             // do a query for the user

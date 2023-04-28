@@ -1,6 +1,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
 <?php
    if (session_status() != PHP_SESSION_ACTIVE) {
       session_start();
@@ -38,16 +40,16 @@
          <?php 
          if (isset($_SESSION['username'])): ?>
             <!-- <li class="nav-item">
-               <a class="nav-link" href="/pages/addQuote.php">Profile</a>
+               <a class="nav-link" href="/pages/addQuote.php">Add Quote</a>
             </li> -->
             <li class="nav-item">
-               <a class="nav-link" href="/pages/addFriend.php">AddFriend</a>
+               <a class="nav-link" href="/pages/addFriend.php">Add Friend</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/pages/createPost.php">Profile</a>
+               <a class="nav-link" href="/pages/createPost.php">Add Post</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/homepage.php" onClick= "deleteAllCookies()">Logout</a>
+               <a class="nav-link" href="/script/logout.php">Logout</a>
             </li>
          <?php else: ?>
             <li class="nav-item dropdown">
@@ -65,18 +67,3 @@
     </div>
   </div>
 </nav>
-
-<script>
-   function deleteAllCookies() {
-      const cookies = document.cookie.split(";");
-
-      for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i];
-            const eqPos = cookie.indexOf("=");
-            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-      }
-      location.reload();  
-      window.location.href = "/index.php";
-   }
-</script>
