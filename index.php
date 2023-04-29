@@ -89,11 +89,11 @@
                         ?>
                         <!-- <img src="/images/profile-1.jpg" alt="">   -->
                     </div>
-                    <div class="handle">
-                        <h4>
+                    <div class="handle" >
+                        <h4 style="color: var(--color-primary);">
                             <?php echo $first_name . " " . $surname ?>
                         </h4>
-                        <p>
+                        <p class="text-muted">
                             <?php echo "@" . $username ?>
                         </p>
                     </div>
@@ -244,7 +244,7 @@
                             <!-- -------------SEARCH BAR ----------------->
                             <div class="search-bar">
                                 <i class="uil uil-search"></i>
-                                <input type="search" placeholder="Search messages" id="message-search">
+                                <input type="search" style="width: 10rem;" placeholder="Search messages" id="message-search">
                             </div>
                             <!------------MESSAGE CATEGORY--------------->
                             <div class="category">

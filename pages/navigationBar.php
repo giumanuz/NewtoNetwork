@@ -8,7 +8,7 @@
       session_start();
    }
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/index.php">NewtoNetwork</a>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,9 +45,9 @@
             <li class="nav-item">
                <a class="nav-link" href="/pages/addFriend.php">Add Friend</a>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/pages/createPost.php">Add Post</a>
-            </li>
+            <!-- <li class="nav-item">
+               <a class="nav-link" href="/index.php/#modalPost">Add Post</a>
+            </li> -->
             <li class="nav-item">
                <a class="nav-link" href="/script/logout.php">Logout</a>
             </li>
