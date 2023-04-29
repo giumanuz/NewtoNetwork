@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-    $dbconn=pg_connect("host=localhost port=5432 dbname=NewtoNetwork user=postgres password=giulio") or die("Could not connect: " . pg_last_error());
+    $dbconn=pg_connect("host=localhost port=5432 dbname=NewtoNetwork user=postgres password=matteo") or die("Could not connect: " . pg_last_error());
     $query="SELECT * FROM utente";
     $result=pg_query($dbconn, $query) or die("Query failed: " . pg_last_error());
     echo "<table>";

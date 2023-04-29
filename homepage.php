@@ -18,7 +18,7 @@
 
 <body style="background-image: linear-gradient(135deg, #71b7e6, #9b59b6); height:100vh;">
 
-  <img src="./gravity-svgrepo-com.svg" style="margin-top: 4rem;"
+  <img src="./images/gravity-svgrepo-com.svg" style="margin-top: 4rem;"
     class="rounded mx-auto d-block animate__animated animate__fadeInDown animate__slower animate__infinite" alt="" height="100"
     width="100">
   <h1 class="text-center p-5 display-2">
