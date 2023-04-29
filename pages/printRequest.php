@@ -16,8 +16,8 @@
                                 </div>
                             </div>
                             <div class='action'>
-                                <button class='btn btn-primary btn-accept' data-username='". $username ."'>Accept</button>
-                                <button class='btn btn-decline' data-username='". $username ."'>Decline</button>
+                                <button class='btn btn-primary btn-accept' style='border:none;background-color: var( --color-primary);' data-username='". $username ."'>Accept</button>
+                                <button class='btn btn-decline' style='border:none;background-color: var( --color-gray);' data-username='". $username ."'>Decline</button>
                             </div>
                         </div>
                         ";

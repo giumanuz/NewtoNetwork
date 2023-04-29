@@ -14,7 +14,7 @@ CREATE TABLE quotes (
     phrase VARCHAR PRIMARY KEY,
     writer VARCHAR NOT NULL,
     photo varchar,
-    extension varchar
+    extensions varchar
 );
 
 CREATE TABLE friends (

@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="button">
-                    <input type="submit" value="Add Post">
+                    <input type="submit" value="Add Quote">
                 </div>
             </form>
         </div>

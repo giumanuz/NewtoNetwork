@@ -5,7 +5,7 @@
    --color-dark:hsl(252,30%,17% );
    --color-light:hsl(252,30%,95%);
    --color-gray:hsl(252,15%,65%);
-   --color-primary:hsl(323, 58%, 49%);
+   --color-primary:hsl(280, 100%, 32%);
    --color-secondary:hsl(252, 100%, 90%);
    --color-success:hsl(120, 95%, 65%);
    --color-danger:hsl(0, 95%, 65%);
@@ -18,8 +18,8 @@
    --search-padding: 0.6rem 1rem;
    --card-padding: 1rem;
 
-   --sticky-top-left: 5.4 rem;
-   --sticky-top-right: -18 rem;
+   --sticky-top-left: 5.4rem;
+   --sticky-top-right: -18rem;
 
 }
 
@@ -37,6 +37,7 @@ body{
    background: var(--color-light);
    color: var(--color-dark); 
    overflow-x: hidden;
+   overflow-y: hidden;
 
 }
 
@@ -46,7 +47,7 @@ body{
 }
 
 .profile-photo{
-   width:2.7rem;
+   width:3.2rem;
    aspect-ratio: 1/1;
    border-radius: 50%;
    overflow: hidden;
@@ -139,14 +140,14 @@ nav .log{
 /* ================== MAIN ================== */
 main{
    position: relative;
-   top: 5.4rem;
+   top: 0.5rem;
 }
 
 main .container{
    margin-top: 1rem;
    display: grid;
    grid-template-columns: 18vw auto 20vw;
-   column-gap: 2rem;
+   column-gap: 3rem;
    position: relative;
 }
 
@@ -265,7 +266,7 @@ main .container .left .profile{
    width: 30rem;
    padding: var(--card-padding);
    box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 60% 25%);
-   z-index: 20;
+   z-index: 4;
    display: none;
 }
 
@@ -296,7 +297,7 @@ main .container .left .profile{
 
 .middle {
    overflow-y: scroll;
-   height: 100vh;
+   height: 90vh;
 }
 
 .middle .quote-square{
@@ -518,6 +519,7 @@ bottom: 0;
    display: flex;
    gap: 1rem;
    margin-bottom: 1rem;
+   align-items: center;
 }
 
 .right .request .action{
