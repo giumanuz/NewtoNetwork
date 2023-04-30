@@ -32,7 +32,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button submit" class="btn btn-primary">Add post</button>
+                        <button type="button submit" class="btn btn-primary" style="border:none;background-color: var(--color-primary);">Add post</button>
                     </div>
                 </form>
             </div>
@@ -162,7 +162,7 @@
                 <!---------END OF SIDEBAR--------->
                 <!-- Create trigger modal -->
                 <button type="button" class="btn btn-primary"
-                    style="border-radius:--border-radius;border:none;background-color: var(--color-primary);"
+                    style="border-radius:var(--border-radius);border:none;background-color: var(--color-primary);"
                     data-bs-toggle="modal" data-bs-target="#modalPost">
                     Create Post
                 </button>
@@ -186,10 +186,11 @@
                     <div class='quote-square' style='z-index:-1;'> 
                     <div class='card mb-3' style='max-width: 540px;border:none;z-index:0;'>
                        <div class='row g-0' style='z-index:1;'>
-                          <div class='col-md-4'>
+                          <div class='col-3'>
                              <img class=\"profile-photo\" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                           </div>
-                          <div class='col-md-8'>
+                          <div class='col-1'></div>
+                          <div class='col-8'>
                              <div class='card-body'>
                                 <h5 class='card-title' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
                                 <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>

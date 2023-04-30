@@ -161,7 +161,7 @@ main .container .left{
 }
 
 main .container .left .profile{
-   padding: var(--card-padding);
+   /* padding: var(--card-padding); */
    background: var(--color-white);
    border-radius: var(--card-border-radius);
    display: flex;
@@ -306,6 +306,8 @@ main .container .left .profile{
    padding: var(--card-padding);
    margin: 1rem 0;
    text-align: center;
+   align-items: center;
+   column-gap: 2rem;
    border: solid 1px var(--color-primary);
    font-size: medium;
    font-weight: bold;
