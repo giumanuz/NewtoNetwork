@@ -44,7 +44,8 @@
                     <div class="input-box">
                         <label>
                             <span class="details">Username</span>
-                            <input type="text" placeholder="Insert the username" name="username" required>
+                            <input type="text" id="username" name="username" value="<?php echo isset($submitted_username) ? $submitted_username : ''; ?>" required placeholder="<?php echo isset($submitted_username) ? '' : 'Insert the username'; ?>">
+                            <!-- <input type="text" placeholder="Insert the username" name="username" required> -->
                         </label>
                     </div>
                     <div class="input-box">

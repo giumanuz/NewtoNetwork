@@ -4,40 +4,41 @@
     }
     include "../connection.php";
 
-    $email = $_POST['email'];
+    $data = json_decode(file_get_contents('php://input'), true);
+    $email = $data['email'];    
+    
+
     $query1 = "SELECT * FROM users WHERE email = $1";
     $result = pg_query_params($dbconnession, $query1, array($email)) or die("Query failed: " . pg_last_error());
     if ($line= pg_fetch_array($result)){
-        header("Location: /pages/registration.php?status=errorEmailUsed");
+        print_r("Email already used, try again or click <a href = '/pages/login.php'>here</a> to login.");
+        return;
     }
     else{
 
-        $username = $_POST['username'];
+        $username = $data['username'];
         $query2 = "SELECT * FROM users WHERE username = $1";
         $result = pg_query_params($dbconnession, $query2, array($username)) or die("Query failed: " . pg_last_error());
         if ($line= pg_fetch_array($result)){
-            header("Location: /pages/registration.php?status=errorUsernameUsed");
+            print_r("Username already used, try again or click <a href = '/pages/login.php'>here</a> to login.");
+            return;
         }
 
         else{
 
-            $password = password_hash($_POST['password1'], PASSWORD_DEFAULT);
-            $name = $_POST['name'];
-            $surname = $_POST['surname'];
-            $birthday = $_POST['bday'];
-            $gender = $_POST['gender'];
+            $password = password_hash($data['password'], PASSWORD_DEFAULT);
+            $name = $data['name'];
+            $surname = $data['surname'];
+            $birthday = $data['bday'];
+            $gender = $data['gender'];
 
-            if ($_FILES['photo']['name'] == ""){
-                // load photo from /images/defaultProfile.png" to $photoToUpload
+            $photoToUpload = $data['photo'];
+            $exstension = $data['extension'];
+
+            if ($photoToUpload == ""){
                 $photoToUpload = "../images/defaultProfile.png";
                 $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
                 $exstension = "png";
-            }
-            else{
-                $photoToUpload = $_FILES['photo']['tmp_name'];
-                $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
-                $exstension = explode('.', $_FILES["photo"]["name"]);
-                $exstension = $exstension[1];
             }
 
             $query3= "INSERT INTO users 
@@ -49,14 +50,15 @@
                 $_SESSION['username'] = $username;
                 $_SESSION['email'] = $email;
 
-                header("Location: /index.php");
+                print_r("success");
+                return;
             }
             else{
-                header("Location: /pages/registration.php?status=errorRegistration");    
+                print_r("Registration failed, try again or click <a href = '/pages/login.php'>here</a> to login.");
+                return;
             }
         }
     }
 
     pg_close($dbconnession);
-
 ?>
