@@ -13,6 +13,10 @@ const messages = document.querySelector('.messages');
 const message = messages.querySelectorAll('.message');
 const messageSearch = document.querySelector('#message-search');
 
+// LIKE
+
+const hearts = document.getElementsByName('heart');
+
 // ================ SIDEBAR =================
 menuItems.forEach((item) => {
   item.addEventListener('click', () => {
@@ -51,4 +55,25 @@ messagesNotification.addEventListener('click', () => {
       messages.style.boxShadow = 'none';
    }, 2000);
 })
+
+// ===================== LIKES =========================
+
+hearts.forEach((item) => {
+   item.addEventListener('click', () => {
+      var liked = false;
+     for (let index = 0; index < item.classList.length; index++) {
+         if(item.classList[index] == "active"){
+            liked = true;
+            break;
+         }
+     }
+
+     if(liked) {
+       item.classList.remove('active');
+     }
+     else {
+       item.classList.add('active');
+     }
+   })
+ })
 

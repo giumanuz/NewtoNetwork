@@ -367,6 +367,11 @@ main .container .left .profile{
    line-height: 1.5;
 }
 
+.action-buttons .interaction-buttons a.active[name="heart"] {
+   color: red !important;
+   font-variation-settings: "FILL" 1;
+}
+
 .middle .feed .head{
    display: flex;
    justify-content: space-between;
