@@ -1,3 +1,8 @@
+$("#registrationFormId").submit(function (event) {
+    event.preventDefault();
+    validateForm();
+});
+
 function validateForm() {
     const password1 = document.forms["registrationForm"]["password1"].value;
     const password2 = document.forms["registrationForm"]["password2"].value;
@@ -36,73 +41,56 @@ function validateForm() {
 
     // take photo from input
     
+    validateServerSide();
+
+    return false; 
+
+
+}
+function validateServerSide() {
     var reader = new FileReader();
     var file = document.forms["registrationForm"]["photo"].files[0];
     reader.onloadend = function () {
         var dataUrl = reader.result;
         var extension = dataUrl.split(';')[0].split('/')[1];
         var photo = dataUrl.split(',')[1];
-        
 
-        $.ajax({
-            url: "/script/backRegistration.php",
-            type: "POST",
-            data: JSON.stringify({
-                "username": document.forms["registrationForm"]["username"].value,
-                "password": document.forms["registrationForm"]["password1"].value,
-                "email": document.forms["registrationForm"]["email"].value,
-                "bday": document.forms["registrationForm"]["bday"].value,
-                "name": document.forms["registrationForm"]["name"].value,
-                "surname": document.forms["registrationForm"]["surname"].value,
-                "gender": document.forms["registrationForm"]["gender"].value,
-                "photo": photo,
-                "extension": extension
-            }),
-            success: function (response) {
-                console.log(response);
-                if (response === "success") {
-                    window.location.href = "/index.php";
-                } else {
-                    showAlertWithError(response);
-                }
-            },
-        });
-    }
+        sendPostServer(photo, extension);
+    };
     if (file)
         reader.readAsDataURL(file);
-    else
-        {
-            $.ajax({
-                url: "/script/backRegistration.php",
-                type: "POST",
-                data: JSON.stringify({
-                    "username": document.forms["registrationForm"]["username"].value,
-                    "password": document.forms["registrationForm"]["password1"].value,
-                    "email": document.forms["registrationForm"]["email"].value,
-                    "bday": document.forms["registrationForm"]["bday"].value,
-                    "name": document.forms["registrationForm"]["name"].value,
-                    "surname": document.forms["registrationForm"]["surname"].value,
-                    "gender": document.forms["registrationForm"]["gender"].value,
-                    "photo": "",
-                    "extension": ""
-                }),
-                success: function (response) {
-                    console.log(response);
-                    if (response === "success") {
-                        window.location.href = "/index.php";
-                    } else {
-                        showAlertWithError(response);
-                    }
-                },
-            });
-        }
 
+    else {
+        sendPostServer('', '');
+    }
 
+}
+function sendPostServer(photo, extension) {
+    var data = {
+        "username": document.forms["registrationForm"]["username"].value,
+        "password": document.forms["registrationForm"]["password1"].value,
+        "email": document.forms["registrationForm"]["email"].value,
+        "bday": document.forms["registrationForm"]["bday"].value,
+        "name": document.forms["registrationForm"]["name"].value,
+        "surname": document.forms["registrationForm"]["surname"].value,
+        "gender": document.forms["registrationForm"]["gender"].value,
+        "photo": photo,
+        "extension": extension
+    };
 
-
-
-
-    return false; 
+    $.ajax({
+        url: "/script/backRegistration.php",
+        type: "POST",
+        data: JSON.stringify(data),
+        success: function (response) {
+            console.log(response);
+            if (response === "success") {
+                window.location.href = "/index.php";
+            } else {
+                showAlertWithError(response);
+            }
+        },
+    });
 }
 function showAlertWithError(errorText) {
     $("#errorAlertText").html(errorText);

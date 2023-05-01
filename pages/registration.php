@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/css/login.css">
-      <script src="/js/registration.js"></script>
       <title>
          Registration
       </title>
@@ -16,27 +15,8 @@
              header("Location: /index.php");
          endif;
          
-         include "navigationBar.php";
-         
-         if (isset($_SESSION['error']) && $_SESSION['error'] == 'errorEmailUsed'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Email already used, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         if (isset($_SESSION['error']) && $_SESSION['error'] == 'errorUsernameUsed'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Username already used, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         if (isset($_SESSION['error']) && $_SESSION['error'] == 'errorRegistration'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Registration failed, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         ?>
+         include "navigationBar.php";     
+      ?>
 
       <div class="alert alert-danger fade" role="alert" id="errorAlert">
          <strong>Error!</strong> <span id="errorAlertText"> </span>
@@ -122,10 +102,7 @@
          </div>
       </div>
 
-<script>
-   $("#registrationFormId").submit(function (event) {
-    event.preventDefault();
-    validateForm();
-});
-</script>
-</body>
+   </body>
+</html>
+
+<script src="/js/registration.js"></script>
