@@ -37,17 +37,9 @@ CREATE TABLE posts (
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE likes (
-    like_id SERIAL PRIMARY KEY,
-    post_id INTEGER NOT NULL REFERENCES posts(post_id),
-    user_id INTEGER NOT NULL REFERENCES users(username),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE comments (
-    comment_id SERIAL PRIMARY KEY,
-    post_id INTEGER NOT NULL REFERENCES posts(post_id),
-    user_id INTEGER NOT NULL REFERENCES users(username),
-    comment_content TEXT NOT NULL,
+CREATE TABLE notifications (
+    user_from VARCHAR NOT NULL REFERENCES users(username),
+    user_to VARCHAR NOT NULL REFERENCES users(username),
+    notification_content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );

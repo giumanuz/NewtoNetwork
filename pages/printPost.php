@@ -7,7 +7,6 @@
                             <div class='user'>
                             <div class='profile-photo'>
                                 <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
-
                             </div>
                             <div class='info'>
                                 <h4>" . $writer . "</h4>

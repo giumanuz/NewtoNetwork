@@ -11,6 +11,11 @@
     $reciver = $_SESSION['username'];
     $query = "DELETE FROM friend_requests WHERE sender = $1 AND reciver = $2";
     $result = pg_query_params($dbconnession, $query, array($sender, $reciver)) or die("Query failed: " . pg_last_error());
+    $query = "INSERT INTO notifications (user_from, user_to, notification_content) VALUES ($1, $2, $3)";
+    $result = pg_query_params($dbconnession, $query, array($reciver, $sender, "declined your friend request")) or die("Query failed: " . pg_last_error());
+
+
     header("Location: /pages/index.php");
+    pg_close($dbconnession);
 
 ?>

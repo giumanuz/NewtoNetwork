@@ -52,6 +52,7 @@
 
     include "pages/navigationBar.php";
     include 'connection.php';
+    include 'script/convertTime.php';
     // do a query for the user
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
@@ -117,24 +118,28 @@
                         <h3>Notifications </h3>
                         <!----------NOTIFICATION POPUP ------------>
                         <div class="notifications-popup">
-                            <div>
-                                <div class="profile-photo">
-                                    <img src="/images/profile-2.jpg" alt="">
-                                </div>
-                                <div class="notification-body">
-                                    <b> Giulio Manuzzi</b> accepted your friend request
-                                    <small class="text-muted"> 2 days ago </small>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="profile-photo">
-                                    <img src="/images/profile-3.jpg" alt="">
-                                </div>
-                                <div class="notification-body">
-                                    <b> Sof Lor</b> commented on your post
-                                    <small class="text-muted"> 1 hour ago </small>
-                                </div>
-                            </div>
+                            
+                        <?php
+                            include 'pages/printNotification.php';
+                            
+                            $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
+                            $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
+                            while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+                                $user_from = $line['user_from'];
+                                $notification_content = $line['notification_content'];
+                                $date = $line['created_at'];
+                                $date = convertTime($date);
+                                $query = "SELECT * FROM users WHERE username = $1";
+                                $result2 = pg_query_params($dbconnession, $query, array($user_from)) or die("Query failed: " . pg_last_error());
+                                $line2 = pg_fetch_array($result2, null, PGSQL_ASSOC);
+                                $first_name = $line2['first_name'];
+                                $surname = $line2['surname'];
+                                $photoProfile = $line2['photo'];
+                                $extensionProfile = $line2['extensionphoto'];
+                                echo printNotification($first_name, $surname, $photoProfile, $extensionProfile, $notification_content, $date);
+                            } 
+                        ?>
+
                         </div>
                     </a>
                     <a class="menu-item" id="messages-notification">
@@ -216,7 +221,6 @@
                 <div class="feeds">
                     <?php
                     include 'pages/printPost.php';
-                    include 'script/convertTime.php';
 
                     // do a query to get all the posts in postregssql
                     
