@@ -10,7 +10,7 @@
 
                             </div>
                             <div class='info'>
-                                <h3>" . $writer . "</h3>
+                                <h4>" . $writer . "</h4>
                                 <small>Terni, "  . $time . " ago</small>
                             </div>
                             </div>
@@ -26,9 +26,8 @@
     
                         <div class='action-buttons'>
                             <div class='interaction-buttons'>
-                            <span><i class='uil uil-heart'></i></span>
-                            <span><i class='uil uil-comment'></i></span>
-                            <span><i class='uil uil-share-alt'></i></span>
+                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined active' name='heart'>favorite</a>
+                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined' name='comment'>comment</a>
     
                             </div>
     

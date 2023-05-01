@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="/css/login.css">
-      <script src="/js/registration.js"></script>
       <title>
          Registration
       </title>
@@ -16,61 +15,17 @@
              header("Location: /index.php");
          endif;
          
-         include "navigationBar.php";
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'errorEmailUsed'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Email already used, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'errorUsernameUsed'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Username already used, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'errorRegistration'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Registration failed, try again or click <a href = "/pages/login.php">here</a> to login.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'shortPassword'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Password too short, try again.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'noUpperCase'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Password must contain at least one uppercase letter, try again.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'passwordMismatch'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Passwords do not match, try again.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'noSpecialChar'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> Password must contain at least one special character, try again.
-                 </div>';
-         endif;
-         
-         if (isset($_GET['status']) && $_GET['status'] == 'tooYoung'):
-           echo '<div class="alert alert-danger" role="alert">
-                   <strong>Error!</strong> You must be at least 16 years old to register.
-                 </div>';
-         endif;
-         
-         ?>
+         include "navigationBar.php";     
+      ?>
+
+      <div class="alert alert-danger fade" role="alert" id="errorAlert">
+         <strong>Error!</strong> <span id="errorAlertText"> </span>
+      </div>
+
       <div class="container">
          <div class="title">Registration</div>
          <div class="content">
-            <form action="/script/backRegistration.php" method="post" name="registrationForm" onsubmit="return validateForm();" enctype="multipart/form-data">
+            <form name="registrationForm" enctype="multipart/form-data" id="registrationFormId">
                <div class="user-details">
                   <div class="input-box">
                      <label><span class="details">Name</span>
@@ -140,9 +95,14 @@
                       </label> 
                    </div>
                 </div>
-               <div class="button">
+               <div class="button" id="modalButton">
                   <input type="submit" value="Register">
                </div>
             </form>
          </div>
       </div>
+
+   </body>
+</html>
+
+<script src="/js/registration.js"></script>

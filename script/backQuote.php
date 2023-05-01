@@ -10,7 +10,7 @@
     $writer = $_POST['writer'];
     $phrase = $_POST['phrase'];
     // take the extension of the file
-    $exstension = explode('.', $_FILES["photo"]["name"]);
+    $extension = explode('.', $_FILES["photo"]["name"]);
 
     $target_file = realpath(dirname(getcwd()));
     $target_file = $target_file . "/download/" . basename($_FILES["photo"]["name"]);
@@ -27,7 +27,7 @@
     if ($uploadOk == 1)
         $photoToUpload = $_FILES["photo"]["tmp_name"];
         $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
-        $query2 = "INSERT INTO quotes (writer, phrase, extensions, photo) VALUES ('$writer', '$phrase', '$exstension[1]', '$photoToUpload')";
+        $query2 = "INSERT INTO quotes (writer, phrase, extensions, photo) VALUES ('$writer', '$phrase', '$extension[1]', '$photoToUpload')";
         if( $result = pg_query($dbconnession, $query2))
             header("Location: /index.php");
         else
