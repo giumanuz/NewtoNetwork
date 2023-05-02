@@ -228,7 +228,6 @@
                     $query = "SELECT * FROM posts ORDER BY created_at DESC";
                     $result = pg_query($dbconnession, $query);
                     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                        ;
                         $writer = $line['writer'];
                         $content = $line['post_content'];
                         $photo = $line['photo'];
