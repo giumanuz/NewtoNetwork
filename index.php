@@ -232,8 +232,8 @@
                     $query = "SELECT * FROM posts ORDER BY created_at DESC";
                     $result = pg_query($dbconnession, $query);
                     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                        ;
                         $writer = $line['writer'];
+                        $post_id = $line['post_id'];
                         $content = $line['post_content'];
                         $photo = $line['photo'];
                         $time = $line['created_at'];
@@ -243,7 +243,7 @@
                         $line = pg_fetch_array($result2, null, PGSQL_ASSOC);
                         $photoProfileFeed = $line['photo'];
                         $extensionProfileFeed = $line['extensionphoto'];
-                        echo printPost($writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed);
+                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed);
                     }
                     echo "</div>
                         </div>";

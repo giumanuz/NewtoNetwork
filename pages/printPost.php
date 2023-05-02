@@ -1,6 +1,24 @@
 <?php
 
-    function printPost($writer, $content, $photo, $time, $photoProfile, $extensionProfile){
+    include "../connection.php";
+
+    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile){
+
+        if (isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+        }
+        
+        $query12 = "SELECT * FROM likes WHERE user_id = $1 AND post_id = $2";
+        
+        // echo "CIAO";
+        $result12 = pg_query_params($dbconnession, $query12, array($username, $post_id)) or die("Query failed: " . pg_last_error());
+        
+        // $class = "";
+        // echo "Ciao";
+        // if ($line12=pg_fetch_array($result3,null, PGSQL_ASSOC)){
+        //     $class = "active";
+        // }
+        
                         $send= "
                         <div class='feed'>
                         <div class='head'>
@@ -26,7 +44,7 @@
     
                         <div class='action-buttons'>
                             <div class='interaction-buttons'>
-                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined' name='heart'>favorite</a>
+                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined " . $class . "' username=" . $username . " post_id=" . $post_id . " name='heart'>favorite</a>
                             <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined' name='comment'>comment</a>
     
                             </div>
