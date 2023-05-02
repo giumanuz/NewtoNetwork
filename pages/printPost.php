@@ -45,7 +45,7 @@
 
         <div class='caption'>
             <p> <b>" . $writer . "</b>" . " "  . $content . "</p>
-            <span class='harsh-tag'>#"  . $content . "</span>
+            <span class='harsh-tag'>#"  . $category . "</span>
         </div>
 
         <div class='comments text-muted'>View all 277 comments</div>
