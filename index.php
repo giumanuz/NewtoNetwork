@@ -254,6 +254,7 @@
                     $result = pg_query($dbconnession, $query);
                     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
                         $writer = $line['writer'];
+                        $post_id = $line['post_id'];
                         $content = $line['post_content'];
                         $photo = $line['photo'];
                         $time = $line['created_at'];
@@ -264,7 +265,13 @@
                         $line = pg_fetch_array($result2, null, PGSQL_ASSOC);
                         $photoProfileFeed = $line['photo'];
                         $extensionProfileFeed = $line['extensionphoto'];
-                        echo printPost($writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $category);
+                        $class = "";
+                        $query3 = "SELECT * FROM likes WHERE post_id = '$post_id' AND user_id = '$username'";
+                        $result3 = pg_query($dbconnession, $query3);
+                        if (pg_num_rows($result3) == 1) {
+                            $class = "active";
+                        }
+                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $class, $username, $category);
                     }
                     echo "</div>
                         </div>";

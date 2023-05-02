@@ -58,9 +58,11 @@ messagesNotification.addEventListener('click', () => {
 
 // ===================== LIKES =========================
 
-hearts.forEach((item) => {
-   item.addEventListener('click', () => {
-      var liked = false;
+hearts.forEach(item => {
+   item.addEventListener('click', function(event) {
+      let liked = false;
+      username = this.getAttribute('username');
+      post_id = this.getAttribute('post_id');
      for (let index = 0; index < item.classList.length; index++) {
          if(item.classList[index] == "active"){
             liked = true;
@@ -70,10 +72,34 @@ hearts.forEach((item) => {
 
      if(liked) {
        item.classList.remove('active');
+       removeLike(username, post_id);
      }
      else {
        item.classList.add('active');
+       sendLike(username, post_id);
      }
    })
  })
+
+ function sendLike(username, post_id) {
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+       console.log(this.responseText);
+     }
+   };
+   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.send();
+}
+
+function removeLike(username, post_id) {
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+       console.log(this.responseText);
+     }
+   };
+   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.send();
+}
 

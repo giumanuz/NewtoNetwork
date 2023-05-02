@@ -44,3 +44,19 @@ CREATE TABLE notifications (
     notification_content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE likes (
+    post_id INTEGER NOT NULL REFERENCES posts(post_id),
+    user_id VARCHAR NOT NULL REFERENCES users(username),
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+	primary key (post_id, user_id)
+);
+
+
+CREATE TABLE comments (
+    comment_id SERIAL PRIMARY KEY,
+    post_id INTEGER NOT NULL REFERENCES posts(post_id),
+    user_id INTEGER NOT NULL REFERENCES users(username),
+    comment_content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);
