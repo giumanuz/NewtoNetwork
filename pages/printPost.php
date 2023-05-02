@@ -25,7 +25,7 @@
     
                         <div class='action-buttons'>
                             <div class='interaction-buttons'>
-                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined active' name='heart'>favorite</a>
+                            <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined' name='heart'>favorite</a>
                             <a href='#' style='text-decoration:none;color:black;' class='material-symbols-outlined' name='comment'>comment</a>
     
                             </div>
