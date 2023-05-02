@@ -34,6 +34,7 @@ CREATE TABLE posts (
     writer VARCHAR NOT NULL REFERENCES users(username),
     post_content TEXT NOT NULL,
     photo varchar,
+    category varchar,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 

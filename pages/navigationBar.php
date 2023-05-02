@@ -28,9 +28,9 @@
          if (isset($_SESSION['username'])): ?>
             <ul class="nav navbar-nav navbar-center">
                <li>
-                  <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-light" type="submit">Search</button>
+                  <form class="d-flex" method="get" action="/index.php">
+                     <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="category">
+                     <button class="btn btn-outline-light" type="submit">Search</button>
                   </form>
                </li>
             </ul>

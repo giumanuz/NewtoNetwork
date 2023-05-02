@@ -1,6 +1,6 @@
 <?php
 
-    function printPost($writer, $content, $photo, $time, $photoProfile, $extensionProfile){
+    function printPost($writer, $content, $photo, $time, $photoProfile, $extensionProfile, $category){
                         $send= "
                         <div class='feed'>
                         <div class='head'>
@@ -43,7 +43,7 @@
     
                         <div class='caption'>
                             <p> <b>" . $writer . "</b>" . " "  . $content . "</p>
-                            <span class='harsh-tag'>#lifestyle</span>
+                            <span class='harsh-tag'>#"  . $category . "</span>
                         </div>
     
                         <div class='comments text-muted'>View all 277 comments</div>

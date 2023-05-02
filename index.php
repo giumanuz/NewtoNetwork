@@ -160,6 +160,21 @@
                                         <label for="content" class="col-form-label">Description:</label>
                                         <textarea class="form-control" id="content" name="content"></textarea>
                                     </div>
+                                    <div class="mb-3">
+                                        <label class="col-form-label">Choose the category:</label>
+                                        <select aria-label="Default select example" name="category">
+                                            <option value="math">Math</option>
+                                            <option value="informatics">Informatics</option>
+                                            <option value="phisics">Phisics</option>
+                                            <option value="science">Science</option>
+                                            <option value="chemistry">Chemistry</option>
+                                            <option value="biology">Biology</option>
+                                            <option value="english">English</option>
+                                            <option value="italian">Italian</option>
+                                            <option value="history">History</option>
+                                            <option value="geography">Geography</option>
+                                        </select>
+                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
@@ -230,23 +245,26 @@
                     <?php
                     include 'pages/printPost.php';
 
-                    // do a query to get all the posts in postregssql
-                    
-                    // do a query to get all the posts in postregssql and sort them by date
-                    $query = "SELECT * FROM posts ORDER BY created_at DESC";
+                    if (isset($_GET['category']) && $_GET['category'] != "") {
+                        $category = $_GET['category'];
+                        $query = "SELECT * FROM posts WHERE category = '$category' ORDER BY created_at DESC";
+                    } else {
+                        $query = "SELECT * FROM posts ORDER BY created_at DESC";
+                    }
                     $result = pg_query($dbconnession, $query);
                     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
                         $writer = $line['writer'];
                         $content = $line['post_content'];
                         $photo = $line['photo'];
                         $time = $line['created_at'];
+                        $category = $line['category'];
                         $time = convertTime($time);
                         $query = "SELECT * FROM users WHERE username = '$writer'";
                         $result2 = pg_query($dbconnession, $query);
                         $line = pg_fetch_array($result2, null, PGSQL_ASSOC);
                         $photoProfileFeed = $line['photo'];
                         $extensionProfileFeed = $line['extensionphoto'];
-                        echo printPost($writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed);
+                        echo printPost($writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $category);
                     }
                     echo "</div>
                         </div>";

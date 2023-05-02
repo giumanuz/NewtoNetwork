@@ -9,7 +9,8 @@
 
     $post_content = $_POST['content'];
     $writer = $_SESSION['username'];
-    // calcola quanti post ci sono nel databse
+    $category = $_POST['category'];
+
     $query1 = "SELECT COUNT(*) FROM posts";
     $result = pg_query($dbconnession, $query1) or die("Query failed: " . pg_last_error());
     $line = pg_fetch_array($result, null, PGSQL_ASSOC);
@@ -17,7 +18,7 @@
 
     $photoToUpload = $_FILES["photo"]["tmp_name"];
     $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
-    $query2 = "INSERT INTO posts (post_id, writer, post_content, photo) VALUES ($post_id, '$writer', '$post_content', '$photoToUpload')";
+    $query2 = "INSERT INTO posts (post_id, writer, post_content, photo, category) VALUES ($post_id, '$writer', '$post_content', '$photoToUpload', '$category')";
     if( $result = pg_query($dbconnession, $query2)){
 
         $query3 = "SELECT * FROM friends where user_id = $1";
