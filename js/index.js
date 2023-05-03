@@ -30,7 +30,7 @@ menuItems.forEach((item) => {
       document.querySelector('.notifications-popup').style.display = 'none';
     } else{
       document.querySelector('.notifications-popup').style.display = 'block';
-      document.querySelector('#notifications .notifications-count').style.display = 'none';
+      // document.querySelector('#notifications .notifications-count').style.display = 'none';
     }
   })
 })

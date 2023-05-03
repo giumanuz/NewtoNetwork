@@ -30,7 +30,7 @@ CREATE TABLE friend_requests (
 );
 
 CREATE TABLE posts (
-    post_id INTEGER PRIMARY KEY,
+    post_id SERIAL PRIMARY KEY,
     writer VARCHAR NOT NULL REFERENCES users(username),
     post_content TEXT NOT NULL,
     photo varchar,

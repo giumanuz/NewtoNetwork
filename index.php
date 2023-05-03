@@ -86,7 +86,16 @@
                         <h3>Explore </h3>
                         </a> -->
                     <a class="menu-item" id="notifications">
-                        <span> <i class="uil uil-bell"><small class="notifications-count">9+</small></i> </span>
+                        <?php
+                            $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
+                            $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
+                            $num_rows = pg_num_rows($result);
+                            if ($num_rows > 0) {
+                                echo "<span> <i class='uil uil-bell'><small class='notifications-count'>$num_rows</small></i> </span>";
+                            } else {
+                                echo "<span> <i class='uil uil-bell'></i> </span>";
+                            }
+                            ?>
                         <h3>Notifications </h3>
                         <!----------NOTIFICATION POPUP ------------>
                         <div class="notifications-popup">
@@ -94,8 +103,6 @@
                             <?php
                             include 'pages/printNotification.php';
                             
-                            $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
-                            $result = pg_query_params($dbconnession, $query, array($username)) or die("Query failed: " . pg_last_error());
                             while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
                                 $user_from = $line['user_from'];
                                 $notification_content = $line['notification_content'];

@@ -11,14 +11,9 @@
     $writer = $_SESSION['username'];
     $category = $_POST['category'];
 
-    $query1 = "SELECT COUNT(*) FROM posts";
-    $result = pg_query($dbconnession, $query1) or die("Query failed: " . pg_last_error());
-    $line = pg_fetch_array($result, null, PGSQL_ASSOC);
-    $post_id = $line['count'] + 1;
-
     $photoToUpload = $_FILES["photo"]["tmp_name"];
     $photoToUpload = base64_encode(file_get_contents(addslashes($photoToUpload)));
-    $query2 = "INSERT INTO posts (post_id, writer, post_content, photo, category) VALUES ($post_id, '$writer', '$post_content', '$photoToUpload', '$category')";
+    $query2 = "INSERT INTO posts (writer, post_content, photo, category) VALUES ('$writer', '$post_content', '$photoToUpload', '$category')";
     if( $result = pg_query($dbconnession, $query2)){
 
         $query3 = "SELECT * FROM friends where user_id = $1";
@@ -29,9 +24,10 @@
             $result4 = pg_query_params($dbconnession, $query4, array($writer, $friend, "has written a new posts.")) or die("Query failed: " . pg_last_error());
         }
 
-
         header("Location: /index.php");
     }else
+        // print the error
+        // echo pg_last_error($dbconnession);
         header("Location: /pages/createPost.php?status=errorUpload");
 
 ?>
