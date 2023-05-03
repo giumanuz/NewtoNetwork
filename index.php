@@ -90,8 +90,8 @@
                         <h3>Notifications </h3>
                         <!----------NOTIFICATION POPUP ------------>
                         <div class="notifications-popup">
-                            
-                        <?php
+
+                            <?php
                             include 'pages/printNotification.php';
                             
                             $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
@@ -193,7 +193,9 @@
                     data-bs-toggle="modal" data-bs-target="#modalPost">
                     Create Post
                 </button>
-                <script>$("#modalPost").prependTo("body");</script>
+                <script>
+                $("#modalPost").prependTo("body");
+                </script>
 
                 <!-- <label for="create-post" class="btn btn-primary">Create Post</label> -->
             </div>
@@ -282,7 +284,7 @@
                         <div class="messages">
                             <div class="heading">
                                 <h4>Messages</h4>
-                                <i class="uil uil-edit"></i>
+                                <!-- <i class="uil uil-edit"></i> -->
                             </div>
                             <!-- -------------SEARCH BAR ----------------->
                             <div class="search-bar">
@@ -291,36 +293,48 @@
                                     id="message-search">
                             </div>
                             <!------------MESSAGE CATEGORY--------------->
-                            <div class="category">
+                            <!-- <div class="category">
                                 <h6 class="active">Primary</h6>
                                 <h6>General</h6>
                                 <h6 class="message-requests">Requests (7)</h6>
-                            </div>
+                            </div> -->
                             <!-- MESSAGE -->
-                            <div class="message">
-                                <div class="profile-photo">
-                                    <img src="/images/profile-7.jpg">
-                                    <div class="active"></div>
+                            <div style="overflow-y:scroll;max-height:50vh;">
+                                <div class="message">
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-7.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <div class="message-body">
+                                        <h5>Edem Quist</h5>
+                                        <p class="text-muted">Just woke up bruh</p>
+                                    </div>
                                 </div>
-                                <div class="message-body">
-                                    <h5>Edem Quist</h5>
-                                    <p class="text-muted">Just woke up bruh</p>
+                                <div class="message">
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-7.jpg">
+                                        <div class="active"></div>
+                                    </div>
+                                    <div class="message-body">
+                                        <h5>Edem Quist</h5>
+                                        <p class="text-muted">Just woke up bruh</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- MESSAGE -->
-                            <div class="message">
-                                <div class="profile-photo">
-                                    <img src="/images/profile-14.jpg">
-                                </div>
-                                <div class="message-body">
-                                    <h5>Ceccum</h5>
-                                    <p class="text-muted">Sai...</p>
+                                <!-- MESSAGE -->
+                                <div class="message">
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-14.jpg">
+                                    </div>
+                                    <div class="message-body">
+                                        <h5>Ceccum</h5>
+                                        <p class="text-muted">Sai...</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <!-- ----------- FRIEND REQUESTS --------------- -->
-                        <div class="friend-requests">
-                            <h4>Requests</h4>
+                        <h4>Requests</h4>
+                        <div class="friend-requests" style="overflow:scroll;height:50vh;">
 
                             <?php
                             include 'pages/printRequest.php';
@@ -349,5 +363,6 @@
 </body>
 <script src="./js/index.js"></script>
 <script src="./js/requestHandler.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 
 </html>
