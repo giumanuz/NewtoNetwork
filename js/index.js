@@ -13,9 +13,13 @@ const messages = document.querySelector('.messages');
 const message = messages.querySelectorAll('.message');
 const messageSearch = document.querySelector('#message-search');
 
-// LIKE
+// LIKES
 
 const hearts = document.getElementsByName('heart');
+
+// COMMENTS
+
+const commentInputs = document.getElementsByName('commentInput');
 
 // ================ SIDEBAR =================
 menuItems.forEach((item) => {
@@ -103,3 +107,17 @@ function removeLike(username, post_id) {
    xhttp.send();
 }
 
+// ======================== COMMENTS =====================
+
+
+
+commentInputs.forEach(item => {
+   item.addEventListener('keyup', function(event) {
+      if(item.value != ''){
+         item.nextElementSibling.style.display = 'block';
+      }
+      else {
+         item.nextElementSibling.style.display = 'none';
+      }
+   })
+ })
