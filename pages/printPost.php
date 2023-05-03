@@ -25,16 +25,48 @@
 
         </div>
         <div id='commentPopup" . $post_id . "' class='popup'>
-        <div class='popup-content'>
-            <h1 style='color:green;'>
-                  GeekforGeeks !
-              </h1>
-            <p>This is a popup box!</p>
-            <button id='closePopup" . $post_id ."'>
-                  Close
-              </button>
+            <div class='popup-content'>
+            <div class='headerComments'>
+                <h4>Comments</h4>
+                <button class='material-symbols-outlined topright' id='closePopup". $post_id . "'> close </button>
+            </div>
+             <div class='comments'>
+                <div class='comment'>
+                    <div class='profile-photo'>
+                        <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
+                    </div>
+                    <div class='notification-body'>
+                        <b style='margin-right:0.5rem;'> Digos </b>  Commento di prova
+                        <small class='text-muted'> 3 sec ago</small>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class='comment'>
+                    <div class='profile-photo'>
+                        <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
+                    </div>
+                    <div class='notification-body'>
+                        <b style='margin-right:0.5rem;'> Digos </b>  Commento di prova
+                        <small class='text-muted'> 3 sec ago</small>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class='comment'>
+                    <div class='profile-photo'>
+                        <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
+                    </div>
+                    <div class='notification-body'>
+                        <b style='margin-right:0.5rem;'> Digos </b>  Commento di prova
+                        <small class='text-muted'> 3 sec ago</small>
+                    </div>
+                </div>
+             </div>
+            </div>
         </div>
-    </div>
   
         <div class='action-buttons'>
             <div class='interaction-buttons'>
@@ -46,13 +78,16 @@
     <script>
     myButton". $post_id . ".addEventListener('click', function () {
         commentPopup" . $post_id .".classList.add('show');
+        document.body.style.overflow = 'hidden !important';
     });
     closePopup". $post_id .".addEventListener('click', function () {
         commentPopup" . $post_id .".classList.remove('show');
+        document.body.style.overflow = 'auto';
     });
     window.addEventListener('click', function (event) {
         if (event.target == commentPopup". $post_id . ") {
             commentPopup". $post_id .".classList.remove('show');
+            document.body.style.overflow = 'auto';
         }
     });
 </script>
