@@ -56,7 +56,7 @@ CREATE TABLE likes (
 CREATE TABLE comments (
     comment_id SERIAL PRIMARY KEY,
     post_id INTEGER NOT NULL REFERENCES posts(post_id),
-    user_id INTEGER NOT NULL REFERENCES users(username),
+    user_id VARCHAR NOT NULL REFERENCES users(username),
     comment_content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
