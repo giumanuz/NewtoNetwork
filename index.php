@@ -22,9 +22,9 @@
         header("Location: /homepage.php");
     }
 
-    include "pages/navigationBar.php";
-    include 'connection.php';
-    include 'script/convertTime.php';
+    include_once "pages/navigationBar.php";
+    include_once 'connection.php';
+    include_once 'script/convertTime.php';
     // do a query for the user
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
@@ -101,7 +101,7 @@
                         <div class="notifications-popup">
 
                             <?php
-                            include 'pages/printNotification.php';
+                            include_once 'pages/printNotification.php';
                             
                             while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
                                 $user_from = $line['user_from'];
@@ -252,7 +252,7 @@
                 <!-- ------------------ FEEDS -------------------- -->
                 <div class="feeds">
                     <?php
-                    include 'pages/printPost.php';
+                    include_once 'pages/printPost.php';
 
                     if (isset($_GET['category']) && $_GET['category'] != "") {
                         $category = $_GET['category'];
@@ -344,7 +344,7 @@
                         <div class="friend-requests" style="overflow:scroll;height:50vh;">
 
                             <?php
-                            include 'pages/printRequest.php';
+                            include_once 'pages/printRequest.php';
 
                             $query = "SELECT * FROM friend_requests WHERE reciver = $1";
                             $result = pg_query_params($dbconnession, $query, array($_SESSION['username']));
