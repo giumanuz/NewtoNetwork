@@ -121,3 +121,67 @@ commentInputs.forEach(item => {
       }
    })
  })
+
+// ======================== SEND COMMENTS =====================
+
+const commentForm = document.getElementById('comment-form');
+
+
+document.querySelectorAll('.btn-addComment').forEach(button => {
+   button.addEventListener('click', function(event) {
+      event.preventDefault();
+
+       let username = this.getAttribute('data-username');
+       let id_post = this.getAttribute('data-id_post');
+      //  take the wury selector by ID
+      const commentInput = document.getElementById('idCommentInput' + id_post);
+       let commentText = commentInput.value.trim();
+       if (commentText !== '') {
+         sendCommentToBackend(username, id_post, commentText);
+         $('#idCommentInput' + id_post).val('');
+       }
+   });
+});
+
+function sendCommentToBackend(username, id_post, commentText){
+   var xhr = new XMLHttpRequest();
+   xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+      }
+    };
+    data={
+      "username": username,
+      "id_post": id_post,
+      "text": commentText
+    };
+    data = JSON.stringify(data);
+    xhr.open('POST', '/script/addComment.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(data);
+   //  window.location.reload();
+}
+// commentForm.addEventListener('submit', (event) => {
+//   event.preventDefault();
+  
+
+  
+//   const commentInput = document.querySelector('.comment-input');
+//   const commentText = commentInput.value.trim();
+
+//   if (commentText !== '') {
+//     const xhr = new XMLHttpRequest();
+//     xhr.onreadystatechange = function() {
+//       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+//         // Handle successful response from server
+//         console.log(this.responseText);
+//       } else if (this.readyState === XMLHttpRequest.DONE && this.status !== 200) {
+//         // Handle error response from server
+//         console.error('Error:', this.status);
+//       }
+//     };
+//     xhr.open('POST', 'add-comment.php', true);
+//     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//     xhr.send('comment=' + encodeURIComponent(commentText));
+//   }
+// });
