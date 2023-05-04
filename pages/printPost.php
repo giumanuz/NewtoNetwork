@@ -2,22 +2,6 @@
     include_once "connection.php";
     include_once "script/convertTime.php";
 
-    function costructComment($text, $photoProfile, $extensionProfile, $username, $time){
-        $comment = "<div class='comment'>
-                    <div class='profile-photo'>
-                        <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
-                    </div>
-                    <div class='notification-body'>
-                        <b style='margin-right:0.5rem;'> ". $username . " </b>  ". $text . "
-                        <small class='text-muted'> ". $time . "</small>
-                    </div>
-                </div>
-
-                <hr>
-        ";
-        return $comment;
-    }
-
     function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category){
         global $dbconnession;
 
@@ -49,23 +33,9 @@
                 <h4>Comments</h4>
                 <button class='material-symbols-outlined topright' id='closePopup". $post_id . "'> close </button>
             </div>
-            <div id='comments' class='comments'> ";
+            <div id='comments$post_id' class='comments'> ";
 
-        $query = "SELECT * FROM comments WHERE post_id = $1 ORDER BY comment_id DESC";
-        $result = pg_query_params($dbconnession, $query, array($post_id)) or die("Query failed: " . pg_last_error());
-        while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-            $text = $line['comment_content'];
-            $user_id = $line['user_id'];
-            $query2 = "SELECT * FROM users WHERE username = $1";
-            $result2 = pg_query_params($dbconnession, $query2, array($user_id)) or die("Query failed: " . pg_last_error());
-            $line2 = pg_fetch_array($result2, null, PGSQL_ASSOC);
-            $photoProfile = $line2['photo'];
-            $extensionProfile = $line2['extensionphoto'];
-            $time = $line['created_at'];
-            $time = convertTime($time);
-            $send = $send . costructComment($text, $photoProfile, $extensionProfile, $username, $time);
-
-        }
+        
         
         $send = $send . "
              </div>
@@ -80,7 +50,20 @@
             </div>
         
     <script>
+
+    function showComments(post_id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open('GET', '/script/showComments.php?post_id=' + post_id , false);
+        xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhttp.send();
+
+        return xhttp.responseText;
+
+    }
+
+
     myButton". $post_id . ".addEventListener('click', function () {
+        comments$post_id.innerHTML = showComments($post_id);
         commentPopup" . $post_id .".classList.add('show');
         document.body.style.overflow = 'hidden !important';
     });
