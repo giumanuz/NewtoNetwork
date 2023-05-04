@@ -11,7 +11,7 @@
                     </div>
                     <div class='notification-body'>
                         <b style='margin-right:0.5rem;'> ". $username . " </b>  ". $text . "
-                        <small class='text-muted'> ". $time . "</small>
+                        <small class='text-muted'> ". $time . " ago</small>
                     </div>
                 </div>
 

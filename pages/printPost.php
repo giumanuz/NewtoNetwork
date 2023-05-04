@@ -2,7 +2,7 @@
     include_once "connection.php";
     include_once "script/convertTime.php";
 
-    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category){
+    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes){
         global $dbconnession;
 
         $send= "
@@ -85,14 +85,14 @@
             <span> <img src='/images/profile-10.jpg'></span>
             <span> <img src='/images/profile-4.jpg'></span>
             <span> <img src='/images/profile-15.jpg'></span>
-            <p> Liked by <b>Stocazzo</b> and <b>123 others</b></p>
+            <p> Liked by <b>Stocazzo</b> and <b>"  . $numberLikes . " others</b></p>
         </div>
 
         <div class='caption'>
             <p> <b>" . $writer . "</b>" . " "  . $content . "</p>
             <span class='harsh-tag'>#"  . $category . "</span>
         </div>
-        <div <name='input-for-comment' style='margin-top:0.85rem;z-index:1 !important;display:flex;' >
+        <div name='input-for-comment' style='margin-top:0.85rem;z-index:1 !important;display:flex;' >
             
 
             <form id='comment-form'>

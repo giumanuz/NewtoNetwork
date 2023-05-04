@@ -256,7 +256,7 @@
 
                     if (isset($_GET['category']) && $_GET['category'] != "") {
                         $category = $_GET['category'];
-                        $query = "SELECT * FROM posts WHERE category = '$category' ORDER BY created_at DESC";
+                        $query = "SELECT * FROM posts WHERE category = '$category' or writer = '$category' ORDER BY created_at DESC";
                     } else {
                         $query = "SELECT * FROM posts ORDER BY created_at DESC";
                     }
@@ -280,7 +280,11 @@
                         if (pg_num_rows($result3) == 1) {
                             $class = "active";
                         }
-                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $class, $username, $category);
+                        $query4 = "SELECT * FROM likes WHERE post_id = '$post_id'";
+                        $result4 = pg_query($dbconnession, $query4);
+                        $likes = pg_num_rows($result4);
+
+                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $class, $username, $category, $likes);
                     }
                     echo "</div>
                         </div>";
