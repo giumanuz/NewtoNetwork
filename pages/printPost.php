@@ -2,7 +2,21 @@
     include_once "connection.php";
     include_once "script/convertTime.php";
 
-    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes){
+    function printPhoto($photo, $extension){
+        return "<span> 
+                    <img src='data:image/". $extension . ";base64," . $photo . "' alt='Binary Image'>
+                </span>";
+    }
+
+    function printPhotosLike($array){
+        $send = "";
+        foreach($array as $photo){
+            $send = $send . printPhoto($photo[0], $photo[1]);
+        }
+        return $send;
+    }
+
+    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes, $arrayLike){
         global $dbconnession;
 
         $send= "
@@ -79,11 +93,9 @@
 
             
         </div>
-        <div class='liked-by'>
-            <span> <img src='/images/profile-10.jpg'></span>
-            <span> <img src='/images/profile-4.jpg'></span>
-            <span> <img src='/images/profile-15.jpg'></span>
-            <p> Liked by <b>Stocazzo</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
+        <div class='liked-by'>"
+        . printPhotosLike($arrayLike) .
+            "<p> Liked by <b>Stocazzo</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
         </div>
 
         <div class='caption'>
