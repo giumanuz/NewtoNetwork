@@ -62,6 +62,8 @@ messagesNotification.addEventListener('click', () => {
 
 // ===================== LIKES =========================
 
+// $("numberLike" +$post_id).innerHTML = calculateLikePost($post_id);
+
 hearts.forEach(item => {
    item.addEventListener('click', function(event) {
       let liked = false;
@@ -76,35 +78,46 @@ hearts.forEach(item => {
 
      if(liked) {
        item.classList.remove('active');
-       removeLike(username, post_id);
+      //  numberLike$post_id.innerHTML = removeLike(username, post_id);
+      // var x = removeLike(username, post_id);
+      // console.log(removeLike(username, post_id));
+      document.getElementById("numberLike" + post_id).innerHTML = removeLike(username, post_id);
+      // $("#numberLike" + post_id).innerHTML = removeLike(username, post_id);
      }
      else {
        item.classList.add('active');
-       sendLike(username, post_id);
+      //  numberLike$post_id.innerHTML = sendLike(username, post_id);
+      // var x = sendLike(username, post_id);
+      // console.log(sendLike(username, post_id));
+      document.getElementById("numberLike" + post_id).innerHTML = sendLike(username, post_id);
+      //  $("#numberLike" + post_id).innerHTML = sendLike(username, post_id);
      }
    })
  })
 
+//  function calculateLikePost(post_id) {
+//         var xhttp = new XMLHttpRequest();
+//         xhttp.open('GET', '/script/calculateLike.php?post_id=' + post_id , false);
+//         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//         xhttp.send();
+
+//         return xhttp.responseText;
+//     }
+
  function sendLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
-       console.log(this.responseText);
-     }
-   };
-   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, false);
    xhttp.send();
+
+   return xhttp.responseText;
 }
 
 function removeLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
-       console.log(this.responseText);
-     }
-   };
-   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, false);
    xhttp.send();
+
+   return xhttp.responseText;
 }
 
 // ======================== COMMENTS =====================

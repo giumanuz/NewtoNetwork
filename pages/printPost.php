@@ -58,9 +58,7 @@
         xhttp.send();
 
         return xhttp.responseText;
-
     }
-
 
     myButton". $post_id . ".addEventListener('click', function () {
         comments$post_id.innerHTML = showComments($post_id);
@@ -85,7 +83,7 @@
             <span> <img src='/images/profile-10.jpg'></span>
             <span> <img src='/images/profile-4.jpg'></span>
             <span> <img src='/images/profile-15.jpg'></span>
-            <p> Liked by <b>Stocazzo</b> and <b>"  . $numberLikes . " others</b></p>
+            <p> Liked by <b>Stocazzo</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
         </div>
 
         <div class='caption'>
