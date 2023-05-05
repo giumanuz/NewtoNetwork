@@ -47,7 +47,7 @@ body{
 }
 
 .container{
-   width: 80%;
+   width: 90%;
    margin: 0 auto;
 }
 
@@ -249,7 +249,7 @@ main .container .left .profile{
 /* ==================== MIDDLE ======================*/
 
 .middle {
-   overflow-y: scroll;
+   overflow: scroll;
    height: 90vh;
 }
 
@@ -371,14 +371,6 @@ margin-left: -0.6rem;
    align-items: center;
 }
 
-/* .headerComments button{
-   
-   position: absolute;
-   margin-left: 10rem;
-   background: none;
-   position:var(--sticky-top-left);
-
-} */
 
 .headerComments .btn-addComment{
    border: none;
@@ -412,6 +404,7 @@ bottom: 0;
    background: var(--color-white);
    border-radius: var(--card-border-radius);
    padding: var(--card-padding);
+   border: 1px solid var(--color-primary);
 }
 
 .right .messages .heading{
@@ -430,7 +423,9 @@ bottom: 0;
    margin-bottom: 1rem;
    width: min-content;
 }
-
+#message-search:focus{
+   outline: none;
+ }
 .right .messages .category{
    display: flex;
    justify-content: space-between;
@@ -475,7 +470,7 @@ bottom: 0;
    font-size: 0.8rem;
 }
 
-.right .messages .message .profile-photo .active{
+/* .right .messages .message .profile-photo .active{
    width: 0.8rem;
    height: 0.8rem;
    border: 3px solid var(--color-white);
@@ -484,7 +479,7 @@ bottom: 0;
    position: absolute;
    bottom :0;
    right: 0;
-}
+} */
 
 /* ============== FRIEND REQUESTS ==================== */
 .right .friend-requests{
@@ -584,31 +579,43 @@ bottom: 0;
 }
 
 /* COMMENT POPUP */
-.popup {
+.comment-popup {
    position: fixed;
    z-index: 1;
    left: 0;
    top: 0;
    width: 100vw;
    height: 100vh;
-   overflow: hidden;
+   overflow-y: hidden;
    background-color: rgba(0, 0, 0, 0.4);
-   
    display: none;
 }
 .popup-content {
    background-color: white;
    border-radius: var(--border-radius);
-   margin: 15rem 25rem;
+   margin: 20% 30%;
    padding: 20px;
    border: 2px solid var(--color-primary);
    width: 40%;
    /* font-weight: bolder; */
 }
-.popup-content button {
+.headerComments button {
    display: block;
    margin: 0 auto;
+   background: none !important;
 }
 .show {
-   display: block;
+    display: block;
+}
+
+.friends-popup {
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100vw;
+   height: 100vh;
+   overflow-y: hidden;
+   background-color: rgba(0, 0, 0, 0.4);
+   display: none;
 }

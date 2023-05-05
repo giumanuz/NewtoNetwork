@@ -5,7 +5,8 @@
 
 
     function costructComment($text, $photoProfile, $extensionProfile, $username, $time){
-        $comment = "<div class='comment'>
+        $comment = " 
+                    <div class='comment'>
                     <div class='profile-photo'>
                         <img src='data:image/". $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>
                     </div>

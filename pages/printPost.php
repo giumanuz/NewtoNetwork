@@ -27,12 +27,14 @@
             <img src='data:image/jpg;base64," . $photo . "' alt='Binary Image'>
 
         </div>
-        <div id='commentPopup" . $post_id . "' class='popup'>
+        
+        <div id='commentPopup" . $post_id . "' class='comment-popup'>
             <div class='popup-content'>
             <div class='headerComments'>
                 <h4>Comments</h4>
                 <button class='material-symbols-outlined topright' id='closePopup". $post_id . "'> close </button>
             </div>
+            <hr>
             <div id='comments$post_id' class='comments'> ";
 
         
@@ -61,18 +63,18 @@
     }
 
     myButton". $post_id . ".addEventListener('click', function () {
+        
         comments$post_id.innerHTML = showComments($post_id);
         commentPopup" . $post_id .".classList.add('show');
-        document.body.style.overflow = 'hidden !important';
     });
     closePopup". $post_id .".addEventListener('click', function () {
         commentPopup" . $post_id .".classList.remove('show');
-        document.body.style.overflow = 'auto';
+        
     });
     window.addEventListener('click', function (event) {
         if (event.target == commentPopup". $post_id . ") {
             commentPopup". $post_id .".classList.remove('show');
-            document.body.style.overflow = 'auto';
+            
         }
     });
 </script>
@@ -94,7 +96,7 @@
             
 
                 <input name='commentInput' type='text' id='idCommentInput$post_id' class='comment-input' placeholder='Leave a comment' aria-label='Leave a comment' aria-describedby='button-addon2'>
-                <button name='sendComment' style='margin-left:1rem;background-color:white;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
+                <button name='sendComment' style='margin-left:1rem;background-color:white;display:none;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
                     send
                 </button>
 

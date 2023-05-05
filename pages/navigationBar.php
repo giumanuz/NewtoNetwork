@@ -43,7 +43,7 @@
                <a class="nav-link" href="/pages/addQuote.php">Add Quote</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/pages/addFriend.php">Add Friend</a>
+               <button class="nav-link" style="background:none;border:none;" id='makeFriendsButton' >Add Friend</button>
             </li>
             <!-- <li class="nav-item">
                <a class="nav-link" href="/index.php/#modalPost">Add Post</a>

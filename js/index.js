@@ -105,16 +105,16 @@ function removeLike(username, post_id) {
 
 
 
-// commentInputs.forEach(item => {
-//    item.addEventListener('keyup', function(event) {
-//       if(item.value != ''){
-//          item.nextElementSibling.style.display = 'block';
-//       }
-//       else {
-//          item.nextElementSibling.style.display = 'none';
-//       }
-//    })
-//  })
+commentInputs.forEach(item => {
+   item.addEventListener('keyup', function(event) {
+      if(item.value != ''){
+         item.nextElementSibling.style.display = 'block';
+      }
+      else {
+         item.nextElementSibling.style.display = 'none';
+      }
+   })
+ })
 
 // ======================== SEND COMMENTS =====================
 
@@ -179,3 +179,18 @@ function sendCommentToBackend(username, id_post, commentText){
 //     xhr.send('comment=' + encodeURIComponent(commentText));
 //   }
 // });
+
+
+// ==================== MAKE FRIENDS ====================
+
+const makefriendsButton = document.getElementById('makeFriendsButton');
+const makefriendsPopup = document.getElementById('friendsPopup');
+const makefriendsClose = document.getElementById('closefriendsPopup');
+makefriendsButton.addEventListener('click', () => {
+   makefriendsPopup.style.display = 'block';
+   // document.body.style.overflow = 'hidden !important';
+})
+makefriendsClose.addEventListener('click', () => {
+   makefriendsPopup.style.display = 'none';
+   // document.body.style.overflow = 'initial';
+})

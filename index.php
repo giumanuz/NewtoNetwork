@@ -55,8 +55,8 @@
 
     ?>
     <!----------- MAIN ------------->
-    <main>
-        <div class="container">
+    <main >
+        <div class="container" >
             <!--======== LEFT ========-->
             <div class="left">
                 <a class="profile">
@@ -241,16 +241,25 @@
 
                 ?>
                 <!-- ----------------- END OF QUOTE OF THE DAY --------------- -->
-                <!-- <form class="create-post" action="">
-                    <div class="profile-photo">
-                       <img src="/images/profile-1.jpg" alt="">
-                    </div>
-                    <input type="text" placeholder="What's on your mind, Diana?" id="create-post">
-                    <input type="submit" value="Post" class="btn btn-primary">
-                    
-                    </form> -->
+
                 <!-- ------------------ FEEDS -------------------- -->
-                <div class="feeds">
+                
+                    <div class="feeds">
+                    <div id='friendsPopup' class='friends-popup'>
+                        <div class='popup-content'>
+                            <div class='headerComments'>
+                                <h4>Make new friends </h4>
+                                <button class='material-symbols-outlined topright' id='closefriendsPopup'> close </button>
+                            </div>
+                            <div class="search-bar">
+                                <i class="uil uil-search"></i>
+                                <input type="search" style="width: 10rem;margin-top:1rem;" placeholder="Search messages"
+                                    id="message-search">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
                     <?php
                     include_once 'pages/printPost.php';
 
