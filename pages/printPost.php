@@ -93,12 +93,10 @@
         <div name='input-for-comment' style='margin-top:0.85rem;z-index:1 !important;display:flex;' >
             
 
-            <form id='comment-form'>
                 <input name='commentInput' type='text' id='idCommentInput$post_id' class='comment-input' placeholder='Leave a comment' aria-label='Leave a comment' aria-describedby='button-addon2'>
-                <button type='submit' name='sendComment' style='margin-left:1rem;background-color:white;display:none;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
+                <button name='sendComment' style='margin-left:1rem;background-color:white;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
                     send
                 </button>
-            </form>
 
         </div>
         

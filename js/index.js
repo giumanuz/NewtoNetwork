@@ -62,8 +62,6 @@ messagesNotification.addEventListener('click', () => {
 
 // ===================== LIKES =========================
 
-// $("numberLike" +$post_id).innerHTML = calculateLikePost($post_id);
-
 hearts.forEach(item => {
    item.addEventListener('click', function(event) {
       let liked = false;
@@ -78,31 +76,14 @@ hearts.forEach(item => {
 
      if(liked) {
        item.classList.remove('active');
-      //  numberLike$post_id.innerHTML = removeLike(username, post_id);
-      // var x = removeLike(username, post_id);
-      // console.log(removeLike(username, post_id));
       document.getElementById("numberLike" + post_id).innerHTML = removeLike(username, post_id);
-      // $("#numberLike" + post_id).innerHTML = removeLike(username, post_id);
      }
      else {
        item.classList.add('active');
-      //  numberLike$post_id.innerHTML = sendLike(username, post_id);
-      // var x = sendLike(username, post_id);
-      // console.log(sendLike(username, post_id));
       document.getElementById("numberLike" + post_id).innerHTML = sendLike(username, post_id);
-      //  $("#numberLike" + post_id).innerHTML = sendLike(username, post_id);
      }
    })
  })
-
-//  function calculateLikePost(post_id) {
-//         var xhttp = new XMLHttpRequest();
-//         xhttp.open('GET', '/script/calculateLike.php?post_id=' + post_id , false);
-//         xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//         xhttp.send();
-
-//         return xhttp.responseText;
-//     }
 
  function sendLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
@@ -124,16 +105,16 @@ function removeLike(username, post_id) {
 
 
 
-commentInputs.forEach(item => {
-   item.addEventListener('keyup', function(event) {
-      if(item.value != ''){
-         item.nextElementSibling.style.display = 'block';
-      }
-      else {
-         item.nextElementSibling.style.display = 'none';
-      }
-   })
- })
+// commentInputs.forEach(item => {
+//    item.addEventListener('keyup', function(event) {
+//       if(item.value != ''){
+//          item.nextElementSibling.style.display = 'block';
+//       }
+//       else {
+//          item.nextElementSibling.style.display = 'none';
+//       }
+//    })
+//  })
 
 // ======================== SEND COMMENTS =====================
 
