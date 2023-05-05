@@ -113,7 +113,7 @@ main .container .left{
 
 }
 
-main .container .left .profile{
+.profile{
    /* padding: var(--card-padding); */
    background: var(--color-white);
    border-radius: var(--card-border-radius);
@@ -593,10 +593,11 @@ bottom: 0;
 .popup-content {
    background-color: white;
    border-radius: var(--border-radius);
-   margin: 20% 30%;
+   margin: 15% 30%;
    padding: 20px;
    border: 2px solid var(--color-primary);
    width: 40%;
+   overflow-y: scroll;
    /* font-weight: bolder; */
 }
 .headerComments button {

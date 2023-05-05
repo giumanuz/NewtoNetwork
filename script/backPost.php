@@ -25,9 +25,10 @@
         }
 
         header("Location: /index.php");
-    }else
+    }else {
         // print the error
         echo pg_last_error($dbconnession);
         header("Location: /pages/createPost.php?status=errorUpload");
+    }
 
 ?>

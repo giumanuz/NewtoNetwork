@@ -194,3 +194,26 @@ makefriendsClose.addEventListener('click', () => {
    makefriendsPopup.style.display = 'none';
    // document.body.style.overflow = 'initial';
 })
+
+
+// ======================= SEARCH PROFILES =========================
+
+const profileSearch = document.querySelector('#profile-search');
+const profile = document.querySelectorAll('.profile-to-search');
+
+const searchProfile = () => {
+   const val =  profileSearch.value.toLowerCase();
+   profile.forEach(user => {
+      let username = user.querySelector('p').textContent.toLowerCase();
+      let name = user.querySelector('h4').textContent.toLowerCase();
+      if(username.indexOf(val) != -1 || name.indexOf(val) != -1){
+         user.style.display='flex';
+      } else{
+         user.style.display='none';
+      }
+   })
+}
+
+// search chat
+
+profileSearch.addEventListener('keyup', searchProfile);
