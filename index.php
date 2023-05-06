@@ -234,7 +234,7 @@
                 
                     <div class="feeds">
                     <div id='friendsPopup' class='friends-popup'>
-                        <div class='popup-content' style='max-height:30rem;'>
+                        <div class='popup-content' style='max-height:25rem;'>
                             <div class='headerComments'>
                                 <h4>Make new friends </h4>
                                 <button class='material-symbols-outlined topright' id='closefriendsPopup'> close </button>
@@ -258,6 +258,19 @@
                                     $first_name2 = $line2['first_name'];
                                     $extensionProfile = $line2['extensionphoto'];
                                     $surname2 = $line2['surname'];
+                                    $query3 = "SELECT * FROM friend_requests WHERE (sender = $1 AND reciver = $2) OR (sender = $2 AND reciver = $1)";
+                                    $result3 = pg_query_params($dbconnession,$query3,array($username,$username2)) or die("Query failed: " . pg_last_error());
+                                    $class = '';
+                                    if($line3 = pg_fetch_array($result3, null, PGSQL_ASSOC)) {
+                                            $class = 'invisible';
+                                    }
+
+                                    $query3 = "SELECT * FROM friends WHERE (user_id = $1 AND friend_user_id = $2) OR (user_id = $2 AND friend_user_id = $1)";
+                                    $result3 = pg_query_params($dbconnession,$query3,array($username,$username2)) or die("Query failed: " . pg_last_error());
+                                    if($line3 = pg_fetch_array($result3, null, PGSQL_ASSOC)) {
+                                            continue;
+                                    }
+                                    
 
                                     $toShow = $toShow . " 
                                     <div class='profile profile-to-search'>
@@ -271,6 +284,11 @@
                                             <p class='text-muted'>
                                                 @" . $username2 . "
                                             </p>
+                                        </div>
+                                        <div class='buttons'>
+                                            <button name='addButton' usern='". $username . "' friend='". $username2 . "' class='material-symbols-outlined ". $class ."' style='left:4rem;background:none;border:none;text-align:right;'>
+                                            add_circle
+                                            </button>
                                         </div>
                                     </div>
                 

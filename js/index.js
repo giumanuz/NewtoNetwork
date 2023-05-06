@@ -217,3 +217,25 @@ const searchProfile = () => {
 // search chat
 
 profileSearch.addEventListener('keyup', searchProfile);
+
+
+// ========================= ADD FRIENDS =============================
+
+const addButtons = document.getElementsByName('addButton');
+
+addButtons.forEach(item => {
+   item.addEventListener('click', function(event) {
+      let friend = this.getAttribute('friend');
+      let me = this.getAttribute('usern');
+      addFriend(me,friend);
+      this.style.display = 'none';
+   })
+ })
+
+ function addFriend(me, friend) {
+   var xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "/script/backAddFriend.php?me=" + me + "&friend=" + friend, false);
+   xhttp.send();
+
+   return xhttp.responseText;
+}

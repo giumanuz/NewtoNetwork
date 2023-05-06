@@ -620,3 +620,11 @@ bottom: 0;
    background-color: rgba(0, 0, 0, 0.4);
    display: none;
 }
+
+#profile-search:focus{
+   outline: none;
+ }
+
+.invisible {
+   display: none;
+}
