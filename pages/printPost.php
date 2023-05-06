@@ -93,8 +93,8 @@
 
             
         </div>
-        <div class='liked-by' >"
-         . printPhotosLike($arrayLike) . "
+        <div class='liked-by' >
+        <div id='photoLike$post_id' style='display: flex;' >  " . printPhotosLike($arrayLike) . " </div>
             <p> Liked by <b id='userLike$post_id'>" . $userOfLiker . "</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
         </div>
 
