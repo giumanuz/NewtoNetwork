@@ -60,3 +60,11 @@ CREATE TABLE comments (
     comment_content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE messages (
+    message_id SERIAL PRIMARY KEY,
+    sender VARCHAR NOT NULL REFERENCES users(username),
+    receiver VARCHAR NOT NULL REFERENCES users(username),
+    message_content TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+);

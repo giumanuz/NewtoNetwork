@@ -26,23 +26,13 @@
                 You can't follow yourself!
                 </div>";
             }
-            if ($_GET['status'] == "errorAlreadySent") {
-                echo "<div class='alert alert-danger' role='alert'>
-                You already sent a request to this user!
-                </div>";
-            }
-            if ($_GET['status'] == "errorAlreadyFriend") {
-                echo "<div class='alert alert-danger' role='alert'>
-                You are already friend with this user!
-                </div>";
-            }
         }
     ?>
 
     <div class="container">
         <div class="content">
 
-            <form action="/script/backAddFriend.php" method="post" enctype="multipart/form-data">
+            <form action="/script/backAddMessage.php" method="post" enctype="multipart/form-data">
                 <div class="user-details">
                     <div class="input-box">
                         <label>
@@ -50,10 +40,16 @@
                             <input type="text" placeholder="Insert the friend" name="friend" required>
                         </label>
                     </div>
+                    <div class="input-box">
+                        <label>
+                            <span class="details">Message</span>
+                            <input type="text" placeholder="Insert the message" name="message" required>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="button">
-                    <input type="submit" value="Add Post">
+                    <input type="submit" value="Send Message">
                 </div>
             </form>
         </div>
