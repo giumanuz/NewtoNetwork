@@ -43,7 +43,7 @@
                <a class="nav-link" href="/pages/addQuote.php">Add Quote</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="/pages/addMessage.php">Add Message</a>
+               <button class="nav-link" style="background:none;border:none;" id='writeMessageButton' >Send a message</button>
             </li>
             <li class="nav-item">
                <button class="nav-link" style="background:none;border:none;" id='makeFriendsButton' >Add Friend</button>

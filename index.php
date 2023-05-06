@@ -160,10 +160,6 @@
                         <h3>Messages </h3>
                     </a>
                     
-                    <a class="menu-item">
-                        <span> <i class="uil uil-chart-line"></i> </span>
-                        <h3>Analytics </h3>
-                    </a>
                 </div>
                 <!---------END OF SIDEBAR--------->
                 <!-- Create trigger modal -->
@@ -382,6 +378,25 @@
                         </div>";
 
                     ?>
+                    <div id='messagePopup' class='comment-popup' style='overflow:hidden;'>
+                        <div class='popup-content' style='overflow:hidden;'>
+                        <div class='headerComments' style='overflow:hidden;'>
+                            <h4>Write a message</h4>
+                            <button class='material-symbols-outlined topright' id='messageClosePopup'> close </button>
+                        </div>
+                        <hr>
+                        <form name='messageForm' action="/script/backAddMessage.php" method="post" enctype="multipart/form-data">
+                        <input name='friend' type='text' id='messageReceiver' class='comment-input' placeholder='Receiver' >
+                        
+                        <input name='message' type='text' id='messageContent' class='message-input' placeholder='Message content' style='margin-top:1.5rem;'></input>
+                        <br>
+                        <button name='messageSend' type="button submit" class="btn btn-primary"
+                    style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
+                     Send
+                </button>
+                </form>
+                    </div>
+                    </div>
                     <!--======== RIGHT ========-->
                     <div class="right">
                         <div class="messages">

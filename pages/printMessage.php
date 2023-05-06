@@ -9,7 +9,7 @@
             </div>
             <div class='message-body'>
                 <h5>" . $sender . "</h5>
-                <p class='text-muted'> . $message . </p>
+                <p class='text-muted'>" . $message . "</p>
             </div>
         </div>
         ";

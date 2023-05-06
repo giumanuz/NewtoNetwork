@@ -19,9 +19,7 @@
                 <small>Terni, "  . $time . " ago</small>
             </div>
             </div>
-            <span class='edit'>
-            <i class='uil uil-ellipsis-h'></i>
-            </span>
+            
         </div>
 
         <div class='photo'>
@@ -38,7 +36,6 @@
             <hr>
             <div id='comments$post_id' class='comments'> ";
 
-        
         
         $send = $send . "
              </div>
@@ -82,7 +79,7 @@
 
             
         </div>
-        <div class='liked-by' >
+        <div class='liked-by' id='likedBy". $post_id ."' >
         <div id='photoLike$post_id' style='display: flex;' >  " . printPhotosLike($arrayLike) . " </div>
             <p> Liked by <b id='userLike$post_id'>" . $userOfLiker . "</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
         </div>

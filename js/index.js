@@ -82,6 +82,7 @@ hearts.forEach(item => {
        item.classList.add('active');
       document.getElementById("numberLike" + post_id).innerHTML = sendLike(username, post_id);
      }
+     
      document.getElementById("userLike" + post_id).innerHTML = getUserLike(post_id);
      document.getElementById("photoLike" + post_id).innerHTML = printLikePhotos(post_id);
    })
@@ -107,7 +108,7 @@ hearts.forEach(item => {
 
  function sendLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, false);
+   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, true);
    xhttp.send();
 
    return xhttp.responseText;
@@ -115,7 +116,7 @@ hearts.forEach(item => {
 
 function removeLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, false);
+   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, true);
    xhttp.send();
 
    return xhttp.responseText;
@@ -259,3 +260,20 @@ addButtons.forEach(item => {
 
    return xhttp.responseText;
 }
+
+
+// ========================= WRITE AND SEND MESSAGE ======================
+
+const writeMessageButton = document.getElementById('writeMessageButton');
+const messagePopup = document.getElementById('messagePopup');
+const messageClose = document.getElementById('messageClosePopup');
+writeMessageButton.addEventListener('click', () => {
+   messagePopup.style.display = 'block';
+   // document.body.style.overflow = 'hidden !important';
+})
+messageClose.addEventListener('click', () => {
+   messagePopup.style.display = 'none';
+   // document.body.style.overflow = 'initial';
+})
+
+
