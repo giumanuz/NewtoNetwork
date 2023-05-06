@@ -82,8 +82,18 @@ hearts.forEach(item => {
        item.classList.add('active');
       document.getElementById("numberLike" + post_id).innerHTML = sendLike(username, post_id);
      }
+     document.getElementById("userLike" + post_id).innerHTML = getUserLike(post_id);
    })
  })
+
+ function getUserLike(post_id) {
+   var xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "/script/getUserLike.php?post_id=" + post_id, false);
+   xhttp.send();
+
+   return xhttp.responseText;
+}
+
 
  function sendLike(username, post_id) {
    var xhttp = new XMLHttpRequest();

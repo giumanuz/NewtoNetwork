@@ -298,7 +298,13 @@
                             $arrayLike[] = array($photoOfLiker, $extensionOfLiker);
                         }
 
-                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $class, $username, $category, $likes, $arrayLike);
+                        $query6 = "SELECT * FROM likes WHERE post_id = $1::integer ORDER BY RANDOM() LIMIT 1";
+                        $result6 = pg_query_params($dbconnession, $query6, array($post_id));
+                        $line6 = pg_fetch_array($result6, null, PGSQL_ASSOC);
+                        $userOfLiker = $line6['user_id'];
+
+
+                        echo printPost($post_id, $writer, $content, $photo, $time, $photoProfileFeed, $extensionProfileFeed, $class, $username, $category, $likes, $arrayLike , $userOfLiker);
                     }
                     echo "</div>
                         </div>";

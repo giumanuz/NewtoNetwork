@@ -16,7 +16,7 @@
         return $send;
     }
 
-    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes, $arrayLike){
+    function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes, $arrayLike, $userOfLiker){
         global $dbconnession;
 
         $send= "
@@ -93,9 +93,9 @@
 
             
         </div>
-        <div class='liked-by'>"
-        . printPhotosLike($arrayLike) .
-            "<p> Liked by <b>Stocazzo</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
+        <div class='liked-by' >"
+         . printPhotosLike($arrayLike) . "
+            <p> Liked by <b id='userLike$post_id'>" . $userOfLiker . "</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
         </div>
 
         <div class='caption'>
