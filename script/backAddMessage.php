@@ -42,6 +42,13 @@
         return;
     }
 
+    $query = "INSERT INTO notifications (user_from, user_to, notification_content) VALUES ($1, $2, $3)";
+    $result = pg_query_params($dbconnession, $query, array($username, $friend, "sent you a new message.")) or die("Query failed: " . pg_last_error());
+    if (!$result){
+        print_r("Error: notification not sent");
+        return;
+    }
+
     header("Location: /index.php");
 
     pg_close($dbconnession);
