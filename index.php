@@ -78,6 +78,9 @@
         $query6 = "SELECT * FROM likes WHERE post_id = $1::integer ORDER BY RANDOM() LIMIT 1";
         $result6 = pg_query_params($dbconnession, $query6, array($post_id));
         $line6 = pg_fetch_array($result6, null, PGSQL_ASSOC);
+        if ($line6 == false) {
+            return null;
+        }
         $userOfLiker = $line6['user_id'];
         
         return $userOfLiker;
