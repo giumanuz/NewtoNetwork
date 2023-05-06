@@ -125,16 +125,16 @@ function removeLike(username, post_id) {
 
 
 
-// commentInputs.forEach(item => {
-//    item.addEventListener('keyup', function(event) {
-//       if(item.value != ''){
-//          item.nextElementSibling.style.display = 'block';
-//       }
-//       else {
-//          item.nextElementSibling.style.display = 'none';
-//       }
-//    })
-//  })
+commentInputs.forEach(item => {
+   item.addEventListener('keyup', function(event) {
+      if(item.value != ''){
+         item.nextElementSibling.style.display = 'block';
+      }
+      else {
+         item.nextElementSibling.style.display = 'none';
+      }
+   })
+ })
 
 // ======================== SEND COMMENTS =====================
 
@@ -199,3 +199,63 @@ function sendCommentToBackend(username, id_post, commentText){
 //     xhr.send('comment=' + encodeURIComponent(commentText));
 //   }
 // });
+
+
+// ==================== MAKE FRIENDS ====================
+
+const makefriendsButton = document.getElementById('makeFriendsButton');
+const makefriendsPopup = document.getElementById('friendsPopup');
+const makefriendsClose = document.getElementById('closefriendsPopup');
+makefriendsButton.addEventListener('click', () => {
+   makefriendsPopup.style.display = 'block';
+   // document.body.style.overflow = 'hidden !important';
+})
+makefriendsClose.addEventListener('click', () => {
+   makefriendsPopup.style.display = 'none';
+   // document.body.style.overflow = 'initial';
+})
+
+
+// ======================= SEARCH PROFILES =========================
+
+const profileSearch = document.querySelector('#profile-search');
+const profile = document.querySelectorAll('.profile-to-search');
+
+const searchProfile = () => {
+   const val =  profileSearch.value.toLowerCase();
+   profile.forEach(user => {
+      let username = user.querySelector('p').textContent.toLowerCase();
+      let name = user.querySelector('h4').textContent.toLowerCase();
+      if(username.indexOf(val) != -1 || name.indexOf(val) != -1){
+         user.style.display='flex';
+      } else{
+         user.style.display='none';
+      }
+   })
+}
+
+// search chat
+
+profileSearch.addEventListener('keyup', searchProfile);
+
+
+// ========================= ADD FRIENDS =============================
+
+const addButtons = document.getElementsByName('addButton');
+
+addButtons.forEach(item => {
+   item.addEventListener('click', function(event) {
+      let friend = this.getAttribute('friend');
+      let me = this.getAttribute('usern');
+      addFriend(me,friend);
+      this.style.display = 'none';
+   })
+ })
+
+ function addFriend(me, friend) {
+   var xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "/script/backAddFriend.php?me=" + me + "&friend=" + friend, false);
+   xhttp.send();
+
+   return xhttp.responseText;
+}
