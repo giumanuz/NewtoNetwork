@@ -1,20 +1,7 @@
 <?php
     include_once "connection.php";
     include_once "script/convertTime.php";
-
-    function printPhoto($photo, $extension){
-        return "<span> 
-                    <img src='data:image/". $extension . ";base64," . $photo . "' alt='Binary Image'>
-                </span>";
-    }
-
-    function printPhotosLike($array){
-        $send = "";
-        foreach($array as $photo){
-            $send = $send . printPhoto($photo[0], $photo[1]);
-        }
-        return $send;
-    }
+    include_once "script/printPhoto.php";
 
     function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes, $arrayLike, $userOfLiker){
         global $dbconnession;

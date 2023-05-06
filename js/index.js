@@ -83,8 +83,18 @@ hearts.forEach(item => {
       document.getElementById("numberLike" + post_id).innerHTML = sendLike(username, post_id);
      }
      document.getElementById("userLike" + post_id).innerHTML = getUserLike(post_id);
+     document.getElementById("photoLike" + post_id).innerHTML = printLikePhotos(post_id);
    })
  })
+
+   function printLikePhotos(post_id) {
+
+   var xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "/script/printLikePhotos.php?post_id=" + post_id, false);
+   xhttp.send();
+
+   return xhttp.responseText;
+}
 
  function getUserLike(post_id) {
    var xhttp = new XMLHttpRequest();
