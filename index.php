@@ -88,9 +88,11 @@
 
 
     ?>
-    <!----------- MAIN ------------->
-    <main >
-        <div class="container" >
+
+
+<!----------- MAIN ------------->
+<main >
+    <div class="container" >
             <!--======== LEFT ========-->
             <div class="left">
                 <a class="profile">
@@ -385,16 +387,21 @@
                             <button class='material-symbols-outlined topright' id='messageClosePopup'> close </button>
                         </div>
                         <hr>
-                        <form name='messageForm' action="/script/backAddMessage.php" method="post" enctype="multipart/form-data">
-                        <input name='friend' type='text' id='messageReceiver' class='comment-input' placeholder='Receiver' >
-                        
-                        <input name='message' type='text' id='messageContent' class='message-input' placeholder='Message content' style='margin-top:1.5rem;'></input>
-                        <br>
-                        <button name='messageSend' type="button submit" class="btn btn-primary"
-                    style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
-                     Send
-                </button>
-                </form>
+                        <form name='messageForm'  id="messageFormId">
+                            <input name='friend' type='text' id='messageReceiver' class='comment-input' placeholder='Receiver' >
+                            
+                            <input name='message' type='text' id='messageContent' class='message-input' placeholder='Message content' style='margin-top:1.5rem;'></input>
+                            <br>
+                            <button name='messageSend' type="button submit" class="btn btn-primary"
+                                style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
+                                Send
+                            </button>
+                        </form>
+                    
+                    <div class="alert alert-danger fade" role="alert" id="errorAlert" style="margin-top: 100px">
+                        <strong>Error!</strong> <span id="errorAlertText"> </span>
+                    </div>
+
                     </div>
                     </div>
                     <!--======== RIGHT ========-->

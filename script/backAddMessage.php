@@ -3,21 +3,23 @@
         header("Location: /pages/login.php");
     }
 
-    if (!isset($_POST['friend']) || !isset($_POST['message'])){
-        print_r("Error: missing data");
-        return;
-    }
     if (session_status() != PHP_SESSION_ACTIVE) {
         session_start();
     }
     include "../connection.php";
 
-    $friend = $_POST['friend'];
-    $message = $_POST['message'];
-    $username = $_SESSION['username'];
+    $data= json_decode(file_get_contents('php://input'), true);
+    $username = $_SESSION['username'];  
+    $friend = $data['friend'];
+    $message = $data['message'];
 
     if ($friend == $username){
         print_r("Error: you can't send a message to yourself");
+        return;
+    }
+
+    if ($message == ""){
+        print_r("Error: you can't send an empty message");
         return;
     }
 
@@ -49,7 +51,7 @@
         return;
     }
 
-    header("Location: /index.php");
+    print_r("success");
 
     pg_close($dbconnession);
 

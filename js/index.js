@@ -277,3 +277,38 @@ messageClose.addEventListener('click', () => {
 })
 
 
+
+// ========================= SEND MESSAGE ======================
+
+$("#messageFormId").submit(function (event) {
+   event.preventDefault();
+   sendMessageServer();
+   console.log("Message sent");
+});
+
+
+function sendMessageServer() {
+   var data = {
+         "friend": $("#messageReceiver").val(),
+         "message": $("#messageContent").val(),
+   };
+   $.ajax({
+       type: "POST",
+       url: "/script/backAddMessage.php",
+       data: JSON.stringify(data),
+       success: function (response) {
+           if (response === "success") {
+               window.location.href = "/index.php";
+           } else {
+               showAlertWithError(response);
+           }
+       },
+   });
+}
+
+function showAlertWithError(errorText) {
+   $("#errorAlertText").html(errorText);
+   $("#errorAlert").addClass('show');
+}
+
+
