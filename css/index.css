@@ -214,13 +214,16 @@ main .container .left{
    position: absolute;
    top: 0;
    left: 110%;
-   background: var(--color-white);
+   background: rgb(240, 239, 239);
    border-radius: var(--card-border-radius);
    width: 30rem;
    padding: var(--card-padding);
    box-shadow: 0 0 2rem hsl(var(--color-primary), 75%, 60% 25%);
    z-index: 10000;
    display: none;
+   color: var(--color-black);
+   min-height: 3rem;
+   
 }
 
 .left .notifications-popup::before{
@@ -228,7 +231,7 @@ main .container .left{
    width: 1.2rem;
    height: 1.2rem;
    display: block;
-   background: var(--color-white);
+   background: rgb(240, 239, 239);
    position: absolute;
    left: -0.6rem;
    transform: rotate(45deg);
@@ -243,6 +246,11 @@ main .container .left{
 
 .left .notifications-popup small{
    display:block;
+
+}
+
+.left .notification-body b {
+   color: var(--color-primary);
 }
 
 

@@ -24,11 +24,18 @@ const commentInputs = document.getElementsByName('commentInput');
 // ================ SIDEBAR =================
 menuItems.forEach((item) => {
   item.addEventListener('click', () => {
+    let listNot= document.querySelector('#notifications').classList;
+    if(item.id != 'notifications' && listNot.contains('active')){
+      document.querySelector('.notifications-popup').innerHTML = '';
+      clearNotifications();
+    }
     changeActiveItem();
     item.classList.add('active');
     if(item.id != 'notifications'){
+      document.querySelector('.middle').style.zIndex = '0';
       document.querySelector('.notifications-popup').style.display = 'none';
     } else{
+      document.querySelector('.middle').style.zIndex = '-1';
       document.querySelector('.notifications-popup').style.display = 'block';
       // document.querySelector('#notifications .notifications-count').style.display = 'none';
     }
@@ -309,6 +316,14 @@ function sendMessageServer() {
 function showAlertWithError(errorText) {
    $("#errorAlertText").html(errorText);
    $("#errorAlert").addClass('show');
+}
+
+// ================ CLEAR NOTIFICATIONS ==================
+
+function clearNotifications() {
+   var xhttp = new XMLHttpRequest();
+   xhttp.open("GET", "/script/clearNotifications.php", true);
+   xhttp.send();
 }
 
 

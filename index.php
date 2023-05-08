@@ -95,7 +95,7 @@
     <div class="container" >
             <!--======== LEFT ========-->
             <div class="left">
-                <a class="profile">
+                <a class="profile" style="">
                     <div class="profile-photo">
                         <?php
                         echo " <img src='data:image/" . $extensionProfile . ";base64," . $photoProfile . "' alt='Binary Image'>";
@@ -112,7 +112,7 @@
                     </div>
                 </a>
                 <!----------SIDEBAR----------- -->
-                <div class="sidebar">
+                <div class="sidebar" style="">
                     <a class="menu-item active">
                         <span> <i class="uil uil-home-alt"></i> </span>
                         <h3>Home </h3>
@@ -196,10 +196,6 @@
                                             <option value="science">Science</option>
                                             <option value="chemistry">Chemistry</option>
                                             <option value="biology">Biology</option>
-                                            <option value="english">English</option>
-                                            <option value="italian">Italian</option>
-                                            <option value="history">History</option>
-                                            <option value="geography">Geography</option>
                                         </select>
                                     </div>
                                     <div class="modal-footer">
