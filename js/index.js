@@ -115,7 +115,7 @@ hearts.forEach(item => {
 
  function sendLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.open("GET", "/script/leaveLike.php?username=" + username + "&post_id=" + post_id, false);
    xhttp.send();
 
    return xhttp.responseText;
@@ -123,7 +123,7 @@ hearts.forEach(item => {
 
 function removeLike(username, post_id) {
    var xhttp = new XMLHttpRequest();
-   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, true);
+   xhttp.open("GET", "/script/removeLike.php?username=" + username + "&post_id=" + post_id, false);
    xhttp.send();
 
    return xhttp.responseText;
