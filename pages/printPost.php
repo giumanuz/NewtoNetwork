@@ -105,12 +105,8 @@
                 <button name='sendComment' style='margin-left:1rem;background-color:white;display:none;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
                     send
                 </button>
-
         </div>
-        
     </div>
-    
-
         ";
         return $send;
     }
