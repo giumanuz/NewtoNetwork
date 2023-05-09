@@ -362,7 +362,7 @@
                         }
                         $query4 = "SELECT * FROM likes WHERE post_id = $1";
                         $result4 = pg_query_params($dbconnession, $query4, array($post_id));
-                        $likes = pg_num_rows($result4);
+                        $likes = pg_num_rows($result4) -1;
 
 
 

@@ -92,6 +92,11 @@ hearts.forEach(item => {
      
      document.getElementById("userLike" + post_id).innerHTML = getUserLike(post_id);
      document.getElementById("photoLike" + post_id).innerHTML = printLikePhotos(post_id);
+     if (document.getElementById("numberLike" + post_id).innerHTML == -1) {
+      document.getElementById("likedBy" + post_id).style.display = "none";
+   } else {
+      document.getElementById("likedBy" + post_id).style.display = "";
+   }
    })
  })
 

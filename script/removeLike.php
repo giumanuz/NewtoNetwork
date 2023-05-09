@@ -16,5 +16,5 @@
     $result2 = pg_query($dbconnession, $query2);
     $likes = pg_num_rows($result2);
 
-    echo $likes;
+    echo $likes -1;
 ?>
