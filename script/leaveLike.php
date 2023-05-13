@@ -29,5 +29,5 @@
     }
 
 
-    echo $likes;
+    echo $likes -1;
 ?>

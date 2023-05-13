@@ -3,6 +3,23 @@
     include_once "script/convertTime.php";
     include_once "script/printPhoto.php";
 
+    function printLikesBox($post_id, $numberLikes, $arrayLike, $userOfLiker){
+        if ($numberLikes == -1){
+            return "</div>
+            <div class='liked-by' id='likedBy". $post_id ."' style='display: none;'>
+            <div id='photoLike$post_id' style='display: flex;' > </div>
+                <p '> Liked by <b id='userLike$post_id'> </b> and <b> <b id='numberLike". $post_id . "' > </b> others</b></p>
+            </div>";
+        }
+        else{
+            return "</div>
+            <div class='liked-by' id='likedBy". $post_id ."' >
+            <div id='photoLike$post_id' style='display: flex;' >  " . printPhotosLike($arrayLike) . " </div>
+                <p> Liked by <b id='userLike$post_id'>" . $userOfLiker . "</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
+            </div>";
+        }
+    }
+
     function printPost($post_id, $writer, $content, $photo, $time, $photoProfile, $extensionProfile, $class, $username, $category, $numberLikes, $arrayLike, $userOfLiker){
         global $dbconnession;
 
@@ -75,14 +92,7 @@
             
         }
     });
-</script>
-
-            
-        </div>
-        <div class='liked-by' id='likedBy". $post_id ."' >
-        <div id='photoLike$post_id' style='display: flex;' >  " . printPhotosLike($arrayLike) . " </div>
-            <p> Liked by <b id='userLike$post_id'>" . $userOfLiker . "</b> and <b> <b id='numberLike". $post_id . "' >"  . $numberLikes .  "</b> others</b></p>
-        </div>
+</script>" . printLikesBox($post_id, $numberLikes, $arrayLike, $userOfLiker) . "
 
         <div class='caption'>
             <p> <b>" . $writer . "</b>" . " "  . $content . "</p>
@@ -95,12 +105,8 @@
                 <button name='sendComment' style='margin-left:1rem;background-color:white;display:none;' class='material-symbols-outlined disabled btn-addComment' for='input-for-comment' data-username='". $username ."' data-id_post='". $post_id ."'>
                     send
                 </button>
-
         </div>
-        
     </div>
-    
-
         ";
         return $send;
     }

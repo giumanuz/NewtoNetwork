@@ -159,7 +159,7 @@
                     </a>
                     <a class="menu-item" id="messages-notification">
                         <span> <i class="uil uil-envelope"><small class="notifications-count">6</small></i> </span>
-                        <h3>Messages </h3>
+                        <h3>Write a message </h3>
                     </a>
                     
                 </div>
@@ -313,11 +313,12 @@
                                                 @" . $username2 . "
                                             </p>
                                         </div>
-                                        <div class='buttons'>
+                                        <div class='buttons' style='margin-left:auto;'>
                                             <button name='addButton' usern='". $username . "' friend='". $username2 . "' class='material-symbols-outlined ". $class ."' style='left:4rem;background:none;border:none;text-align:right;'>
                                             add_circle
                                             </button>
                                         </div>
+                                        
                                     </div>
                 
                                
@@ -362,7 +363,7 @@
                         }
                         $query4 = "SELECT * FROM likes WHERE post_id = $1";
                         $result4 = pg_query_params($dbconnession, $query4, array($post_id));
-                        $likes = pg_num_rows($result4);
+                        $likes = pg_num_rows($result4) -1;
 
 
 

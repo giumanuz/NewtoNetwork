@@ -9,15 +9,16 @@
 
     $post_id = $_GET['post_id'];
 
-    $query = "SELECT * FROM likes WHERE post_id = $1 LIMIT 1";
+    $query = "SELECT * FROM likes WHERE post_id = $1::integer ORDER BY RANDOM() LIMIT 1";
     $result = pg_query_params($dbconnession, $query, array($post_id));
     $line = pg_fetch_array($result, NULL, PGSQL_ASSOC);
-    // se non ci sonno risultati stampa "" altriemnti stampa il nome dell'utente
-    if (!$line)
+    if ($line == false){
         echo "";
-    else
-        echo $line['user_id'] ? $line['user_id'] : "";
+        exit();
+    }
+    $userOfLike = $line['user_id'];
 
+    echo $userOfLike;
     
     pg_close($dbconnession);
 ?>
