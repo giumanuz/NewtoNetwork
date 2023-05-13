@@ -59,13 +59,13 @@ const searchMessage = () => {
 // search chat
 messageSearch.addEventListener('keyup', searchMessage);
 
-messagesNotification.addEventListener('click', () => {
-   messages.style.boxShadow = '0 0 1rem var(--color-primary)';
-   messagesNotification.querySelector('.notifications-count').style.display = 'none';
-   setTimeout(() => {
-      messages.style.boxShadow = 'none';
-   }, 2000);
-})
+// messagesNotification.addEventListener('click', () => {
+//    messages.style.boxShadow = '0 0 1rem var(--color-primary)';
+//    messagesNotification.querySelector('.notifications-count').style.display = 'none';
+//    setTimeout(() => {
+//       messages.style.boxShadow = 'none';
+//    }, 2000);
+// })
 
 // ===================== LIKES =========================
 
@@ -276,7 +276,7 @@ addButtons.forEach(item => {
 
 // ========================= WRITE AND SEND MESSAGE ======================
 
-const writeMessageButton = document.getElementById('writeMessageButton');
+const writeMessageButton = document.getElementById('messages-notification');
 const messagePopup = document.getElementById('messagePopup');
 const messageClose = document.getElementById('messageClosePopup');
 writeMessageButton.addEventListener('click', () => {

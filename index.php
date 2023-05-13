@@ -384,6 +384,9 @@
                             <button class='material-symbols-outlined topright' id='messageClosePopup'> close </button>
                         </div>
                         <hr>
+                        <div class="alert alert-danger fade" role="alert" id="errorAlert" style='display:none;'>
+                                <strong>Error!</strong> <span id="errorAlertText"> </span>
+                        </div>
                         <form name='messageForm'  id="messageFormId">
                             <input name='friend' type='text' id='messageReceiver' class='comment-input' placeholder='Receiver' >
                             
@@ -393,11 +396,10 @@
                                 style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
                                 Send
                             </button>
+                            
                         </form>
                     
-                    <div class="alert alert-danger fade" role="alert" id="errorAlert" style="margin-top: 100px">
-                        <strong>Error!</strong> <span id="errorAlertText"> </span>
-                    </div>
+                    
 
                     </div>
                     </div>
