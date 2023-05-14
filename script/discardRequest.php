@@ -15,7 +15,7 @@
     $result = pg_query_params($dbconnession, $query, array($reciver, $sender, "declined your friend request")) or die("Query failed: " . pg_last_error());
 
 
-    header("Location: /pages/index.php");
+    // header("Location: /pages/index.php");
     pg_close($dbconnession);
 
 ?>
