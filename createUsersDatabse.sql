@@ -20,13 +20,15 @@ CREATE TABLE quotes (
 CREATE TABLE friends (
     user_id VARCHAR NOT NULL REFERENCES users(username),
     friend_user_id VARCHAR NOT NULL REFERENCES users(username),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (user_id, friend_user_id)
 );
 
 CREATE TABLE friend_requests (
     sender VARCHAR NOT NULL REFERENCES users(username),
     reciver VARCHAR NOT NULL REFERENCES users(username),
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    PRIMARY KEY (sender, reciver)
 );
 
 CREATE TABLE posts (
@@ -58,7 +60,7 @@ CREATE TABLE comments (
     post_id INTEGER NOT NULL REFERENCES posts(post_id),
     user_id VARCHAR NOT NULL REFERENCES users(username),
     comment_content TEXT NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW()
+    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
 );
 
 CREATE TABLE messages (

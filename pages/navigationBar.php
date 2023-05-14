@@ -42,9 +42,9 @@
             <li class="nav-item">
                <a class="nav-link" href="/pages/addQuote.php">Add Quote</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                <button class="nav-link" style="background:none;border:none;" id='writeMessageButton' >Send a message</button>
-            </li>
+            </li> -->
             <li class="nav-item">
                <button class="nav-link" style="background:none;border:none;" id='makeFriendsButton' >Add Friend</button>
             </li>
