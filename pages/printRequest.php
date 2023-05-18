@@ -1,6 +1,6 @@
 <?php
 
-    function printRequest($name, $surname, $photoProfile, $extensionProfile, $username){
+    function printRequest($name, $surname, $photoProfile, $extensionProfile, $username, $mutalFriends){
                         $send= "
                         <div class='request'>
                             <div class='info'>
@@ -11,7 +11,7 @@
                                 <div>
                                     <h5>" . $name . " " . $surname . "</h5>
                                     <p class='text-muted'>
-                                        8 mutual friends
+                                    " . $mutalFriends . " mutual friends
                                     </p>
                                 </div>
                             </div>
