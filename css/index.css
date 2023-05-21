@@ -413,6 +413,7 @@ bottom: 0;
    border-radius: var(--card-border-radius);
    padding: var(--card-padding);
    border: none;
+   z-index: -1;
    box-shadow: 0 0 1rem var(--color-primary);
 }
 
@@ -656,3 +657,17 @@ bottom: 0;
  .message-input:focus{
    outline: none;
  }
+
+ /* NOTIFICATION POPUP */
+
+ .notification-popup {
+   position: fixed;
+   z-index: 20;
+   left: 0;
+   top: 0;
+   width: 100vw;
+   height: 100vh;
+   overflow-y: hidden;
+   background-color: rgba(0, 0, 0, 0.4);
+   display: none;
+}

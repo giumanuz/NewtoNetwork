@@ -78,11 +78,13 @@
     }
 
     myButton". $post_id . ".addEventListener('click', function () {
+        document.querySelector('.right').style.zIndex = '-1';
         
         comments$post_id.innerHTML = showComments($post_id);
         commentPopup" . $post_id .".classList.add('show');
     });
     closePopup". $post_id .".addEventListener('click', function () {
+        document.querySelector('.right').style.zIndex = '0';
         commentPopup" . $post_id .".classList.remove('show');
         
     });

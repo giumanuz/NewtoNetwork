@@ -133,9 +133,19 @@
                             }
                             ?>
                         <h3>Notifications </h3>
-                        <!----------NOTIFICATION POPUP ------------>
-                        <div class="notifications-popup">
+                    </a>
 
+                        
+
+                        <!----------NOTIFICATION POPUP ------------>
+                        <div class="notification-popup" id="notificationPopup" style='display:none'>
+                            <div class="popup-content">
+                                <div class='headerComments' style='overflow:hidden;'>
+                                    <h4>Notifications</h4>
+                                    <button class='material-symbols-outlined topright' id='notificationClosePopup'> close </button>
+                                </div>
+                            <hr>
+                            <div class='popup-body'>
                             <?php
                             include_once 'pages/printNotification.php';
                             
@@ -153,12 +163,39 @@
                                 $extensionProfile = $line2['extensionphoto'];
                                 echo printNotification($first_name, $surname, $photoProfile, $extensionProfile, $notification_content, $date);
                             } 
+                        
                         ?>
+                         </div>
+                            </div>
 
                         </div>
-                    </a>
+                        <script>
+                            
+                            const notificationButton = document.getElementById("notifications");
+                            const notificationClose  = document.getElementById("notificationClosePopup");
+                            const notificationPopup = document.getElementById("notificationPopup");
+
+                            notificationButton.addEventListener('click', () => {
+                                document.querySelector('.middle').style.zIndex = '-1';
+                                document.querySelector('.right').style.zIndex = '-1';
+                                notificationPopup.style.display = "block";
+                                
+                        
+                            });
+
+                            
+                            notificationClose.addEventListener('click', () => {
+                                document.querySelector('.middle').style.zIndex = '0';
+                                document.querySelector('.right').style.zIndex = '0';
+                                notificationPopup.style.display = "none";
+                                
+                        
+                            });
+
+                        </script>
+                    
                     <a class="menu-item" id="messages-notification">
-                        <span> <i class="uil uil-envelope"><small class="notifications-count">6</small></i> </span>
+                        <span> <i class="uil uil-envelope"></i> </span>
                         <h3>Write a message </h3>
                     </a>
                     
@@ -423,7 +460,7 @@
                                 <h6 class="message-requests">Requests (7)</h6>
                             </div> -->
                             <!-- MESSAGE -->
-                            <div style="overflow-y:scroll;max-height:50vh;">
+                            <div style="overflow-y:scroll;max-height:30vh;">
                         
                                 <?php
 
@@ -447,8 +484,8 @@
                             </div>
                         </div>
                         <!-- ----------- FRIEND REQUESTS --------------- -->
-                        <h4>Requests</h4>
-                        <div class="friend-requests" style="overflow:scroll;height:50vh;">
+                        <h4 style="margin-top:1rem;">Requests</h4>
+                        <div class="friend-requests" style="overflow-y:scroll;max-height:30vh;">
 
                             <?php
                             include_once 'pages/printRequest.php';
