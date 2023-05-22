@@ -82,7 +82,6 @@
             return null;
         }
         $userOfLiker = $line6['user_id'];
-        
         return $userOfLiker;
     }
 
@@ -169,30 +168,7 @@
                             </div>
 
                         </div>
-                        <script>
-                            
-                            const notificationButton = document.getElementById("notifications");
-                            const notificationClose  = document.getElementById("notificationClosePopup");
-                            const notificationPopup = document.getElementById("notificationPopup");
-
-                            notificationButton.addEventListener('click', () => {
-                                document.querySelector('.middle').style.zIndex = '-1';
-                                document.querySelector('.right').style.zIndex = '-1';
-                                notificationPopup.style.display = "block";
-                                
-                        
-                            });
-
-                            
-                            notificationClose.addEventListener('click', () => {
-                                document.querySelector('.middle').style.zIndex = '0';
-                                document.querySelector('.right').style.zIndex = '0';
-                                notificationPopup.style.display = "none";
-                                
-                        
-                            });
-
-                        </script>
+                       
                     
                     <a class="menu-item" id="messages-notification">
                         <span> <i class="uil uil-envelope"></i> </span>

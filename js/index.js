@@ -116,7 +116,6 @@ hearts.forEach(item => {
    var xhttp = new XMLHttpRequest();
    xhttp.open("GET", "/script/getUserLike.php?post_id=" + post_id, false);
    xhttp.send();
-
    return xhttp.responseText;
 }
 
@@ -330,6 +329,30 @@ function showAlertWithError(errorText) {
 }
 
 // ================ CLEAR NOTIFICATIONS ==================
+
+const notificationButton = document.getElementById("notifications");
+const notificationClose  = document.getElementById("notificationClosePopup");
+const notificationPopup = document.getElementById("notificationPopup");
+
+notificationButton.addEventListener('click', () => {
+   document.querySelector('.middle').style.zIndex = '-1';
+   document.querySelector('.right').style.zIndex = '-1';
+   notificationPopup.style.display = "block";
+   document.querySelector('#notifications .notifications-count').style.display = 'none';
+   
+
+});
+
+
+notificationClose.addEventListener('click', () => {
+   document.querySelector('.middle').style.zIndex = '0';
+   document.querySelector('.right').style.zIndex = '0';
+   notificationPopup.style.display = "none";
+   document.querySelector('.popup-body').innerHTML = '';
+   clearNotifications();
+   
+
+});
 
 function clearNotifications() {
    var xhttp = new XMLHttpRequest();

@@ -68,10 +68,10 @@
                      <input type="date" name="bday"  required>
                      </label>
                   </div>
-                  <div class="input-box">
+                  <div class="input-box" >
                      <label>
                      <span class="details">Select photo to upload</span>
-                     <input type="file" name="photo" id="photo">
+                     <input type="file" class='form-control' name="photo" id="photo" style='height:100%;width:100%;'>
                      </label>
                   </div>
                 </div>
