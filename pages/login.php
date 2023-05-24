@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
-    
-
+    <link rel="stylesheet" href="/css/login2.css">
 <title>
   Login
 </title>
@@ -19,18 +17,6 @@
         endif;
 
         include "navigationBar.php";
-
-        // if( isset($_GET['status'])  && $_GET['status'] == 'errorPassword'):
-        //     echo '<div class="alert alert-danger" role="alert">
-        //             <strong>Error!</strong> Wrong Password, try again or click <a href = "/pages/registration.php">here</a> to register.
-        //         </div>';
-        // endif;
-
-        // if ( isset($_GET['status'])  && $_GET['status'] == 'errorUsername'):
-        //     echo '<div class="alert alert-danger" role="alert">
-        //             <strong>Error!</strong> Wrong Username, try again or click <a href = "/pages/registration.php">here</a> to register.
-        //         </div>';
-        // endif;
     ?>
 
         
@@ -40,7 +26,7 @@
         <strong>Error!</strong> <span id="errorAlertText"> </span>
     </div>
 
-    <div class="container">
+    <div class="container" style="width: 70%">
         <div class="title">Login</div>
         <div class="content">
 

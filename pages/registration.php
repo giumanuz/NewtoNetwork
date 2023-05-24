@@ -8,7 +8,7 @@
          Registration
       </title>
    </head>
-   <body>
+   
       <?php
          session_start();
          if (isset($_SESSION['username'])):
@@ -17,6 +17,7 @@
          
          include "navigationBar.php";     
       ?>
+      <body>
 
       <div class="alert alert-danger fade" role="alert" id="errorAlert">
          <strong>Error!</strong> <span id="errorAlertText"> </span>

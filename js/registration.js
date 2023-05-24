@@ -73,7 +73,8 @@ function sendPostServer(photo, extension) {
         "bday": document.forms["registrationForm"]["bday"].value,
         "name": document.forms["registrationForm"]["name"].value,
         "surname": document.forms["registrationForm"]["surname"].value,
-        "gender": document.forms["registrationForm"]["gender"].value,
+        // "gender": document.forms["registrationForm"]["gender"].value,
+        "gender": "other",
         "photo": photo,
         "extension": extension
     };

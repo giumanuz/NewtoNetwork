@@ -60,8 +60,8 @@
                   Login/Sign Up
                </a>
                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/pages/login.php">Login</a></li>
-                  <li><a class="dropdown-item" href="/pages/registration.php">Sign Up</a></li>
+                  <li><a class="dropdown-item" href="/pages/login2.php">Login</a></li>
+                  <li><a class="dropdown-item" href="/pages/registration2.php">Sign Up</a></li>
                </ul> 
             </li>
          <?php endif; ?>
