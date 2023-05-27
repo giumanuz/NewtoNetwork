@@ -17,11 +17,9 @@
    <div class="collapse navbar-collapse" id="navbarNav">
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
          <li class="nav-item">
-            <a class="nav-link" href="/index.php">Home</a>
-         </li>
-         <li class="nav-item">
-            <a class="nav-link" href="/index.php">About as</a>
+            <a class="nav-link" href="/curious.html">I feel curious</a>
          </li>
       </ul>
       <?php 

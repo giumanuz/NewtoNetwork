@@ -25,7 +25,7 @@
     </div>
     <div class="center">
         <h1>
-            Login
+            <strong>Login</strong>
         </h1>
          <form name="loginForm" id="loginFormId" method="post">
             <div class="txt_field">
@@ -38,7 +38,7 @@
             </div>
             <input type="submit" value="Login">
             <div class="signup_link">
-                Not a member? <a href="">Signup</a>
+                Not a member? <a href="/pages/registration2.php">Signup</a>
             </div>
             
          </form>

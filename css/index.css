@@ -273,7 +273,8 @@ main .container .left{
    border: solid 1px var(--color-primary);
    font-size: medium;
    font-weight: bold;
-   display: flex;
+   justify-content: center;
+   /* display: flex; */
 }
 
 .comment-input {

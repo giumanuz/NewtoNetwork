@@ -250,15 +250,15 @@
                 echo "
                     
                     <div class='quote-square' style='z-index:-1;'> 
-                    <div class='card mb-3' style='max-width: 100%;border:none;z-index:0;'>
+                    <div class='card mb-3 text-center justify-content-center' style='max-width: 100%;border:none;z-index:0;'>
                        <div class='row justify-content-between' style='z-index:1;'>
-                          <div class='col-md-3 text-center' style='justify-self:center;'>
-                             <img class=\"profile-photo\" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='text-align:center;margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
+                          <div class='col-md-3 d-sm-flex col-12 px-auto text-center justify-content-center' style='justify-self:center;'>
+                             <img class=\"profile-photo mx-auto \" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='text-align:center;margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                           </div>
                           
-                          <div class='col-9'>
-                             <div class='card-body'>
-                                <h5 class='card-title' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
+                          <div class='col-9 d-flex flex-column'>
+                             <div class='card-body mx-auto '>
+                                <h5 class='card-title ' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
                                 <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>
                                 <p class='card-text' style='margin-top: 1rem'><small class='text-body-secondary'><i> " . $writer . "</i></small></p>
                              </div>
@@ -403,7 +403,7 @@
                         <form name='messageForm'  id="messageFormId">
                             <input name='friend' type='text' id='messageReceiver' class='comment-input' style='max-width:100%;' placeholder='Receiver' >
                             
-                            <input name='message' type='text' id='messageContent' class='message-input' placeholder='Message content' style='margin-top:1.5rem;max-width:100%;'></input>
+                            <input name='message' type='text' id='messageContent' class='message-input' placeholder='Content' style='margin-top:1.5rem;max-width:100%;'></input>
                             <br>
                             <button name='messageSend' type="button submit" class="btn btn-primary"
                                 style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
