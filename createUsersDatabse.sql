@@ -69,3 +69,10 @@ CREATE TABLE messages (
     message_content TEXT NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE videos (
+    url VARCHAR PRIMARY KEY,
+    title VARCHAR NOT NULL,
+);
+
+INSERT INTO videos(url, title) VALUES ('videoseries?list=PLmJjfwOzmFSPLVvcsDxj8XXangaCjsV_L', 'Music');
