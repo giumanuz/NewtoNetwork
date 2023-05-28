@@ -35,7 +35,7 @@
     ?>
     
     <h1 style="margin-top:3rem"><?php echo $title; ?></h1>
-    <iframe style="margin-top:3rem;" width="800" height="500" src="<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
+    <iframe style="margin-top:3rem;" width="750" height="450" src="<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmJjfwOzmFSPLVvcsDxj8XXangaCjsV_L"  frameborder="0"  allowfullscreen></ -->
     </div>
 </body>

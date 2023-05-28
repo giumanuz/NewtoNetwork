@@ -59,8 +59,9 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">About us</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <p class="card-text">Matteo D'Agostino (@digos)
+              & Giulio Manuzzi (@giuliu) are the authors of this beautiful website.
+            </p>
           </div>
         </div>
       </div>
@@ -75,8 +76,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">What do we offer?</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <p class="card-text">A new kind of Social Network focused on rational and scientific thinking. Share the knowledge!</p>
           </div>
         </div>
       </div>
@@ -91,8 +91,8 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">In Science we trust</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
+            <p class="card-text">
+Science unveils the wonders of nature and fuels the quest for knowledge.</p>
           </div>
         </div>
       </div>

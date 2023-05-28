@@ -33,7 +33,7 @@
             </div>
             <div class='info'>
                 <h4>" . $writer . "</h4>
-                <small>Terni, "  . $time . " ago</small>
+                <small>"  . $time . " ago</small>
             </div>
             </div>
             

@@ -253,7 +253,7 @@
                           
                          
                              <div class='card-body mx-auto '>
-                                <h5 class='card-title ' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
+                                <h5 class='card-title ' style='font-size:larger;margin-top:1rem'>QUOTE OF THE MOMENT</h5>
                                 <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>
                                 <p class='card-text' style='margin-top: 1rem'><small class='text-body-secondary'><i> " . $writer . "</i></small></p>
                              </div>
