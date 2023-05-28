@@ -266,7 +266,8 @@ addButtons.forEach(item => {
       let friend = this.getAttribute('friend');
       let me = this.getAttribute('usern');
       addFriend(me,friend);
-      this.style.display = 'none';
+      // this.style.display = 'none';
+      this.innerText = 'hourglass_empty';
    })
  })
 
