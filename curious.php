@@ -16,36 +16,18 @@
 }
 </style>
 <body>
+    <h1>Hello World!</h1>
+
     <?php
-        include_once 'pages/navigationBar.php';
-        // choose a random video from the table videos
-        if (session_status() != PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-    
-        include "./connection.php";
-    ?>
-    <div class="container text-center my-4">
-     <?php
-        $send='';
-        $query = "SELECT * FROM videos ORDER BY RANDOM() LIMIT 1";
+        include "connection.php";
+        $query = "SELECT * FROM videos RANDOM() LIMIT 1";
         $result = pg_query($dbconnession, $query) or die("Query failed: " . pg_last_error());
-   
-        while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-            
-            $video = $line['url'];
-            $title = $line['title'];
+        $line = pg_fetch_array($result, null, PGSQL_ASSOC);
+        $url = $line['url'];
 
-            $send = $send . "
-            <h1>" . $title . "</h1>
-            <iframe style='margin-top:3rem;' width='800' height='500' src=". $video . " title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe>";
-
-        }
-        echo $send;
-    ?> 
-    </div>
-    
-    
+    ?>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmJjfwOzmFSPLVvcsDxj8XXangaCjsV_L"  frameborder="0"  allowfullscreen></ -->
     
 </body>
 </html>

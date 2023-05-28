@@ -468,8 +468,20 @@
                                 $extension = $line['extensionphoto'];
                                 $name = $line['first_name'];
                                 $surname = $line['surname'];
-                                $username = $line['username'];
-                                echo printRequest($name, $surname, $photo, $extension, $username);
+                                $usernameRequest = $line['username'];
+                                $usernameUser = $_SESSION['username'];
+                                // query to find the numbers of mutual friends
+                                $query3 = "SELECT f1.friend_user_id
+                                            FROM friends AS f1
+                                            JOIN friends AS f2 ON f1.friend_user_id = f2.friend_user_id
+                                            WHERE f1.user_id = $1
+                                            AND f2.user_id = $2
+                                            AND f1.friend_user_id <> $1
+                                            GROUP BY f1.friend_user_id ";
+                                $result3 = pg_query_params($dbconnession, $query3, array($usernameRequest, $usernameUser));
+                                $line3 = pg_fetch_array($result3, null, PGSQL_ASSOC);
+                                $mutualFriends = pg_num_rows($result3);
+                                echo printRequest($name, $surname, $photo, $extension, $usernameRequest, $mutualFriends);
                             }
                             ?>
 
