@@ -36,8 +36,8 @@
       session_start();
     }
     if (!isset($_SESSION['username'])) {
-      echo "<a role='button' href='./pages/registration2.php' class='btn btn-dark' style='font-weight: 500;margin-right: 1rem;'>Sign up</a>
-              <a role='button' href='./pages/login2.php' class='btn btn-dark'>Log In</a>";
+      echo "<a role='button' href='./pages/registration.php' class='btn btn-dark' style='font-weight: 500;margin-right: 1rem;'>Sign up</a>
+              <a role='button' href='./pages/login.php' class='btn btn-dark'>Log In</a>";
     } else
       echo "<a role='button' href='./index.php' class='btn btn-dark' style='font-weight: 500;margin-right: 1rem;'>Go to your profile</a>";
     ?>

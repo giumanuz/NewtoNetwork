@@ -141,7 +141,9 @@ main .container .left{
    translate: all 300ms ease;
    position: relative;
 }
-
+.left .sidebar .menu-item h3{
+   color: var(--color-primary);
+}
 .left .sidebar .menu-item:hover{
    background: var(--color-light);
 }
@@ -482,16 +484,6 @@ bottom: 0;
    font-size: 0.8rem;
 }
 
-/* .right .messages .message .profile-photo .active{
-   width: 0.8rem;
-   height: 0.8rem;
-   border: 3px solid var(--color-white);
-   border-radius: 50%;
-   background: var(--color-success);
-   position: absolute;
-   bottom :0;
-   right: 0;
-} */
 
 /* ============== FRIEND REQUESTS ==================== */
 .right .friend-requests{
@@ -613,7 +605,7 @@ bottom: 0;
    border: 2px solid var(--color-primary);
    width: 40%;
    overflow-y: scroll;
-   max-height: 50%;
+   max-height: 70%;
    /* font-weight: bolder; */
 }
 .headerComments button {

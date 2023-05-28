@@ -5,7 +5,6 @@ CREATE TABLE users
   	passw varchar NOT NULL,
  	birthday varchar,
   	username varchar NOT NULL PRIMARY KEY,
-	gender varchar,
     photo varchar, 
     extensionphoto varchar
 );
@@ -60,7 +59,7 @@ CREATE TABLE comments (
     post_id INTEGER NOT NULL REFERENCES posts(post_id),
     user_id VARCHAR NOT NULL REFERENCES users(username),
     comment_content TEXT NOT NULL,
-    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+    created_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE messages (

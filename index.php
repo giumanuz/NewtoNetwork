@@ -25,7 +25,7 @@
     include_once "pages/navigationBar.php";
     include_once 'connection.php';
     include_once 'script/convertTime.php';
-    // do a query for the user
+    
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $query = "SELECT * FROM users WHERE username = $1";
@@ -39,8 +39,7 @@
         $user_email = $row['email'];
         $photoProfile = $row['photo'];
         $extensionProfile = $row['extensionphoto'];
-        // $user_bio = $row['bio'];
-        // $user_image = $row['image'];  TODO: add image to database
+      
     } else {
         $first_name = "Mario";
         $surname = "Rossi";
@@ -48,8 +47,7 @@
         $birthday = "04/10/2001";
         $username = "guest";
         $user_email = "guest@guest.com";
-        // $user_bio = "";
-        // $user_image = "";  TODO: add image to database
+        
     }
 
 
@@ -116,10 +114,7 @@
                         <span> <i class="uil uil-home-alt"></i> </span>
                         <h3>Home </h3>
                     </a>
-                    <!-- <a class="menu-item">
-                        <span> <i class="uil uil-compass"></i> </span>
-                        <h3>Explore </h3>
-                        </a> -->
+                
                     <a class="menu-item" id="notifications">
                         <?php
                             $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
@@ -250,20 +245,20 @@
                 echo "
                     
                     <div class='quote-square' style='z-index:-1;'> 
-                    <div class='card mb-3 text-center justify-content-center' style='max-width: 100%;border:none;z-index:0;'>
-                       <div class='row justify-content-between' style='z-index:1;'>
-                          <div class='col-md-3 d-sm-flex col-12 px-auto text-center justify-content-center' style='justify-self:center;'>
-                             <img class=\"profile-photo mx-auto \" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='text-align:center;margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
+                    <div class='card mb-3 d-flex flex-sm-row text-center justify-content-center' style='max-width: 100%;border:none;z-index:0;'>
+                       
+                          <div class='px-auto d-flex text-center justify-content-center' style='justify-self:center;'>
+                             <img class=\"profile-photo my-auto \" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='text-align:center;margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                           </div>
                           
-                          <div class='col-9 d-flex flex-column'>
+                         
                              <div class='card-body mx-auto '>
                                 <h5 class='card-title ' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
                                 <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>
                                 <p class='card-text' style='margin-top: 1rem'><small class='text-body-secondary'><i> " . $writer . "</i></small></p>
                              </div>
-                          </div>
-                       </div>
+                          
+                       
                     </div>
                     </div>
                     ";
@@ -430,11 +425,7 @@
                                     id="message-search">
                             </div>
                             <!------------MESSAGE CATEGORY--------------->
-                            <!-- <div class="category">
-                                <h6 class="active">Primary</h6>
-                                <h6>General</h6>
-                                <h6 class="message-requests">Requests (7)</h6>
-                            </div> -->
+                        
                             <!-- MESSAGE -->
                             <div style="overflow-y:scroll;max-height:30vh;">
                         
@@ -461,7 +452,7 @@
                         </div>
                         <!-- ----------- FRIEND REQUESTS --------------- -->
                         <h4 style="margin-top:1rem;">Requests</h4>
-                        <div class="friend-requests" style="overflow-y:scroll;max-height:30vh;">
+                        <div class="friend-requests" style="overflow-y:scroll;max-height:30vh;border-radius:var(--border-radius);box-shadow: 0 0 1rem var(--color-primary);">
 
                             <?php
                             include_once 'pages/printRequest.php';

