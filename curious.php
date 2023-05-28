@@ -20,7 +20,7 @@
 
     <?php
         include "connection.php";
-        $query = "SELECT * FROM videos RANDOM() LIMIT 1";
+        $query = "SELECT * FROM videos  ORDER BY RANDOM() LIMIT 1";
         $result = pg_query($dbconnession, $query) or die("Query failed: " . pg_last_error());
         $line = pg_fetch_array($result, null, PGSQL_ASSOC);
         $url = $line['url'];
