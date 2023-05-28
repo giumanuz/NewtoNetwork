@@ -23,7 +23,8 @@
          </li>
       </ul>
       <?php 
-         if (isset($_SESSION['username'])): ?>
+
+         if (isset($_SESSION['username']) && $_SERVER["PHP_SELF"] !== '/curious.php'): ?>
             <ul class="nav navbar-nav navbar-center">
                <li>
                   <form class="d-flex" method="get" action="/index.php">
@@ -36,12 +37,13 @@
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
          <?php 
-         if (isset($_SESSION['username'])): ?>
+         if (isset($_SESSION['username'])): 
             
-           
-            <li class="nav-item">
-               <button class="nav-link" style="background:none;border:none;" id='makeFriendsButton' >Add Friend</button>
-            </li>
+            if($_SERVER["PHP_SELF"] !== '/curious.php'){?>
+               <li class="nav-item">
+                  <button class="nav-link" style="background:none;border:none;" id='makeFriendsButton' >Add Friend</button>
+               </li> <?php }
+               ?>
             
             <li class="nav-item">
                <a class="nav-link" href="/script/logout.php">Logout</a>

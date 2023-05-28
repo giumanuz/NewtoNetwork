@@ -16,18 +16,27 @@
 }
 </style>
 <body>
-    <h1>Hello World!</h1>
+<?php
+        include "connection.php";
+        include "pages/navigationBar.php";
+?>
+    <div class="container text-center my-3">
+    
 
     <?php
-        include "connection.php";
-        $query = "SELECT * FROM videos RANDOM() LIMIT 1";
+        
+        $query = "SELECT * FROM videos ORDER BY RANDOM() LIMIT 1";
         $result = pg_query($dbconnession, $query) or die("Query failed: " . pg_last_error());
         $line = pg_fetch_array($result, null, PGSQL_ASSOC);
         $url = $line['url'];
+        $title = $line['title'];
+        
 
     ?>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
-    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmJjfwOzmFSPLVvcsDxj8XXangaCjsV_L"  frameborder="0"  allowfullscreen></ -->
     
+    <h1 style="margin-top:3rem"><?php echo $title; ?></h1>
+    <iframe style="margin-top:3rem;" width="800" height="500" src="<?php echo $url; ?>" frameborder="0" allowfullscreen></iframe>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLmJjfwOzmFSPLVvcsDxj8XXangaCjsV_L"  frameborder="0"  allowfullscreen></ -->
+    </div>
 </body>
 </html>
