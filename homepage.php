@@ -46,9 +46,9 @@
   </div>
 
   <div class="container-fluid text-center" style="margin-top: 4rem;">
-    <div class="row justify-content-around">
-      <div class="col-1"></div>
-      <div class="col-3">
+    <div class="row justify-content-between">
+      
+      <div class="col-lg-4 d-flex justify-content-center">
         <div
           class="card border-dark mb-3 animate__animated animate__pulse animate__infinite animate__slower animate__delay-1s"
           style="color:black; max-width: 18rem;background-color: rgba(155,89,182,.25);">
@@ -64,7 +64,7 @@
           </div>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-lg-4 d-flex justify-content-center">
         <div
           class="card border-dark mb-3 animate__animated animate__pulse animate__infinite animate__slower animate__delay-2s"
           style="color: black;max-width: 18rem;background-color: rgba(155,89,182,.25);">
@@ -80,7 +80,7 @@
           </div>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-lg-4 d-flex justify-content-center">
         <div
           class="card border-dark mb-3 animate__animated animate__pulse animate__infinite animate__slower animate__delay-3s"
           style="color:black; max-width: 18rem;background-color: rgba(155,89,182,.25);">
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div class="col-1"></div>
+      
     </div>
 
   </div>

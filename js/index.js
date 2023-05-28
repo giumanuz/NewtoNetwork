@@ -26,19 +26,22 @@ menuItems.forEach((item) => {
   item.addEventListener('click', () => {
     let listNot= document.querySelector('#notifications').classList;
     if(item.id != 'notifications' && listNot.contains('active')){
-      document.querySelector('.notifications-popup').innerHTML = '';
+      document.querySelector('.popup-body').innerHTML = '';
       clearNotifications();
     }
     changeActiveItem();
     item.classList.add('active');
-    if(item.id != 'notifications'){
-      document.querySelector('.middle').style.zIndex = '0';
-      document.querySelector('.notifications-popup').style.display = 'none';
-    } else{
-      document.querySelector('.middle').style.zIndex = '-1';
-      document.querySelector('.notifications-popup').style.display = 'block';
-      // document.querySelector('#notifications .notifications-count').style.display = 'none';
-    }
+   //  if(item.id != 'notifications'){
+   //    document.querySelector('.middle').style.zIndex = '0';
+   //    document.querySelector('.right').style.zIndex = '0';
+   //    document.getElementById("notificationPopup").style.display = 'none';
+   //  } else{
+   //    document.querySelector('.middle').style.zIndex = '-1';
+   //    document.querySelector('.right').style.zIndex = '-1';
+   //    document.getElementById("notificationPopup").style.display = "block";
+      
+   //    // document.querySelector('#notifications .notifications-count').style.display = 'none';
+   //  }
   })
 })
 
@@ -113,7 +116,6 @@ hearts.forEach(item => {
    var xhttp = new XMLHttpRequest();
    xhttp.open("GET", "/script/getUserLike.php?post_id=" + post_id, false);
    xhttp.send();
-
    return xhttp.responseText;
 }
 
@@ -166,6 +168,7 @@ document.querySelectorAll('.btn-addComment').forEach(button => {
        if (commentText !== '') {
          sendCommentToBackend(username, id_post, commentText);
          $('#idCommentInput' + id_post).val('');
+         this.style.display = 'none';
        }
    });
 });
@@ -220,10 +223,12 @@ const makefriendsButton = document.getElementById('makeFriendsButton');
 const makefriendsPopup = document.getElementById('friendsPopup');
 const makefriendsClose = document.getElementById('closefriendsPopup');
 makefriendsButton.addEventListener('click', () => {
+   document.querySelector('.right').style.zIndex = '-1';
    makefriendsPopup.style.display = 'block';
    // document.body.style.overflow = 'hidden !important';
 })
 makefriendsClose.addEventListener('click', () => {
+   document.querySelector('.right').style.zIndex = '0';
    makefriendsPopup.style.display = 'none';
    // document.body.style.overflow = 'initial';
 })
@@ -325,10 +330,36 @@ function showAlertWithError(errorText) {
 
 // ================ CLEAR NOTIFICATIONS ==================
 
+const notificationButton = document.getElementById("notifications");
+const notificationClose  = document.getElementById("notificationClosePopup");
+const notificationPopup = document.getElementById("notificationPopup");
+
+notificationButton.addEventListener('click', () => {
+   document.querySelector('.middle').style.zIndex = '-1';
+   document.querySelector('.right').style.zIndex = '-1';
+   notificationPopup.style.display = "block";
+   document.querySelector('#notifications .notifications-count').style.display = 'none';
+   
+
+});
+
+
+notificationClose.addEventListener('click', () => {
+   document.querySelector('.middle').style.zIndex = '0';
+   document.querySelector('.right').style.zIndex = '0';
+   notificationPopup.style.display = "none";
+   document.querySelector('.popup-body').innerHTML = '';
+   clearNotifications();
+   
+
+});
+
 function clearNotifications() {
    var xhttp = new XMLHttpRequest();
    xhttp.open("GET", "/script/clearNotifications.php", true);
    xhttp.send();
 }
+
+
 
 

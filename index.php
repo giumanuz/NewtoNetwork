@@ -25,7 +25,7 @@
     include_once "pages/navigationBar.php";
     include_once 'connection.php';
     include_once 'script/convertTime.php';
-    // do a query for the user
+    
     if (isset($_SESSION['username'])) {
         $username = $_SESSION['username'];
         $query = "SELECT * FROM users WHERE username = $1";
@@ -39,8 +39,7 @@
         $user_email = $row['email'];
         $photoProfile = $row['photo'];
         $extensionProfile = $row['extensionphoto'];
-        // $user_bio = $row['bio'];
-        // $user_image = $row['image'];  TODO: add image to database
+      
     } else {
         $first_name = "Mario";
         $surname = "Rossi";
@@ -48,8 +47,7 @@
         $birthday = "04/10/2001";
         $username = "guest";
         $user_email = "guest@guest.com";
-        // $user_bio = "";
-        // $user_image = "";  TODO: add image to database
+        
     }
 
 
@@ -82,7 +80,6 @@
             return null;
         }
         $userOfLiker = $line6['user_id'];
-        
         return $userOfLiker;
     }
 
@@ -117,10 +114,7 @@
                         <span> <i class="uil uil-home-alt"></i> </span>
                         <h3>Home </h3>
                     </a>
-                    <!-- <a class="menu-item">
-                        <span> <i class="uil uil-compass"></i> </span>
-                        <h3>Explore </h3>
-                        </a> -->
+                
                     <a class="menu-item" id="notifications">
                         <?php
                             $query = "SELECT * FROM notifications WHERE user_to = $1 ORDER BY created_at DESC";
@@ -133,9 +127,19 @@
                             }
                             ?>
                         <h3>Notifications </h3>
-                        <!----------NOTIFICATION POPUP ------------>
-                        <div class="notifications-popup">
+                    </a>
 
+                        
+
+                        <!----------NOTIFICATION POPUP ------------>
+                        <div class="notification-popup" id="notificationPopup" style='display:none'>
+                            <div class="popup-content">
+                                <div class='headerComments' style='overflow:hidden;'>
+                                    <h4>Notifications</h4>
+                                    <button class='material-symbols-outlined topright' id='notificationClosePopup'> close </button>
+                                </div>
+                            <hr>
+                            <div class='popup-body'>
                             <?php
                             include_once 'pages/printNotification.php';
                             
@@ -153,12 +157,16 @@
                                 $extensionProfile = $line2['extensionphoto'];
                                 echo printNotification($first_name, $surname, $photoProfile, $extensionProfile, $notification_content, $date);
                             } 
+                        
                         ?>
+                         </div>
+                            </div>
 
                         </div>
-                    </a>
+                       
+                    
                     <a class="menu-item" id="messages-notification">
-                        <span> <i class="uil uil-envelope"><small class="notifications-count">6</small></i> </span>
+                        <span> <i class="uil uil-envelope"></i> </span>
                         <h3>Write a message </h3>
                     </a>
                     
@@ -237,20 +245,20 @@
                 echo "
                     
                     <div class='quote-square' style='z-index:-1;'> 
-                    <div class='card mb-3' style='max-width: 540px;border:none;z-index:0;'>
-                       <div class='row g-0' style='z-index:1;'>
-                          <div class='col-3'>
-                             <img class=\"profile-photo\" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
+                    <div class='card mb-3 d-flex flex-sm-row text-center justify-content-center' style='max-width: 100%;border:none;z-index:0;'>
+                       
+                          <div class='px-auto d-flex text-center justify-content-center' style='justify-self:center;'>
+                             <img class=\"profile-photo my-auto \" src='data:image/" . $extension . ";base64," . $photo . "' alt='Binary Image' style='text-align:center;margin-top:1rem;border-radius:50%;object-fit: cover;width: 150px;height: 150px;' class='img-fluid rounded-start' alt='...'>
                           </div>
-                          <div class='col-1'></div>
-                          <div class='col-8'>
-                             <div class='card-body'>
-                                <h5 class='card-title' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
+                          
+                         
+                             <div class='card-body mx-auto '>
+                                <h5 class='card-title ' style='font-size:larger;margin-top:1rem'>QUOTE OF THE DAY</h5>
                                 <p class='card-text' style='margin-top: 2rem;'  >“" . $phrase . "”</p>
                                 <p class='card-text' style='margin-top: 1rem'><small class='text-body-secondary'><i> " . $writer . "</i></small></p>
                              </div>
-                          </div>
-                       </div>
+                          
+                       
                     </div>
                     </div>
                     ";
@@ -388,9 +396,9 @@
                                 <strong>Error!</strong> <span id="errorAlertText"> </span>
                         </div>
                         <form name='messageForm'  id="messageFormId">
-                            <input name='friend' type='text' id='messageReceiver' class='comment-input' placeholder='Receiver' >
+                            <input name='friend' type='text' id='messageReceiver' class='comment-input' style='max-width:100%;' placeholder='Receiver' >
                             
-                            <input name='message' type='text' id='messageContent' class='message-input' placeholder='Message content' style='margin-top:1.5rem;'></input>
+                            <input name='message' type='text' id='messageContent' class='message-input' placeholder='Content' style='margin-top:1.5rem;max-width:100%;'></input>
                             <br>
                             <button name='messageSend' type="button submit" class="btn btn-primary"
                                 style="margin-top:1rem;border-radius:var(--border-radius);border:none;background-color: var(--color-primary);">
@@ -417,13 +425,9 @@
                                     id="message-search">
                             </div>
                             <!------------MESSAGE CATEGORY--------------->
-                            <!-- <div class="category">
-                                <h6 class="active">Primary</h6>
-                                <h6>General</h6>
-                                <h6 class="message-requests">Requests (7)</h6>
-                            </div> -->
+                        
                             <!-- MESSAGE -->
-                            <div style="overflow-y:scroll;max-height:50vh;">
+                            <div style="overflow-y:scroll;max-height:30vh;">
                         
                                 <?php
 
@@ -447,8 +451,8 @@
                             </div>
                         </div>
                         <!-- ----------- FRIEND REQUESTS --------------- -->
-                        <h4>Requests</h4>
-                        <div class="friend-requests" style="overflow:scroll;height:50vh;">
+                        <h4 style="margin-top:1rem;">Requests</h4>
+                        <div class="friend-requests" style="overflow-y:scroll;max-height:30vh;border-radius:var(--border-radius);box-shadow: 0 0 1rem var(--color-primary);">
 
                             <?php
                             include_once 'pages/printRequest.php';
