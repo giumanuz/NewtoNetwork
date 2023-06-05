@@ -25,9 +25,9 @@ CREATE TABLE friends (
 
 CREATE TABLE friend_requests (
     sender VARCHAR NOT NULL REFERENCES users(username),
-    reciver VARCHAR NOT NULL REFERENCES users(username),
+    receiver VARCHAR NOT NULL REFERENCES users(username),
     created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-    PRIMARY KEY (sender, reciver)
+    PRIMARY KEY (sender, receiver)
 );
 
 CREATE TABLE posts (

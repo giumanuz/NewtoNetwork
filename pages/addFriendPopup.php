@@ -23,7 +23,7 @@
             $first_name2 = $line2['first_name'];
             $extensionProfile = $line2['extensionphoto'];
             $surname2 = $line2['surname'];
-            $query3 = "SELECT * FROM friend_requests WHERE (sender = $1 AND reciver = $2) OR (sender = $2 AND reciver = $1)";
+            $query3 = "SELECT * FROM friend_requests WHERE (sender = $1 AND receiver = $2) OR (sender = $2 AND receiver = $1)";
             $result3 = pg_query_params($dbconnession,$query3,array($username,$username2)) or die("Query failed: " . pg_last_error());
             $icon = 'add_circle';
             if($line3 = pg_fetch_array($result3, null, PGSQL_ASSOC)) {

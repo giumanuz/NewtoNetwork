@@ -14,7 +14,7 @@
         header("Location: /pages/addFriend.php?status=errorUsernameYou");
     }
     else{
-        $query1 = "SELECT * FROM friend_requests WHERE sender = $1 AND reciver = $2";
+        $query1 = "SELECT * FROM friend_requests WHERE sender = $1 AND receiver = $2";
         $result1 = pg_query_params($dbconnession, $query1, array($me, $friendToFollow)) or die("Query failed: " . pg_last_error());
         if (pg_num_rows($result1) != 0 ){
             header("Location: /pages/addFriend.php?status=errorAlreadySent");
@@ -32,7 +32,7 @@
                     header("Location: /pages/addFriend.php?status=errorUsername");
                 }
                 else{
-                    $query4 = "INSERT INTO friend_requests (sender, reciver) VALUES ($1, $2)";
+                    $query4 = "INSERT INTO friend_requests (sender, receiver) VALUES ($1, $2)";
                     $result4 = pg_query_params($dbconnession, $query4, array($me, $friendToFollow)) or die("Query failed: " . pg_last_error());
                     header("Location: /index.php");
                 }

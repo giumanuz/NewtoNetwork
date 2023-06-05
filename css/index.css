@@ -189,6 +189,7 @@ main .container .left{
    position: absolute;
    background: var(--color-primary);
 }
+
 .left .sidebar .menu-item {
    text-decoration: none;
 }
@@ -213,7 +214,7 @@ main .container .left{
 
 /* -------------- NOTIFICATION POPUP ---------------- */
 
-.left .notifications-popup{
+/* .left .notifications-popup{
    position: absolute;
    top: 0;
    left: 110%;
@@ -250,7 +251,7 @@ main .container .left{
 .left .notifications-popup small{
    display:block;
 
-}
+} */
 
 .left .notification-body b {
    color: var(--color-primary);
@@ -561,6 +562,9 @@ bottom: 0;
       left: -20rem;
       width: 20rem;
    }
+   .left .notifications-popup .popup-body .profile-photo{
+      display:none;
+   }
    .left .notifications-popup::before{
       display: absolute;
       top: 1.3rem;
@@ -577,6 +581,7 @@ bottom: 0;
    /* .middle .quote-square img{
       display: none;
    }  */
+
    main .container .right{
       display: none;
    }

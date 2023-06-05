@@ -4,7 +4,7 @@
     <?php
     include_once 'pages/printRequest.php';
 
-    $query = "SELECT * FROM friend_requests WHERE reciver = $1";
+    $query = "SELECT * FROM friend_requests WHERE receiver = $1";
     $result = pg_query_params($dbconnession, $query, array($_SESSION['username']));
     while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
         $sender = $line['sender'];

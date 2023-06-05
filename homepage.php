@@ -17,7 +17,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
-<body style="background-repeat: no-repeat; background-size: cover;background-image: linear-gradient(135deg, #71b7e6, #9b59b6); background-attachment: scroll;min-height:100vh;">
+<body style="overflow:scroll;background-repeat: no-repeat; background-size: cover;background-image: linear-gradient(135deg, #71b7e6, #9b59b6); background-attachment: scroll;min-height:100vh;">
 
   <img src="./images/gravity-svgrepo-com.svg" style="margin-top: 4rem;"
     class="rounded mx-auto d-block animate__animated animate__fadeInDown animate__slower animate__infinite" alt=""
