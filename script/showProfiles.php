@@ -1,9 +1,6 @@
 <?php
 
-    include_once "convertTime.php";
-
-
-
+    include_once "convertTimeFromTimestampToTime.php";
     function costructComment($text, $photoProfile, $extensionProfile, $username, $time){
         $comment = " 
                     <div class='comment'>
@@ -24,15 +21,12 @@
     if ($_SERVER['REQUEST_METHOD'] != 'GET'){
         header("Location: index.php");
     }
-
     if (session_status() != PHP_SESSION_ACTIVE) {
         session_start();
     }
 
     include "../connection.php";
-
     $post_id = $_GET['post_id'];
-
     $send='';
     
     $query = "SELECT * FROM comments WHERE post_id = $1 ORDER BY comment_id DESC";
@@ -50,8 +44,5 @@
             $send = $send . costructComment($text, $photoProfile, $extensionProfile, $user_id, $time);
 
         }
-
-    
     echo $send;
-
 ?>

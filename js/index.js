@@ -1,3 +1,6 @@
+// Add post button
+$("#modalPost").prependTo("body");
+
 //SIDEBAR
 const menuItems = document.querySelectorAll('.menu-item');
 

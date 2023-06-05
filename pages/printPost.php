@@ -1,6 +1,6 @@
 <?php
     include_once "connection.php";
-    include_once "script/convertTime.php";
+    include_once "script/convertTimeFromTimestampToTime.php";
     include_once "script/printPhoto.php";
 
     function printLikesBox($post_id, $numberLikes, $arrayLike, $userOfLiker){

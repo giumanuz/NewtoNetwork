@@ -28,6 +28,5 @@
         $result4 = pg_query_params($dbconnession, $query4, array($user_from, $user_to, $notification_content)) or die("Query failed: " . pg_last_error());
     }
 
-
     echo $likes -1;
 ?>

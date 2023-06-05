@@ -5,14 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0100affe-2871-41d2-a576-39d36eb4e043" name="Changes" comment="doesnt work include again">
-      <change beforePath="$PROJECT_DIR$/Global/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Global/navigationBar.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/navigationBar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Login/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registration/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registration/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/registration.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Registration/style.css" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/addFriendPopup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/buttonPrintPostAndPopup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/feeds.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/friendRequests.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/leftContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/messagePopup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/messages.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/middleContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/notificationPopup.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/preparePrintPost.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/printChat.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/quoteOfTheDay.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/rightContainer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/setGlobalVariables.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/sidebar.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/getArrayPhotoLike.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/printPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/printPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/convertTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/convertTimeFromTimestampToTime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/discardRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/discardRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/showComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/showComments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/showProfiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/showProfiles.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/usr/local/Cellar/php/8.2.6/bin/php" />
   <component name="ProjectId" id="2OPQIa51128ZgFkzu3EmDYYxmCO" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -42,23 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/giulio/Mio_Computer/NewtoNetwork",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/giulio/Mio_Computer/NewtoNetwork&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -82,6 +100,8 @@
       <workItem from="1681476462145" duration="4670000" />
       <workItem from="1681504746909" duration="1823000" />
       <workItem from="1681540636164" duration="7757000" />
+      <workItem from="1685990352924" duration="663000" />
+      <workItem from="1685992763831" duration="1742000" />
     </task>
     <task id="LOCAL-00001" summary="add navigation bar">
       <created>1681462179293</created>
