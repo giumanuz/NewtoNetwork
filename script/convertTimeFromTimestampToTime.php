@@ -3,7 +3,7 @@
 
     function convertTime($time){ 
         $time=strtotime($time);
-        $time = time() - $time;     //qui modifica
+        $time = time() - $time;     
         $time = ($time<1)? 1 : $time;
         $tokens = array (
             31536000 => 'year',
