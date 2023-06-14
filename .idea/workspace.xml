@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0100affe-2871-41d2-a576-39d36eb4e043" name="Changes" comment="doesnt work include again">
-      <change afterPath="$PROJECT_DIR$/pages/addFriendPopup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/buttonPrintPostAndPopup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/feeds.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/friendRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/leftContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/messagePopup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/messages.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/middleContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/notificationPopup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/preparePrintPost.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/printChat.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/quoteOfTheDay.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/rightContainer.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/setGlobalVariables.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/sidebar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/getArrayPhotoLike.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/printPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/printPost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/convertTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/convertTimeFromTimestampToTime.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/discardRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/discardRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/showComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/showComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/showProfiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/script/showProfiles.php" afterDir="false" />
-    </list>
+    <list default="true" id="0100affe-2871-41d2-a576-39d36eb4e043" name="Changes" comment="doesnt work include again" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +75,7 @@
       <workItem from="1681504746909" duration="1823000" />
       <workItem from="1681540636164" duration="7757000" />
       <workItem from="1685990352924" duration="663000" />
-      <workItem from="1685992763831" duration="1742000" />
+      <workItem from="1685992763831" duration="2539000" />
     </task>
     <task id="LOCAL-00001" summary="add navigation bar">
       <created>1681462179293</created>
