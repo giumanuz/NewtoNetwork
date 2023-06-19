@@ -72,8 +72,6 @@ This project aims to create a platform that not only promotes learning and shari
 ---
 
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-github-open.svg" width="80" />
-
 ## 📂 Project Structure
 
 
@@ -147,8 +145,6 @@ repo
 ```
 
 ---
-
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-src-open.svg" width="80" />
 
 ## 🧩 Modules
 
