@@ -1,8 +1,8 @@
 
 <div align="center">
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
-<br>
+<img src="https://thenounproject.com/api/private/icons/186398/edit/?backgroundShape=SQUARE&backgroundShapeColor=%23000000&backgroundShapeOpacity=0&exportSize=752&flipX=false&flipY=false&foregroundColor=%23000000&foregroundOpacity=1&imageFormat=png&rotation=0" width="300" />
+
 NewtoNetwork
 </h1>
 <h3 align="center">📍 Join the network evolution with NewtoNetwork on GitHub!</h3>
@@ -37,15 +37,37 @@ NewtoNetwork
 
 ## 📍 Overview
 
-Error generating file summary. Exception: Client error '400 Bad Request' for url 'https://api.openai.com/v1/chat/completions'
-For more information check: https://httpstatuses.com/400
+The purpose of this project is to develop a social network focused on STEM (Science, Technology, Engineering, and Mathematics) topics, where users can share their knowledge, collaborate, and build an active community. The Full Stack application will enable users to post content, comment, assign 'likes', send private messages, and manage friend requests.
 
 ---
 
 ## 💫 Features
 
-Error generating file summary. Exception: Client error '400 Bad Request' for url 'https://api.openai.com/v1/chat/completions'
-For more information check: https://httpstatuses.com/400
+- **User Interface**: A clean and intuitive user interface that facilitates navigation and interaction with STEM content.
+
+- **Registration and Authentication**: Users will be able to register and authenticate to access the social network's features.
+
+- **Content Creation**: Users will be able to create posts, which can include text, images, videos, and links to external resources related to STEM topics.
+
+- **Comments and Reactions**: Users will be able to comment on posts and react to them with 'likes' or other predefined reactions.
+
+- **Private Messaging**: Implementation of a messaging system that will allow users to communicate privately.
+
+- **Friend Requests**: Users will have the ability to send and receive friend requests, and manage their friend list.
+
+- **User Profile**: Each user will have a personal profile that will include information such as name, picture, brief biographical information, and a list of posts created.
+
+- **Search and Filters**: Users will be able to search for content, topics or other users and filter results based on specific criteria.
+
+- **Notifications**: A notification system will inform users of new comments, 'likes', messages, and friend requests.
+
+- **Security and Privacy**: Implementation of security measures to protect user data and ensure privacy.
+
+- **Responsiveness**: The interface will be optimized for different devices, including desktops, tablets, and smartphones.
+
+This project aims to create a platform that not only promotes learning and sharing of knowledge in the STEM field but also fosters the creation of a community where users can interact and collaborate.
+
+
 
 ---
 
@@ -63,7 +85,6 @@ repo
 │   ├── index.css
 │   └── login.css
 ├── curious.php
-├── file.txt
 ├── homepage.php
 ├── images
 ├── index.php
@@ -99,17 +120,6 @@ repo
 │   ├── setGlobalVariables.php
 │   └── sidebar.php
 ├── quotes
-│   └── quotes
-│       ├── images
-│       │   ├── Newton.png
-│       │   ├── edison.jpeg
-│       │   ├── einstein.jpeg
-│       │   ├── einstein.png
-│       │   ├── galileo.jpeg
-│       │   ├── ippocrate.jpeg
-│       │   ├── schroedinger.jpeg
-│       │   └── vonnegut.jpeg
-│       └── quotes.txt
 └── script
     ├── acceptRequest.php
     ├── addComment.php
